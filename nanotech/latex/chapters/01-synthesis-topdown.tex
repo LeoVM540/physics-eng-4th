@@ -1,0 +1,77 @@
+\chapter{Synthesis strategies and top-down methods}
+\label{ch:topdown}
+
+\paragraph{In this chapter.} The two families of synthesis and the top-down methods
+(ball milling, lithography/selective etching). Each method is summarised on the same card so it can
+be compared later in \cref{ch:synth-compare}.
+
+\section{Two strategies}
+\begin{center}
+\begin{tikzpicture}[node distance=6mm and 10mm, every node/.style={font=\small}]
+\node[draw, rounded corners, fill=conc!10] (bulk) {Bulk};
+\node[draw, rounded corners, fill=conc!10, right=of bulk] (pow) {Powder (\si{\micro m})};
+\node[draw, rounded corners, fill=keyc!10, right=of pow] (np) {\textbf{Nanoparticles}};
+\node[draw, rounded corners, fill=proc!10, right=of np] (cl) {Clusters};
+\node[draw, rounded corners, fill=proc!10, right=of cl] (at) {Atoms};
+\draw[-{Stealth}, thick, conc] (bulk) -- (pow);
+\draw[-{Stealth}, thick, conc] (pow) -- (np);
+\draw[-{Stealth}, thick, proc] (at) -- (cl);
+\draw[-{Stealth}, thick, proc] (cl) -- (np);
+\node[conc, below=2mm of pow] {top-down (breakdown)};
+\node[proc, below=2mm of cl] {bottom-up (build-up)};
+\end{tikzpicture}
+\end{center}
+
+\begin{keybox}[: top-down vs bottom-up \slide{29}]
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\textbf{Top-down} & Mechanical/chemical breakdown of bulk. \emph{Simple, but poor size control.} \\
+\textbf{Bottom-up} & Atoms/ions/molecules assemble (vaporisation or dissolution $\to$ metal ions/clusters $\to$
+reduction, rapid cooling, dispersion/protection agents). \emph{Complex, but good size and shape control.}
+\end{tabularx}
+\end{keybox}
+
+Bottom-up methods are split in this course into \textbf{gas phase} (\cref{ch:gas}) and \textbf{liquid phase}
+(\cref{ch:liquid}).
+
+\section{Ball milling}
+\begin{cardbox}{Ball milling \slide{31--32}}
+\textbf{Principle.} Powder + hard balls in a rotating (planetary) jar. Repeated impacts cause elastic $\to$ plastic
+$\to$ shear deformation, then fracture, amorphisation and even chemical reactions (mechanochemistry).\\
+\textbf{Controls size/shape:} milling time, energy (speed), ball/powder ratio. Size control is poor.\\
+\textbf{Typical products:} oxide powders, mixed oxides (e.g.\ CuO--CeO$_2$, CeO$_2$--ZrO$_2$ shown in
+STEM/EDX maps on slide 32).
+\end{cardbox}
+\proscons{
+\begin{itemize}
+  \item Cheap, fast, easy.
+  \item \textbf{No solvents} (green).
+  \item Scalable.
+\end{itemize}}{
+\begin{itemize}
+  \item Poor size control (broad distribution).
+  \item Possible surface contamination (from balls/jar).
+  \item Introduction of defects (dislocations).
+\end{itemize}}
+\textbf{Choose it when:} you need large amounts of a powder, size distribution is not critical, and defects
+can even be useful (e.g.\ for catalysis).
+
+\section{Lithography and selective etching}
+\begin{cardbox}{Selective etching of Si \slide{33--36}}
+\textbf{Principle.} Si wafer with SiO$_2$ mask $\to$ lithography $\to$ Si etch in TMAH (pyramidal pits)
+$\to$ photo-assisted (electrochemical) etching makes deep channels $\to$ oxidation $\to$ etching in TMAH
+$\to$ etching in HF. Result: regular arrays of $\sim4\times10^6$ channels/cm$^2$ ($\phi\approx\SI{3.3}{\micro m}$).\\
+\textbf{Functionalisation.} Surface OH groups (after thermal treatment $T_1$) react with a metal precursor
+ML$_m$ (grafting, \slide{35}); a second treatment $T_2$ gives a thin MO$_x$ layer, onto which metal nanoparticles
+can be deposited. Examples: Au/TiO$_2$ and RhPd/CeO$_2$ coated on the channel walls (\emph{micro-monoliths}
+for catalysis, \slide{36}).
+\end{cardbox}
+\proscons{
+\begin{itemize}
+  \item Perfect control of geometry/pattern at the \si{\micro m} scale.
+  \item Very high, ordered surface area; reproducible.
+\end{itemize}}{
+\begin{itemize}
+  \item Multi-step, expensive (clean room).
+  \item Limited to substrates such as Si; the nanoparticles themselves still need a bottom-up step.
+\end{itemize}}
+\textbf{Choose it when:} you need an ordered, patterned support (micro-reactors, sensors, structured catalysts).

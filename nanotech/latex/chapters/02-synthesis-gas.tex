@@ -1,0 +1,145 @@
+\chapter{Bottom-up synthesis in the gas phase}
+\label{ch:gas}
+
+\paragraph{In this chapter.} Methods where atoms/clusters are produced in a gas and condense into nanoparticles.
+The two big families are \textbf{PVD} (physical vapour deposition, \emph{no catalytic interaction}) and
+\textbf{CVD} (chemical vapour deposition, \emph{with catalytic interaction}, i.e.\ the precursor reacts on a
+surface/catalyst) \slide{38}.
+
+\begin{tipbox}
+The common problem of gas-phase methods is \textbf{coalescence and agglomeration} of the particles in flight.
+The common fix is to dilute and carry them away fast (carrier gas, rapid cooling, short residence time).
+\end{tipbox}
+
+\section{Sputtering (PVD)}
+\begin{cardbox}{Sputtering \slide{39}}
+\textbf{Principle.} A plasma (Ar) is created in a vacuum chamber; Ar$^+$ ions are accelerated to a target (cathode);
+momentum transfer ejects atoms and/or clusters of the target, which deposit on a substrate (anode).\\
+\textbf{Controls size:} deposition time/power (increasing coverage $\to$ isolated particles $\to$ islands $\to$ film;
+Pt series on slide 39).\\
+\textbf{Typical products:} metal nanoparticles and thin films on flat supports (Pt, Au, \ldots).
+\end{cardbox}
+\proscons{
+\begin{itemize}
+  \item Clean (no solvents, no ligands), any metal/alloy target.
+  \item Good for model catalysts and films.
+\end{itemize}}{
+\begin{itemize}
+  \item Vacuum equipment.
+  \item Limited shape control; particles grow into films.
+  \item Small quantities.
+\end{itemize}}
+
+\section{Spray pyrolysis}
+\begin{cardbox}{Spray pyrolysis \slide{40--46}}
+\textbf{Steps} \slide{41}:
+\begin{enumerate}
+  \item \textbf{Volatile precursor}: easily vaporised, no unwanted residues.
+  \item Precursor (e.g.\ TiCl$_4$, SiH$_4$) is transported by an inert or reactive \textbf{carrier gas}
+        (Ar, N$_2$, O$_2$, H$_2$) into the reaction chamber, heated to \SIrange{300}{1200}{\celsius}.
+  \item \textbf{Nucleation and growth}: the precursor decomposes/reacts,
+        e.g.\ \ce{TiCl4 + O2 -> TiO2 + 2 Cl2}.
+  \item \textbf{Cooling} in inert gas to prevent oxidation/contamination.
+\end{enumerate}
+Set-up \slide{42--43}: carrier gas + flow meter, atomiser (two-fluid nozzle or ultrasonic nebuliser, droplets
+\SIrange{1}{50}{\micro m}), furnace (electrical or flame), precipitator (electrical or bag filter).\\
+\textbf{Droplet evolution} \slide{44}: evaporation $\to$ precipitation $\to$ drying $\to$ decomposition
+$\to$ sintering (one droplet $\to$ one particle).\\
+\textbf{Controlling factors:} temperature, pressure, gas flow rate (= reaction time), precursor concentration.
+\textbf{``The growth is not predictable, but it is reproducible!''}
+\end{cardbox}
+\begin{itemize}
+  \item \textbf{Ordered porous nanoparticles} \slide{45}: add polystyrene (PSL) spheres to the solution; after drying
+        (\SIrange{100}{200}{\celsius}) a composite particle forms; at \SI{600}{\celsius} the polymer burns off,
+        leaving \textbf{macroporous} SiO$_2$ particles with an ordered array of pores (template method).
+  \item \textbf{Spray pyrolysis deposition} \slide{46}: spraying onto a heated substrate controls the film
+        microstructure; with a mask it gives patterned deposition.
+\end{itemize}
+\proscons{
+\begin{itemize}
+  \item Continuous, scalable, reproducible.
+  \item Composition of the droplet = composition of the particle (good for mixed oxides).
+  \item Templates give ordered porosity.
+\end{itemize}}{
+\begin{itemize}
+  \item Coalescence/agglomeration (needs carrier gas).
+  \item Growth not predictable a priori (empirical tuning).
+  \item High temperatures; mostly oxides.
+\end{itemize}}
+
+\section{Flame synthesis}
+\begin{cardbox}{Flame synthesis \slide{47--48}}
+\textbf{Principle.} Precursors are injected into a flame (CH$_4$/O$_2$, H$_2$/O$_2$, C$_2$H$_2$/O$_2$): chemical
+reaction and monomer formation $\to$ particle growth by coagulation/coalescence $\to$ agglomeration after the flame.\\
+\textbf{Numbers:} flame $T$ = \SIrange{1000}{2400}{\celsius}; residence time \SIrange{10}{100}{ms}; one-step process;
+industrial scale: $\sim10^6$ tons/year of SiO$_2$ (fumed/pyrogenic silica, Aerosil, Degussa 1942), Al$_2$O$_3$, TiO$_2$.\\
+\textbf{Example:} Fe$_3$O$_4$ nanoparticles for magnetic liquids (ferrofluids).
+\end{cardbox}
+\proscons{
+\begin{itemize}
+  \item \textbf{Highest production volume}, one step, cheap per kg.
+  \item Very short residence times.
+\end{itemize}}{
+\begin{itemize}
+  \item Requires fuels for combustion.
+  \item Agglomerated (fractal) aggregates; limited shape control.
+\end{itemize}}
+
+\section{Laser-assisted processes}
+\begin{cardbox}{Laser pyrolysis / laser vaporisation \slide{49--51}}
+\textbf{Principle.} A pulsed laser (\SIrange{10}{50}{ns}; e.g.\ \SI{10.6}{\micro m} CO$_2$ laser) crosses the reactant gas
+stream: spot heating confines the reaction zone, followed by rapid cooling. Wavelength and pulse width matter.
+Example: SiGe nanoparticles from silane + ethylene \slide{50}.
+Laser vaporisation of a target in a He flow + mass spectrometer gives size-selected \textbf{metal clusters}
+(M$_{13}$, M$_{55}$, core--shell clusters) \slide{51}.
+\end{cardbox}
+\proscons{
+\begin{itemize}
+  \item Highly localised and efficient.
+  \item \textbf{Excellent control over size and morphology}.
+\end{itemize}}{
+\begin{itemize}
+  \item Expensive energy cost.
+  \item Small-scale production (\SIrange{10}{100}{mg/h}).
+\end{itemize}}
+
+\section{Thermal plasma processes}
+\begin{cardbox}{Thermal plasma \slide{52}}
+\textbf{Principle.} Arc/magnetron plasma (\SIrange{10}{100}{V}, \SIrange{10}{1000}{A/cm^2}) vaporises the material;
+particles nucleate in an aggregation zone and leave as a nanoparticle beam.\\
+\textbf{Numbers:} residence time at \SI{e4}{\celsius} $<\SI{1}{s}$; cooling rates \SIrange{e6}{e9}{\celsius/s};
+particle size control \SIrange{1}{100}{nm}.
+\end{cardbox}
+\proscons{
+\begin{itemize}
+  \item Extremely fast quench $\to$ small particles, metastable phases.
+  \item Size control 1--100 nm; refractory materials possible.
+\end{itemize}}{
+\begin{itemize}
+  \item High energy consumption, complex equipment.
+\end{itemize}}
+
+\section{Atomic layer deposition (ALD)}
+\begin{cardbox}{ALD \slide{53--54}}
+\textbf{Principle.} Sequential, \textbf{self-limiting} surface reactions: alternating pulses of two precursors,
+each reacting only with the surface groups left by the other, so the film grows \emph{one atomic layer at a time}.\\
+\textbf{Requirements for precursors:} volatile; react with the substrate surface; \textbf{no self-reaction};
+high enough decomposition temperature (not to decompose during the process); volatile by-products.\\
+\textbf{Example:} Al$_2$O$_3$ from trimethylaluminium (TMA, Al(CH$_3$)$_3$) + H$_2$O at \SIrange{100}{300}{\celsius}:
+TMA reacts with surface --OH releasing CH$_4$; H$_2$O then converts the --CH$_3$ into new --OH; repeat.
+\end{cardbox}
+\proscons{
+\begin{itemize}
+  \item \textbf{Atomic-scale control} of thickness and composition.
+  \item \textbf{Conformal}: homogeneous ultrathin coatings on complex 3D geometries (pores, channels).
+\end{itemize}}{
+\begin{itemize}
+  \item Slow (one monolayer per cycle).
+  \item Needs suitable precursor pairs; vacuum equipment.
+\end{itemize}}
+\textbf{Choose it when:} you need an ultrathin, uniform shell or coating (e.g.\ coating nanoparticles or the inner walls
+of channels).
+
+\section{Chemical vapour deposition (CVD)}
+CVD uses a gaseous precursor that decomposes/reacts \emph{on a catalyst or substrate}. It is the main route to
+carbon nanotubes; it is treated in detail in \cref{ch:cnt}.

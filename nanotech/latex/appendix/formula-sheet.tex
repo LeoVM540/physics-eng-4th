@@ -1,0 +1,29 @@
+\chapter{Formula sheet}
+\label{app:formulas}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.55}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.4cm}>{\centering\arraybackslash}p{5.6cm}X@{}}
+\toprule
+Topic & Formula & Symbols / conditions \\ \midrule
+Surface/volume (cylinder) & $\dfrac{S}{V} = 2\left(\dfrac1r+\dfrac1h\right)$ & minimal at fixed $V$ for $h=2r$ \\
+Bragg & $2d\sin\theta = n\lambda$ & $\theta$ = half of $\twotheta$; Cu K$\alpha$ $\lambda$ = \SI{1.5406}{\angstrom} \\
+Cubic d-spacing & $d_{hkl} = \dfrac{a}{\sqrt{h^2+k^2+l^2}}$ & also tetragonal/hexagonal forms in \cref{ch:xrd} \\
+Bragg + cubic & $\sin^2\theta = \dfrac{\lambda^2}{4a^2}N$ & $N=h^2+k^2+l^2$; ratios of $\sin^2\theta$ = ratios of $N$ \\
+Lattice parameter & $a = d\sqrt N = \dfrac{\lambda\sqrt N}{2\sin\theta}$ & average over peaks \\
+Selection rules & BCC: $h+k+l$ even. FCC: all odd or all even & BCC $N$: 2,4,6,8\ldots; FCC $N$: 3,4,8,11,12,16 \\
+Scherrer & $L = \dfrac{0.9\,\lambda}{B\cos\theta}$ & $B$ = FWHM $-$ instrumental, \textbf{radians} \\
+Vegard\extra & $a_x = (1-x)a_A + x\,a_B$ & substitutional solid solution \\
+Photoelectric (XPS) & $E_\mathrm{kin} = h\nu - E_B - \phi$ & Al K$\alpha$ 1486.6 eV, Mg K$\alpha$ 1253.6 eV \\
+Spin--orbit & $j = l \pm \tfrac12$, area ratio $(2j_1+1):(2j_2+1)$ & p 1:2, d 2:3, f 3:4; s single \\
+XPS intensity & $I_i = N_i\sigma_i\lambda_iK$ & $N_A/N_B = (I_A/\sigma_A\lambda_A)/(I_B/\sigma_B\lambda_B)$ \\
+Chemical shift & oxidation $\Rightarrow E_B\uparrow$ & electron gain $\Rightarrow E_B\downarrow$ \\
+Mean particle size & $\bar d = \dfrac{\sum n_i d_i}{\sum n_i}$ & $\sigma = \sqrt{\sum n_i(d_i-\bar d)^2/\sum n_i}$ \\
+STM current & $I_t\sim V\rho(E_F)e^{-2kd}$ & $k\approx\SI{1}{\per\angstrom}$: $\times10$ per \AA \\
+AFM vs TEM & $\ell_\mathrm{cap}\approx(h_\mathrm{AFM}-d_\mathrm{TEM})/2$ & capped particle on flat support \\
+Galvanic replacement & $E = E^0_\mathrm{red} - E^0_\mathrm{ox} > 0$ & spontaneous if positive \\
+Microreactor & $t = \dfrac{\Delta d}{v}$, \ $V = Qt$, \ $L = \dfrac{V}{\pi r^2}$ & \SI{1}{\micro L} = \SI{1}{mm^3} \\
+Photon energy & $E[\mathrm{eV}] \approx \dfrac{1240}{\lambda[\mathrm{nm}]}$\extra & 400 nm = 3.1 eV, 520 nm = 2.4 eV \\
+\bottomrule
+\end{tabularx}
+\end{center}

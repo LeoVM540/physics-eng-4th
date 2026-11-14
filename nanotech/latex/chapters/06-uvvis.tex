@@ -1,0 +1,86 @@
+\chapter{UV-vis spectroscopy and fluorescence}
+\label{ch:uvvis}
+
+\paragraph{In this chapter.} How light absorption reveals metal, size, shape and alloying of nanoparticles (surface
+plasmon resonance), and how fluorescence of quantum dots depends on size.
+
+\begin{classbox}
+UV-vis is \textbf{fast, representative} (whole sample, not a few particles), \textbf{cheap}, and gives information on
+the \textbf{size distribution} \slide{124}.
+\end{classbox}
+
+\section{Principle}
+UV-vis light (\SIrange{10}{400}{nm} UV, \SIrange{400}{700}{nm} visible) has the energy of \textbf{electronic transitions}
+\slide{125--126}. In nanoparticles two effects absorb it:
+\begin{enumerate}
+  \item \textbf{Electronic transitions} (HOMO $\to$ LUMO, band gap): molecules, semiconductors, quantum dots.
+  \item \textbf{Localised surface plasmon resonance (LSPR)}: in metal nanoparticles the conduction electrons oscillate
+        collectively against the ionic background when driven by the light's electric field. At resonance
+        the absorption is strong, giving a band in the visible for Au, Ag, Cu.
+\end{enumerate}
+The colour we see is the \textbf{complementary} colour of the absorbed one (colour wheel, \slide{127--128}):
+Au absorbing at $\sim\SI{520}{nm}$ (green) looks red; Ag absorbing at $\sim\SI{400}{nm}$ (violet) looks yellow.
+
+\section{What shifts the plasmon band}
+\begin{keybox}[: LSPR rules]
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+Factor & Effect on the band \\ \midrule
+\textbf{Metal} & Ag $\approx$ \SI{400}{nm}; Au $\approx$ \SIrange{518}{525}{nm}; Cu $\approx$ \SI{570}{nm} \slide{127--132}. \\
+\textbf{Size} & Larger particle $\Rightarrow$ \textbf{red shift} and broadening. For Au: 10--20 nm $\to$
+$\sim$\SI{520}{nm}; 60 nm $\to$ $\sim$\SI{540}{nm}; 100 nm $\to$ \SI{570}{nm}; 120 nm $\to$ \SI{590}{nm} \slide{129}.
+The shift is \emph{small below $\sim$\SI{30}{nm}}. \\
+\textbf{Size distribution} & \textbf{Band width} tells how many sizes are present: narrow band = monodisperse;
+broad = polydisperse \slide{129}. \\
+\textbf{Shape} & Rods (aspect ratio $R$) show \textbf{two bands}: transverse ($\sim$\SI{520}{nm}, independent of $R$)
+and longitudinal (red-shifts linearly with $R$, 650--750 nm for $R$=2.7--3.3) \slide{131}. \\
+\textbf{Alloy} & A homogeneous alloy shows \textbf{one band} at an intermediate position that moves with composition
+(Au--Ag: from \SI{400}{nm} towards \SI{520}{nm} as Au increases; Au--Cu: 525 $\to$ 570 nm) \slide{132}. A physical mixture
+or segregated particles show the two separate bands. \\
+\textbf{Very small particles ($\lesssim$ 2--3 nm)} & Plasmon is damped: band weak or absent\extra. \\
+\textbf{Oxides, non-metals} & No plasmon band (only absorption edge of the gap). \\
+\bottomrule
+\end{tabularx}
+\end{keybox}
+\begin{classbox}
+\begin{itemize}
+  \item \slide{129} ``Surface electrons resonance: the bigger the particle, the less attached they are to the atom and
+        they can vibrate to emit light.'' ``$\lambda$ width tells how many sizes can be found in the sample.''
+  \item \slide{131} ``For higher $R$ we get a higher wavelength due to the plasmon's longer mode.''
+\end{itemize}
+\end{classbox}
+
+\section{Fluorescence and quantum dots}
+\begin{itemize}
+  \item \textbf{Fluorescence} \slide{133}: absorption to an excited state, non-radiative relaxation, then emission
+        at \textbf{lower energy} (longer $\lambda$). The difference between absorption and emission maxima is the
+        \textbf{Stokes shift}. ``Inelastic absorption--emission of light at visible frequency.''
+  \item \textbf{Quantum dots} (CdSe) \slide{134--135}: as size decreases, the band gap $E_g$ increases (quantum
+        confinement), so emission moves to the blue. Large QDs emit red, small ones emit blue under UV light.
+  \item Applications: \emph{in vivo} imaging \slide{136}.
+\end{itemize}
+
+\section{How UV-vis appears in exercises}
+\begin{recipe}{Assigning UV-vis spectra}
+\begin{enumerate}
+  \item Locate $\lambda_\mathrm{max}$ of each spectrum. Identify the pure metals first (Ag $\sim$400, Au $\sim$520, Cu $\sim$570 nm).
+  \item Alloys of two metals: one band in between; position moves towards the metal that dominates the composition.
+  \item Same metal, different size: larger $\to$ red-shifted and broader. Below $\sim$30 nm, differences are small.
+  \item Shape: two bands $\Rightarrow$ anisotropic particle (rods); longitudinal band moves with aspect ratio.
+  \item Shell of a dielectric (SiO$_2$) or very small core: weaker band, plus a rising background from scattering.
+  \item No band: oxide/non-plasmonic metal, or too small particles.
+\end{enumerate}
+\end{recipe}
+
+\section{Advantages and limitations}
+\proscons{
+\begin{itemize}
+  \item Fast, cheap, non-destructive, in solution.
+  \item Averages over the whole sample (statistically representative).
+  \item Sensitive to size, shape, composition, aggregation.
+\end{itemize}}{
+\begin{itemize}
+  \item Indirect: needs references/models to quantify size.
+  \item Only plasmonic metals (Au, Ag, Cu) or semiconductors.
+  \item Poor sensitivity to size below $\sim$30 nm; no atomic structure.
+\end{itemize}}

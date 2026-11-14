@@ -1,0 +1,275 @@
+\chapter{Bottom-up synthesis in the liquid phase}
+\label{ch:liquid}
+
+\paragraph{In this chapter.} Solution routes: reduction of metal salts, bimetallic particles, hydrothermal,
+sol--gel (and xerogels/aerogels), capping agents, structured media (micelles, mesoporous silica, dendrimers,
+zeolites), impregnation, galvanic replacement and microfluidics. These are the methods asked for in almost every
+``propose a method'' question.
+
+\begin{tipbox}[: the general rule of liquid-phase growth]
+Size is set by the competition \textbf{nucleation vs growth}. Many nuclei formed at once (fast reduction, high
+supersaturation, good mixing) $\Rightarrow$ many \emph{small} particles. Few nuclei that keep growing
+$\Rightarrow$ fewer, \emph{larger} particles. Anything that blocks the surface (capping agent) stops growth and
+prevents agglomeration. Anything that confines the reaction (micelle, pore, droplet) limits the final size.
+\end{tipbox}
+
+\section{Reduction of metal salts}
+\begin{cardbox}{Reduction of metal salts \slide{56--58}}
+\textbf{Principle.} \ce{M^{n+} + n e^- -> M^0} (nucleation) $\to$ growth $\to$ colloid. M = Au, Pt, Ag, Pd, Co, Fe\ldots\\
+\textbf{Reductants:} citrate, borohydride (NaBH$_4$, strong), alcohols (polyol).\\
+\textbf{Average size depends on:} reductant concentration, stirring rate, temperature.\\[2pt]
+\textbf{Gold colloid, Turkevich (1951) $\to$ Au 15--20 nm} \slide{57}: boil a \SI{5e-3}{M}-derived HAuCl$_4$ solution,
+add sodium citrate, keep heating until the colour changes (pale purple $\to$ red), cool while stirring.
+Citrate is both \emph{reductant} and \emph{capping agent}.\\
+\textbf{Silver colloid} \slide{58}: same idea with AgNO$_3$ + citrate (colour change to pale yellow), Ag 20--100 nm.
+\end{cardbox}
+\begin{classbox}
+\slide{128} ``As citrate is a capping agent, for greater concentration we will have smaller nanoparticles.''
+Table on the slide: decreasing citrate (2.0 $\to$ 0.3 mL of 1\,\% citrate for 1.25 mL HAuCl$_4$) gives
+Au of 8 $\to$ 73 nm and $\lambda_\mathrm{max}$ 518 $\to$ 545 nm (dark red $\to$ red $\to$ pink $\to$ orange).
+\end{classbox}
+\proscons{
+\begin{itemize}
+  \item Simple, reproducible, inexpensive.
+  \item Stable colloidal dispersions.
+  \item Size tunable with reductant/capping ratio.
+\end{itemize}}{
+\begin{itemize}
+  \item Mainly suitable for \textbf{noble metals} (easily reducible).
+  \item Shape mostly spherical unless shape-directing agents are added.
+\end{itemize}}
+
+\section{Bimetallic nanoparticles}
+\begin{keybox}[: three architectures \slide{59}]
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\textbf{Alloy} (random or ordered) & \textbf{Co-reduction}: \ce{M1+ + M2+ + reductant}. \\
+\textbf{Core--shell} (M$_1$@M$_2$) & \textbf{Sequential (seeded) reduction}: first make M$_1$, then reduce M$_2^+$
+on it. \\
+\textbf{Janus} & Two segregated halves (two faces, like the god Janus).
+\end{tabularx}
+\end{keybox}
+\begin{tipbox}
+To \emph{distinguish} these architectures you need complementary techniques (\cref{ch:char-compare}):
+EELS/EDX maps (spatial distribution), UV-vis (one band shifted for an alloy, two bands or core-dominated band for
+segregated metals), XPS (surface composition and electronic interaction), XRD (one set of peaks for an alloy,
+two sets if the lattice parameters differ enough). Exercises 1, 9 and 16.
+\end{tipbox}
+
+\section{Hydrothermal / solvothermal synthesis}
+\begin{cardbox}{Hydrothermal/solvothermal \slide{60--61}}
+\textbf{Principle.} Reaction in a closed \textbf{autoclave} with the solvent (water = hydrothermal, organic = solvothermal)
+\textbf{above its boiling point}. The solvent provides: the reaction medium, pressure, and a means to control particle
+size, morphology and crystallinity.\\
+\textbf{Example:} TiO$_2$ nanocrystallites from titanium n-butoxide in butyl alcohol.\\
+\textbf{CeO$_2$ nanoshapes} \slide{61}: the shape is selected by NaOH concentration and temperature
+(``phase diagram'' of shapes): \textbf{nanocubes} at high NaOH and high $T$ ($\sim\SI{180}{\celsius}$),
+\textbf{nanorods} at intermediate conditions, small polyhedra at low NaOH/low $T$.
+\end{cardbox}
+\proscons{
+\begin{itemize}
+  \item \textbf{Shape control} (cubes, rods, polyhedra) without organic capping.
+  \item Highly crystalline products at moderate $T$.
+  \item Clean surfaces (good for catalysis: exposed facets).
+\end{itemize}}{
+\begin{itemize}
+  \item Closed vessel: batch process, cannot watch the reaction.
+  \item Long reaction times (hours); pressure equipment.
+\end{itemize}}
+\textbf{Choose it when:} you need a specific shape of an \textbf{oxide} (CeO$_2$ cubes/rods, TiO$_2$, CoMg cubes in
+Exercise~12) and crystalline material.
+
+\section{Sol--gel}
+\begin{cardbox}{Sol--gel \slide{62--67}}
+\textbf{Principle.} Precursor (metal alkoxide, e.g.\ Si(OR)$_4$) $\to$ \textbf{sol} (colloidal suspension) $\to$
+\textbf{gel} (3D network) through two reactions:
+\begin{align*}
+\text{Hydrolysis:}\quad & \ce{-M-OR + H2O -> -M-OH + ROH}\\
+\text{e.g.}\quad & \ce{Si(OR)4 + 4H2O -> Si(OH)4 + 4ROH}\\
+\text{Condensation:}\quad & \ce{-M-OH + RO-M- -> -M-O-M- + ROH}\\
+\text{or}\quad & \ce{-M-OH + HO-M- -> -M-O-M- + H2O}
+\end{align*}
+\textbf{pH controls the structure} \slide{65}: acid ($\mathrm{pH}<7$) $\to$ chains/branched networks (polymeric gels);
+basic ($\mathrm{pH}>7$) $\to$ discrete particles that grow from 1 to 100 nm (monodisperse silica spheres).
+\end{cardbox}
+
+\subsection*{Drying: xerogel, liogel, aerogel}
+\begin{keybox}[: drying path decides porosity \slide{64}]
+\begin{tabularx}{\linewidth}{@{}lX>{\raggedright\arraybackslash}p{4.2cm}@{}}
+\toprule
+Product & How & Structure \\ \midrule
+\textbf{Xerogel} & Evaporation of the solvent (red path: crosses L/G line $\Rightarrow$ \textbf{surface tension} $\Rightarrow$
+pore collapse) & dense, low porosity; often calcined to dense ceramics/glass \\
+\textbf{Liogel} & Lyophilisation (freeze-drying; green path: sublimation, no liquid/gas interface) & pores reflect
+the spaces of the frozen solvent \\
+\textbf{Aerogel} & \textbf{Supercritical drying} (blue path: goes around the critical point, no surface tension) &
+original pore structure kept, extremely porous, low density, very high area \\
+\bottomrule
+\end{tabularx}
+\[
+\boxed{S_\mathrm{BET}(\text{xerogel}) \ll S_\mathrm{BET}(\text{liogel}) < S_\mathrm{BET}(\text{aerogel})}
+\]
+\end{keybox}
+\begin{center}
+\begin{tikzpicture}[scale=0.9, every node/.style={font=\small}]
+\draw[-{Stealth}] (0,0) -- (6.2,0) node[below left] {Temperature};
+\draw[-{Stealth}] (0,0) -- (0,4.2) node[above right] {Pressure};
+\draw[thick] (0.3,0.2) -- (1.5,1.0);           % sublimation line
+\draw[thick] (1.5,1.0) -- (1.2,4.0);           % melting line
+\draw[thick] (1.5,1.0) .. controls (3,1.4) and (4,2.0) .. (4.6,3.0); % vaporisation line
+\fill (1.5,1.0) circle (1.5pt);
+\fill (4.6,3.0) circle (1.5pt) node[right] {critical point};
+\fill[gray!20] (4.6,3.0) rectangle (6,4);
+\node at (5.3,3.6) {SC};
+\node at (0.6,2.8) {S}; \node at (2.6,3.2) {L}; \node at (4.5,1.0) {G};
+\draw[-{Stealth}, very thick, conc] (2.3,1.9) -- (4.8,1.9) node[midway, above] {evaporation};
+\draw[-{Stealth}, very thick, defc] (2.3,2.3) -- (2.3,3.4) -- (5.2,3.4) -- (5.2,1.5);
+\node[defc] at (3.6,3.75) {supercritical};
+\draw[-{Stealth}, very thick, proc] (1.6,2.0) -- (0.9,2.0) -- (0.9,0.3) -- (2.0,0.3);
+\node[proc, left] at (0.85,1.0) {freeze + sublime};
+\end{tikzpicture}
+\end{center}
+\proscons{
+\begin{itemize}
+  \item Mild temperature, cheap precursors.
+  \item Excellent homogeneity; mixed oxides; catalytic nanoparticles can be added to the sol \slide{64}.
+  \item Porosity tunable through drying (aerogels: insulation, Stardust 2006 comet dust collector).
+\end{itemize}}{
+\begin{itemize}
+  \item Shrinkage/cracking on drying (xerogels).
+  \item Supercritical drying needs an autoclave.
+  \item Long gelation/ageing times.
+\end{itemize}}
+
+\section{Capped nanoparticles (capping agents)}
+\begin{cardbox}{Capping agents \slide{68--73}}
+\textbf{Principle.} \ce{M+ + surfactant + reductant -> functionalised nanoparticle}. The capping agent attaches to the
+nanoparticle surface and controls:
+\textbf{size} (limits growth), \textbf{stability} (prevents agglomeration), \textbf{surface chemistry} (solubility,
+reactivity) and \textbf{shape}.\\
+\textbf{Thiol-stabilised Au} \slide{69}: Au$^{3+}$/thiol complexes $\to$ reduction (e.g.\ with an alcohol) $\to$
+2 nm Au protected by --S--R chains.\\
+\textbf{Ordering} \slide{70}: capped particles self-assemble into ordered rafts; inter-particle distance is tuned by the
+\textbf{length of the thiol}.\\
+\textbf{Shape control} \slide{71}: the capping agent adsorbs more strongly on some crystal planes, which then grow slower
+and remain exposed $\to$ rods, discs, cubes, octahedra.\\
+\textbf{DNA-based assembly} \slide{73}: complementary DNA strands link particles into designed assemblies.\\
+\textbf{Clean capping agent} \slide{72}: after deposition the organic shell can be removed (O-plasma or calcination).
+\end{cardbox}
+\begin{classbox}
+\begin{itemize}
+  \item Thiols are \emph{soft} bases and bind strongly to \emph{soft} acids such as Au$^0$/Au$^+$ (Pearson HSAB:
+        high charge/radius = hard, low = soft) \slide{69}.
+  \item ``Distance is tuned depending on thiol length.'' \slide{70}
+  \item ``Depending on which plane has a stronger absorption [adsorption], it will grow and produce a final geometric
+        structure.'' \slide{71}
+\end{itemize}
+\end{classbox}
+\proscons{
+\begin{itemize}
+  \item \textbf{Best size and shape control} in solution.
+  \item Very narrow distributions; self-assembly into ordered arrays.
+  \item Functional surface (bio-conjugation, solubility).
+\end{itemize}}{
+\begin{itemize}
+  \item The organic shell \textbf{blocks the surface} (bad for catalysis) and must be removed.
+  \item Removal (calcination/plasma) may cause sintering.
+  \item Organic reagents, often not ``green''.
+\end{itemize}}
+
+\section{Synthesis in a structured medium}
+Amphiphiles (polar head + hydrophobic tail, $\sim\SI{2}{nm}$) self-assemble \slide{74}: in a polar solvent into
+normal micelles (spherical, cylindrical), bilayers; in an apolar solvent into \textbf{reverse micelles} and inverted
+hexagonal phases. These assemblies are used as \textbf{nano-reactors} or \textbf{templates}.
+
+\begin{cardbox}{Microemulsion (reverse micelles) \slide{75--76}}
+Water droplets inside reverse micelles contain the metal salt; other micelles contain the reductant. Micelles collide,
+exchange content, and the particle forms \emph{inside} the droplet, so its size is limited by the micelle.
+``You can reduce materials inside micelles.''
+\ce{4Ag+ + BH4- + 4OH- -> 4Ag + BO2- + 4H2O}. Example: Au/Pd with hydrazine at \SI{25}{\celsius}.
+\end{cardbox}
+\begin{cardbox}{Mesoporous silica SBA-15 \slide{77--78}}
+Surfactant micelles self-assemble into hexagonal rods; silica source hydrolyses and condenses around them; surfactant
+removal (calcination: ``burn micelles at $T_a$ but no silica removal, $T_e\gg T_a$'') leaves ordered hexagonal channels.
+Metal particles grown inside the channels (Ag/SBA-15) are \textbf{limited in size by the pore diameter} and
+cannot sinter easily.
+\end{cardbox}
+\begin{cardbox}{Dendrimers \slide{79--84}}
+Tree-like macromolecules (PAMAM, generations G0, G1, \ldots). Metal ions complex inside the dendrimer and are reduced
+with BH$_4^-$ $\to$ one small particle per dendrimer. Example: Au protected by carbosilane dendrons:
+D: \SI{1.8+-0.6}{nm}, G1: \SI{2.5+-0.7}{nm}, G2: \SI{2.6+-0.6}{nm}.
+Heating on SiO$_2$/Si: particles grow (80 $\to$ \SI{900}{\celsius}: Au@D 1.8 $\to$ \SI{29+-10}{nm}, Au@G1 2.5 $\to$
+\SI{22+-3}{nm}): bigger dendrons protect better against sintering.
+\end{cardbox}
+\begin{classbox}
+\slide{83} ``C burns but Si does not, so when all organic groups disappear, only [SiO$_x$ remains around/under
+the particles].'' The end of the handwritten sentence is cut off; the bracket is a reconstruction.
+\end{classbox}
+\begin{cardbox}{Zeolites \slide{85}}
+Na$^+$ in the zeolite cages is exchanged with Ag$^+$ (AgNO$_3$) and reduced with NaBH$_4$: Ag clusters confined in the cages.
+\end{cardbox}
+
+\section{Impregnation}
+\begin{cardbox}{Impregnation (supported catalysts) \slide{87--88}}
+Porous support (e.g.\ Al$_2$O$_3$ pellets) + precursor solution (e.g.\ Ni(NO$_3$)$_2$) $\xrightarrow{\text{impregnation, drying}}$
+precursor in pores $\xrightarrow{\text{calcination}}$ metal oxide (NiO) $\xrightarrow{\text{reduction, H}_2}$ metal (Ni).
+Example: PdAg/C, metal particles \SIrange{1}{10}{nm} in a porous carbon.
+\end{cardbox}
+\proscons{
+\begin{itemize}
+  \item The industrial route to supported catalysts: simple, cheap, scalable.
+  \item Works for almost any metal/oxide support.
+\end{itemize}}{
+\begin{itemize}
+  \item Broad size distribution; size and shape poorly controlled.
+  \item Calcination/reduction at high $T$ can sinter particles.
+\end{itemize}}
+
+\section{Galvanic replacement}
+\begin{cardbox}{Galvanic replacement \slide{89--91}}
+\textbf{Principle.} A more reactive (lower $E^0$) metal template is oxidised and dissolves while a nobler metal ion
+(higher $E^0$) is reduced on its surface. It happens spontaneously if
+\[
+\boxed{E = E^0_\text{cathode (reduced)} - E^0_\text{anode (oxidised)} > 0.}
+\]
+\textbf{Examples from class:}
+\begin{itemize}
+  \item Cu stripe in AgNO$_3$: \ce{Ag+ + Cu -> Ag + Cu+} (Cu$^{2+}$ in solution, blue);
+        $E = E^0_{\ce{Ag+/Ag}} - E^0_{\ce{Cu^2+/Cu}} = 0.799 - 0.337 > 0$: ``this will happen''.
+  \item \textbf{Gold nanotubes} from silver nanowires + HAuCl$_4$ \slide{90}:
+        \ce{3Ag_{(s)} + Au^{3+}_{(aq)} -> 3Ag+_{(aq)} + Au_{(s)}}, $E = 1.5 - 0.799 > 0$.
+        The Ag core dissolves and a hollow Au shell (tube) remains.
+  \item Ag nanocubes + Au$^{3+}$ (+ ascorbic acid) $\to$ nanoboxes $\to$ nanoframes \slide{91}.
+\end{itemize}
+\end{cardbox}
+Reduction potentials used in class \slide{90}: Li $-3.045$, Na $-2.714$, Mg $-2.370$, Al $-1.660$, Zn $-0.763$,
+Fe $-0.440$, Ni $-0.250$, Sn $-0.140$, H$_2$ $0.000$, Cu $+0.337$, Ag $+0.799$, Au $+1.50$ V.
+\begin{tipbox}
+Galvanic replacement is the textbook answer for \textbf{hollow} structures (nanotubes, nanoboxes, nanoframes) and for
+decorating a less noble metal with a nobler one (Exercise~15a).
+\end{tipbox}
+
+\section{Microfluidics}
+\begin{cardbox}{Microfluidic reactors \slide{92--100}}
+\textbf{Principle.} ``Create $\sim$\si{\micro m} channels in order to discretise the fluid'': precursors are injected
+by pumps into micro-channels; an immiscible inert phase (oil, gas) cuts the flow into \textbf{droplets/segments}
+that act as identical micro-reactors. Mixing (serpentines) $\to$ reaction 1 $\to$ add other precursors $\to$ reaction 2
+(e.g.\ shell growth).\\
+\textbf{Key idea:} \emph{residence time} $t = V_\text{channel}/Q$ (volume/flow rate) controls growth; separate
+temperature zones (thermally isolated regions for nucleation and growth, cooled regions, \slide{99}).\\
+\textbf{Examples:} Sn nanoparticles; CdSe quantum dots whose emission shifts with residence time 3 $\to$ 20 min
+\slide{130}; TiO$_2$ shells on SiO$_2$ particles with Ti(OEt)$_4$ and inert-gas segmentation \slide{98};
+double emulsions with controlled number of inner droplets \slide{100}.
+\end{cardbox}
+\proscons{
+\begin{itemize}
+  \item Narrower size distribution than bulk mixing \slide{130}.
+  \item Precise control (residence time, $T$), reproducible, continuous.
+  \item Low reagent use, integration of steps (core then shell), real-time monitoring, automation.
+\end{itemize}}{
+\begin{itemize}
+  \item Small throughput per channel (parallelise to scale).
+  \item Channel clogging, design/fabrication effort.
+\end{itemize}}
+\textbf{Choose it when:} the exercise asks for a \emph{reproducible and controlled} preparation, or for
+\emph{core--shell} particles with defined core and shell sizes (Exercises~9c, 11b, 13). Microreactor design is worked out
+in \cref{sec:recipe-microreactor}.

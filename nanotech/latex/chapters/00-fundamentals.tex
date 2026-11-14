@@ -1,0 +1,84 @@
+\chapter{Why the nanoscale is different}
+\label{ch:fundamentals}
+
+\paragraph{In this chapter.} What counts as a nanomaterial, why properties change below
+$\sim\SI{100}{nm}$ (surface and quantum-size effects), and what we want from a synthesis.
+Everything here comes back in the exercises as the \emph{reason} behind an observation
+(e.g.\ why a plasmon band shifts, or why small particles are better catalysts).
+
+\section{Definition and general features}
+\begin{defbox}[: nanoparticles, clusters, nanocrystals, quantum dots]
+Objects of roughly \SIrange{1}{100}{nm} in at least one dimension \slide{8}.
+\begin{itemize}
+  \item Properties become \emph{discontinuous} as the bulk contracts.
+  \item \textbf{Quantum size effects}: electronic, optical, magnetic and mechanical.
+  \item \textbf{Large surface effects}; surface modification gives new functionalities.
+  \item Difficult to produce by breakdown (top-down) processes; difficult to control shape, size, crystallinity.
+  \item Porosity control and dimensionality; not straightforward to characterize; sometimes difficult to handle.
+  \item Possible adverse effects on human bodies (nanotoxicity, \slide{16}).
+\end{itemize}
+\end{defbox}
+
+Historical uses \slide{5--7}: Lycurgus cup (4th c.\ Roman glass with Au/Ag nanoparticles,
+different colour in transmitted and reflected light), medieval stained glass (colloidal Au = red,
+Ag = yellow), Faraday's gold colloids (1857), Ruska's TEM (1931), Feynman's lecture
+``There's plenty of room at the bottom'' (1959), fullerenes (1985), AFM (1986),
+IBM logo with 35 Xe atoms (1989), carbon nanotubes (Iijima, 1991).
+
+\section{Quantum size effects}
+When a solid shrinks, the continuous bands of the bulk split into discrete levels
+\slide{9}: atom $\to$ molecule (HOMO/LUMO) $\to$ cluster $\to$ nanoparticle $\to$ bulk
+(semiconductor with a gap, or metal).
+\begin{itemize}
+  \item \textbf{Band gap opens/increases as size decreases.} This is why CdSe quantum dots
+        emit blue when small and red when large \slide{134} (see \cref{ch:uvvis}).
+  \item \textbf{Melting point drops} for small particles: Au melts at $\sim\SI{1300}{K}$ in bulk but far lower below
+        $\sim\SI{5}{nm}$ (\slide{10}). Small particles are easier to sinter (relevant to catalyst stability, \cref{ch:tem}).
+  \item \textbf{Thermal conductivity} of Cu nanoparticles/films decreases for sizes below a few hundred nm \slide{9}.
+\end{itemize}
+
+\section{Surface effects}
+\begin{keybox}[: surface-to-volume]
+Splitting a cube of side \SI{1}{m} into $n^3$ cubes of side $1/n$ multiplies the area by $n$ \slide{12}:
+\[
+6\times 1^2 = \SI{6}{m^2} \;\to\; 6\times 0.5^2\times 8 = \SI{12}{m^2} \;\to\; 6\times(1/3)^2\times 27 = \SI{18}{m^2}.
+\]
+In general, $S/V \propto 1/\text{size}$.
+\end{keybox}
+\begin{itemize}
+  \item Fraction of surface atoms in full-shell clusters \slide{13}: 13 atoms $\to$ 92\,\%, 55 $\to$ 76\,\%,
+        147 $\to$ 63\,\%, 309 $\to$ 52\,\%, 561 $\to$ 45\,\%, 1415 $\to$ 35\,\%.
+        For Fe nanoparticles, surface and bulk atoms are equal in number at $\sim\SI{5}{nm}$.
+\item \textbf{Shape effect} \slide{14}: for a cylinder of radius $r$ and height $h$,
+        \[ \frac{S}{V} = \frac{2\pi r h + 2\pi r^2}{\pi r^2 h} = 2\left(\frac{1}{r}+\frac{1}{h}\right), \]
+        and at fixed volume this is minimal for $h = 2r$ (the slide labels this point ``$h=d$'').
+        \checkflag{the plot on slide 14 writes $S/V = 2(r/h + h/r)$ with a minimum at $r/h=1$; that expression is
+        not dimensionally a surface-to-volume ratio. The physical conclusion (compact shape $h\approx d$ minimises
+        $S/V$) is the same.}
+        Rods ($h\gg d$) and discs ($h\ll d$) expose more surface.
+\end{itemize}
+\begin{tipbox}
+``Which particles would you choose for catalysis?'' $\Rightarrow$ the \textbf{smallest, well-dispersed} ones
+(highest fraction of surface atoms), provided they are stable (not sintering) and accessible (no thick capping
+shell). This argument is used in Exercises~7 and~18.
+\end{tipbox}
+
+\section{Applications (overview)}
+\slide{17--25}: biomedical (drug delivery, Abraxane, EPR effect = \emph{Enhanced Permeation and Retention} of
+nanoparticles in tumours; Au nanoshells for photothermal therapy; Fe$_3$O$_4$ for MRI and magnetic hyperthermia;
+Au--antibody conjugates for cancer imaging), antibacterial Ag in textiles and plasters, sunscreens (TiO$_2$, ZnO),
+self-cleaning ``lotus'' surfaces, catalysts, energy, electronics.
+
+\section{Objectives of a synthesis}
+\label{sec:objectives}
+\begin{keybox}[: what a good synthesis should give \slide{27}]
+\begin{enumerate}
+  \item Monodisperse samples (narrow size distribution).
+  \item Same morphology.
+  \item Same chemical composition and crystalline structure.
+  \item No agglomeration.
+  \item If possible: fast, cheap, ``green'', and with \textbf{no critical raw materials}
+        (European Critical Raw Materials Act \slide{28}: e.g.\ Pt-group metals, Co, rare earths, \ldots).
+\end{enumerate}
+\end{keybox}
+These five criteria are the yardstick used in \cref{ch:synth-compare} to compare methods.

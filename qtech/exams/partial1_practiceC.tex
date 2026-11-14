@@ -1,0 +1,374 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts,bm}
+\usepackage{braket}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{quantikz2}
+
+\newcommand{\pts}[1]{\textbf{(#1)}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\id}{\mathbb{I}}
+\newcommand{\sol}{\color{blue!60!black}}
+
+\setlist[enumerate,1]{label=\alph*)}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\title{Quantum Technologies -- First partial exam\\[4pt] \large Practice exam C}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-1.5cm}
+\begin{center}
+Duration: 2 hours. Total: 10 points.
+\end{center}
+
+%=====================================================================
+\section{Open question (1pt)}
+
+The quantum Fourier transform (QFT) can be implemented on $n$ qubits with $\mathcal O(n^2)$ gates,
+while the classical fast Fourier transform of a vector of $N=2^n$ components needs
+$\mathcal O(N\log N)$ operations. Does this mean that a quantum computer can compute the Fourier
+transform of classical data exponentially faster? Explain why or why not. Then explain how the QFT
+is used in ONE of the algorithms seen in class, and which information it allows us to extract.
+(Maximum 200 words, $\sim$1 page)
+
+%=====================================================================
+\section{Short questions (3pts)}
+
+\begin{enumerate}
+\item Consider the following circuit acting on four qubits. Can it be used as the oracle of the
+Grover algorithm? If so, indicate (i) which are the marked items, (ii) the number of Grover
+iterations that maximizes the probability of finding a marked item, together with that probability,
+and (iii) the probability of success if, by mistake, one more iteration is applied \pts{1 p}.
+\begin{center}
+\begin{quantikz}[row sep=0.25cm, column sep=0.35cm]
+\lstick{$\ket{q_0}$} & & \ctrl{1} & & \\
+\lstick{$\ket{q_1}$} & \gate{X} & \ctrl{2} & \gate{X} & \\
+\lstick{$\ket{q_2}$} & & & & \\
+\lstick{$\ket{q_3}$} & & \gate{Z} & &
+\end{quantikz}
+\end{center}
+
+\item We use quantum phase estimation with $n=3$ qubits in the first register.
+\begin{enumerate}[label=(\roman*)]
+\item For $U=TS=\begin{pmatrix}1&0\\0&e^{3i\pi/4}\end{pmatrix}$ and for $U^\dagger$, with the eigenstate
+$\ket u=\ket1$, what is the measured string $\vec x$, and with which probability?
+\item For $V=\begin{pmatrix}1&0\\0&e^{2\pi i/3}\end{pmatrix}$ and $\ket u=\ket1$, which is the most
+likely outcome? Give a lower bound for its probability.
+\item How many qubits would be needed in the first register to obtain the phase of $V$ with a
+precision of $2^{-3}$ and a probability of success of at least $90\%$?
+\end{enumerate}
+\pts{1 p}
+
+\item Solving the order-finding problem with a quantum computer for $x=2$ and $M=11$, with $n=8$
+qubits in the first register, we measure $\vec y_0=\{01001101\}$. Use the continued fraction expansion
+to find the order of $x$ modulo $M$, and check the result. In another run we measure
+$\vec y_0^{\,\prime}=\{10000000\}$. Which order do the continued fractions suggest in this case? Is
+it correct? How could we still obtain the order from this measurement? \pts{1 p}
+\end{enumerate}
+
+%=====================================================================
+\section*{Problems}
+
+\section{Amplitude damping (3pts)}
+
+The spontaneous decay of a two-level atom, with $\ket0$ the ground state and $\ket1$ the excited
+state, is described by the measurement operators
+\[
+M_0=\begin{pmatrix}1&0\\0&\sqrt{1-\gamma}\end{pmatrix},\qquad
+M_1=\begin{pmatrix}0&\sqrt{\gamma}\\0&0\end{pmatrix},\qquad 0\le\gamma\le1 ,
+\]
+where outcome $1$ corresponds to the detection of an emitted photon.
+\begin{enumerate}
+\item Show that $\{M_0,M_1\}$ define a generalized measurement and find the associated POVM
+elements $E_0,E_1$. Are they projectors? \pts{0.5 p}
+\item For a general state $\rho$, calculate the probability of detecting a photon and the state of
+the atom after the measurement for each outcome. Interpret the result \pts{0.5 p}.
+\item The outcome is not recorded. Write the output state $\rho'$ and show that, if
+$\rho=\frac12(\id+\bm r\cdot\bm\sigma)$, the Bloch vector of the output is
+$\bm r'=\left(\sqrt{1-\gamma}\,r_x,\ \sqrt{1-\gamma}\,r_y,\ \gamma+(1-\gamma)r_z\right)$ \pts{0.5 p}.
+\item Which state is left invariant by the channel? What happens to an arbitrary state if the
+channel is applied many times? What is the output for the maximally mixed state $\id/2$? Compare
+with the Pauli channels: can the amplitude damping channel increase the purity of a state? \pts{0.5 p}
+\item The input state is $\ket+$. Calculate the purity of the output and its eigenvalues. Evaluate
+the von Neumann entropy for $\gamma=1/2$ \pts{0.5 p}.
+\item For the input $\ket+$, calculate the fidelity $F(\ket+\!\bra+,\rho')$ and the trace distance
+$d(\ket+\!\bra+,\rho')$ between input and output, and evaluate them for $\gamma=1/2$. Compare with
+the inputs $\ket0$ and $\ket1$ \pts{0.5 p}.
+\end{enumerate}
+
+\section{A rotated Bell pair (3pts)}
+
+Consider the following two-qubit circuit, with
+$R_y(\theta)=\begin{pmatrix}\cos\frac\theta2&-\sin\frac\theta2\\\sin\frac\theta2&\cos\frac\theta2\end{pmatrix}$
+and $0\le\theta<2\pi$. Alice holds the first qubit ($A$) and Bob the second one ($B$).
+\begin{center}
+\begin{quantikz}[row sep=0.4cm, column sep=0.4cm]
+\lstick{$\ket{q_0}$} & \gate{H} & \ctrl{1} & & \\
+\lstick{$\ket{q_1}$} & & \targ{} & \gate{R_y(\theta)} &
+\end{quantikz}
+\end{center}
+
+\begin{enumerate}
+\item Write the matrix of the circuit in the computational basis $\{\ket{00},\ket{01},\ket{10},\ket{11}\}$ \pts{0.5 p}.
+\item Write the output state $\ket\psi$ for the input $\ket{00}$. For which values of $\theta$ is it
+one of the four Bell states? \pts{0.5 p}
+\item Calculate $\rho_A$, $\rho_B$ and the entanglement entropy as a function of $\theta$. Explain
+the result \pts{0.5 p}.
+\item For $\theta=\pi/2$, find a Schmidt decomposition of $\ket\psi$. Is it unique? Give a second,
+different Schmidt decomposition \pts{0.5 p}.
+\item We measure the joint observable $Z\otimes Z$ on $\ket\psi$ (general $\theta$). Which are the
+possible outcomes, their probabilities and the state after the measurement? Calculate
+$\langle Z\otimes Z\rangle$. Is the state still entangled after the measurement? Compare with a
+measurement of $Z$ on qubit $B$ only \pts{0.5 p}.
+\item The outcome of the $Z\otimes Z$ measurement is not recorded. Write the resulting state
+$\rho'$, its purity and its fidelity with $\ket\psi$. Can Alice notice, by measuring her qubit only,
+whether the measurement took place? \pts{0.5 p}
+\end{enumerate}
+
+\textit{Useful formulas:} $\cos^2\frac x2-\sin^2\frac x2=\cos x$, $\;2\sin\frac x2\cos\frac x2=\sin x$.
+
+%=====================================================================
+\ifdefined\nosolutions\else
+\newpage
+\begin{center}
+\Large\textbf{Solutions}
+\end{center}
+\sol
+
+\section*{1\quad Open question}
+
+The QFT maps $\ket x\mapsto\frac1{\sqrt N}\sum_ye^{2\pi ixy/N}\ket y$, so it acts on a state
+$\sum_xa_x\ket x$ by Fourier transforming its \emph{amplitudes}. Its circuit ($H$ gates, controlled
+phases $R_d$ and final SWAPs) has $n(n+1)/2=\mathcal O(n^2)$ gates, exponentially fewer than the
+$\mathcal O(n2^n)$ operations of the FFT.
+
+This is \textbf{not} an exponential speed-up for classical data, for two reasons:
+\begin{itemize}
+\item \emph{Input}: the $N$ data must first be loaded as amplitudes. Preparing an arbitrary state
+generally needs $\mathcal O(N)$ operations, which already cancels the advantage.
+\item \emph{Output}: the Fourier coefficients are amplitudes and cannot be read out. A measurement
+gives one value $y$ with probability $|\tilde a_y|^2$; estimating all $N$ coefficients would need
+exponentially many repetitions.
+\end{itemize}
+The QFT is useful as a subroutine when we only need a \emph{global} property encoded in the phases.
+In \textbf{phase estimation}, the controlled-$U^{2^j}$ gates (phase kickback) prepare
+$\frac1{\sqrt N}\sum_ye^{2\pi i\varphi y}\ket y=\text{QFT}\ket{\varphi N}$. The inverse QFT maps this
+state to $\ket{\varphi N}$, so measuring the register gives the eigenphase $\varphi$ with $n$ bits
+of precision (exactly if $\varphi N$ is an integer, with probability $\ge4/\pi^2$ otherwise).
+(Also valid: \textbf{order finding}, where the QFT turns the periodic state
+$\sum_j\ket{x_0+jr}$ into peaks at $y\approx kN/r$, from which $r$ follows by continued fractions.)
+
+\section*{2\quad Short questions}
+
+\begin{enumerate}
+\item Yes. The circuit is a multi-controlled $Z$ with controls $q_0$, $q_1$ and target $q_3$, with
+$X$ gates before and after on $q_1$. It adds a sign $-1$ only when $q_0=1$, $q_1=0$ and $q_3=1$.
+Qubit $q_2$ is not touched, so it can take any value. The gate is diagonal with entries $\pm1$, so it is
+a valid phase oracle $U_w\ket x=(-1)^{f(x)}\ket x$, with
+\[
+\text{marked items: }\ket{w}\in\{\ket{1001},\ket{1011}\}\qquad(M=2,\ N=2^4=16).
+\]
+Then $\sin\theta_0=\sqrt{M/N}=\sqrt{1/8}=\frac1{2\sqrt2}$, so $\theta_0\approx0.361$ rad $\approx20.7^\circ$.
+\[
+k_{\max}\simeq\left\lfloor\frac\pi4\sqrt{\frac NM}\right\rfloor=\left\lfloor\frac\pi4\sqrt8\right\rfloor=\lfloor2.22\rfloor=2,
+\qquad P_2=\sin^2(5\theta_0)=\sin^2(103.5^\circ)=\frac{121}{128}\approx0.945 .
+\]
+For comparison, $P_1=\sin^2(3\theta_0)=\frac{25}{32}\approx0.781$. With one extra iteration,
+$P_3=\sin^2(7\theta_0)=\sin^2(144.9^\circ)\approx0.33$: the state rotates past $\ket w$ and the
+probability drops.
+
+\item
+\begin{enumerate}[label=(\roman*)]
+\item $U\ket1=e^{3i\pi/4}\ket1=e^{2\pi i\frac38}\ket1$, so $\varphi=\frac38=\frac{x}{2^3}$ and
+$x=3\equiv\{011\}$. For $U^\dagger$: $U^\dagger\ket1=e^{-3i\pi/4}\ket1=e^{2\pi i(1-\frac38)}\ket1$, so
+$\varphi=\frac58$ and $x=5\equiv\{101\}$. In both cases $\varphi N$ is an integer, so the outcome is
+obtained with probability 1.
+\item $V\ket1=e^{2\pi i\frac13}\ket1$, so $\varphi=\frac13$ and $\varphi N=\frac83\approx2.67$, which is
+not an integer. The most likely outcome is the nearest integer, $x=3\equiv\{011\}$ (i.e.\
+$\varphi\approx0.375$), with probability $\ge4/\pi^2\approx0.41$. (The exact value is
+$P(x)=\frac{\sin^2(\pi N\delta)}{N^2\sin^2(\pi\delta)}$ with $\delta=\varphi-x/N=-\frac1{24}$, which
+gives $P(011)\approx0.69$. The next most likely outcome is $\{010\}$, with $P\approx0.18$.)
+\item With $t=3$ bits of precision and $\varepsilon=0.1$:
+\[
+n=t+\left\lceil\log_2\left(2+\frac1{2\varepsilon}\right)\right\rceil=3+\lceil\log_27\rceil=3+3=6\text{ qubits}.
+\]
+\end{enumerate}
+
+\item $\vec y_0=\{01001101\}$ gives $y_0=64+8+4+1=77$, with $N=2^8=256$. We look for $k/r$ with
+$\left|\frac{y_0}N-\frac kr\right|<\frac1{2N}=\frac1{512}\approx0.00195$. Euclid's algorithm:
+$256=3\cdot77+25$, $77=3\cdot25+2$, $25=12\cdot2+1$, $2=2\cdot1$, so
+\[
+\frac{77}{256}=[0;3,3,12,2],\qquad\text{convergents: }\frac01,\ \frac13,\ \frac3{10},\ \frac{37}{123},\ \frac{77}{256}.
+\]
+$\left|\frac{77}{256}-\frac13\right|\approx0.033>\frac1{512}$, while
+$\left|\frac{77}{256}-\frac3{10}\right|=\frac{1}{1280}\approx0.00078<\frac1{512}$. So $r=10$ (with $r<N$).
+Check: $2^1,\dots,2^{10}\bmod11=2,4,8,5,10,9,7,3,6,1$. So $2^{10}\equiv1$, no smaller power gives 1,
+and the order is $r=10$.
+
+$\vec y_0^{\,\prime}=\{10000000\}$ gives $y_0'=128$ and $\frac{128}{256}=\frac12=[0;2]$. The
+continued fractions suggest $r=2$, but $2^2=4\not\equiv1\pmod{11}$, so this is wrong. The reason is
+that $y_0'$ corresponds to $k=5$ and $r=10$: $\frac5{10}=\frac12$, and since $\gcd(5,10)=5>1$ the
+fraction reduces and we only obtain a divisor of $r$. We can test multiples of 2:
+$2^4\equiv5$, $2^6\equiv9$, $2^8\equiv3$, $2^{10}\equiv1\pmod{11}$, which gives $r=10$. Alternatively,
+we repeat the experiment and take the lcm of the denominators obtained.
+
+\end{enumerate}
+
+\section*{3\quad Amplitude damping}
+
+\begin{enumerate}
+\item Since $M_1^\dagger=\begin{pmatrix}0&0\\\sqrt\gamma&0\end{pmatrix}$:
+\[
+E_0=M_0^\dagger M_0=\begin{pmatrix}1&0\\0&1-\gamma\end{pmatrix},\qquad
+E_1=M_1^\dagger M_1=\begin{pmatrix}0&0\\0&\gamma\end{pmatrix},\qquad E_0+E_1=\id .
+\]
+So $\{M_m\}$ is a generalized measurement. Both $E_m$ are positive (diagonal, non-negative entries).
+They are not projectors for $0<\gamma<1$: $E_1^2=\gamma E_1\neq E_1$. The operators $M_m$ are not
+Hermitian either.
+
+\item With $E_1=\gamma\ket1\!\bra1$:
+\[
+p(1)=\tr[E_1\rho]=\gamma\rho_{11}=\gamma\,\frac{1-r_z}2,\qquad
+\rho_1'=\frac{M_1\rho M_1^\dagger}{p(1)}=\frac{\gamma\rho_{11}\ket0\!\bra0}{\gamma\rho_{11}}=\ket0\!\bra0 .
+\]
+\[
+p(0)=1-\gamma\rho_{11},\qquad
+\rho_0'=\frac{M_0\rho M_0^\dagger}{p(0)}=\frac1{1-\gamma\rho_{11}}\begin{pmatrix}\rho_{00}&\sqrt{1-\gamma}\,\rho_{01}\\\sqrt{1-\gamma}\,\rho_{10}&(1-\gamma)\rho_{11}\end{pmatrix}.
+\]
+Interpretation: a photon can only be emitted if the atom is excited, with probability $\gamma$ times
+the population of $\ket1$. If it is detected, the atom is certainly in the ground state $\ket0$. If no
+photon is detected, we still learn something: the weight of $\ket1$ decreases (the state is pushed
+towards $\ket0$) and the coherences are reduced by $\sqrt{1-\gamma}$.
+
+\item $\rho'=M_0\rho M_0^\dagger+M_1\rho M_1^\dagger=\begin{pmatrix}\rho_{00}+\gamma\rho_{11}&\sqrt{1-\gamma}\,\rho_{01}\\\sqrt{1-\gamma}\,\rho_{10}&(1-\gamma)\rho_{11}\end{pmatrix}$. Then
+\[
+r_x'=2\,\mathrm{Re}\,\rho'_{01}=\sqrt{1-\gamma}\,r_x,\qquad r_y'=-2\,\mathrm{Im}\,\rho'_{01}=\sqrt{1-\gamma}\,r_y,
+\]
+\[
+r_z'=\rho'_{00}-\rho'_{11}=\rho_{00}-\rho_{11}+2\gamma\rho_{11}=r_z+\gamma(1-r_z)=\gamma+(1-\gamma)r_z .
+\]
+
+\item A fixed point needs $r_x=r_y=0$ (for $\gamma>0$) and $r_z=\gamma+(1-\gamma)r_z$, i.e.\ $r_z=1$.
+The invariant state is the ground state $\ket0$ (the north pole). After $m$ applications,
+$r_{x,y}^{(m)}=(1-\gamma)^{m/2}r_{x,y}\to0$ and $1-r_z^{(m)}=(1-\gamma)^m(1-r_z)\to0$, so every state
+decays to $\ket0$.
+
+For $\rho=\id/2$ ($\bm r=\bm0$): $\bm r'=(0,0,\gamma)$, so $\rho'=\frac12(\id+\gamma\sigma_z)\neq\id/2$.
+The purity increases from $\frac12$ to $\frac{1+\gamma^2}2$. The Pauli channels only shrink the Bloch
+vector ($|2p-1|\le1$) and leave $\id/2$ unchanged (they are unital), so they never increase the
+purity. The amplitude damping channel is not unital: it drives the system towards a pure state by
+releasing energy (and entropy) to the environment.
+
+\item $\ket+$ has $\bm r=(1,0,0)$, so $\bm r'=(\sqrt{1-\gamma},0,\gamma)$ and
+$|\bm r'|^2=1-\gamma+\gamma^2$. Then
+\[
+\gamma(\rho')=\frac{1+|\bm r'|^2}{2}=1-\frac{\gamma(1-\gamma)}2,\qquad
+\lambda_\pm=\frac{1\pm\sqrt{1-\gamma+\gamma^2}}{2}.
+\]
+The output is pure only for $\gamma=0$ (no decay) or $\gamma=1$ (output $\ket0$). For $\gamma=\frac12$:
+$|\bm r'|=\frac{\sqrt3}2$, $\gamma(\rho')=\frac78$, $\lambda_\pm=\frac{2\pm\sqrt3}{4}\approx0.933,\ 0.067$, and
+\[
+S(\rho')=-0.933\log_20.933-0.067\log_20.067\approx0.093+0.261\approx0.35 .
+\]
+
+\item Since $\ket+$ is pure, $F=\bra+\rho'\ket+=\frac{1+\bm r\cdot\bm r'}2=\frac{1+\sqrt{1-\gamma}}{2}$. The
+trace distance is
+\[
+d=\tfrac12|\bm r-\bm r'|=\tfrac12\sqrt{\left(1-\sqrt{1-\gamma}\right)^2+\gamma^2}.
+\]
+For $\gamma=\frac12$: $F=\frac{1+1/\sqrt2}2\approx0.854$ and $d=\frac12\sqrt{0.086+0.25}\approx0.29$.
+
+For $\ket0$: $\bm r'=\bm r$, so $F=1$ and $d=0$ (the ground state is not affected). For $\ket1$:
+$\bm r'=(0,0,2\gamma-1)$, so $F=\frac{1-(2\gamma-1)}2=1-\gamma$ and $d=\frac12|{-1}-(2\gamma-1)|=\gamma$.
+For $\gamma=\frac12$ this gives $F=0.5$, $d=0.5$: the excited state is the most affected input.
+\end{enumerate}
+
+\section*{4\quad A rotated Bell pair}
+
+Notation: $c\equiv\cos\frac\theta2$, $s\equiv\sin\frac\theta2$.
+
+\begin{enumerate}
+\item The circuit is $U=(\id\otimes R_y)\,\text{CNOT}\,(H\otimes\id)$. In $2\times2$ blocks,
+$\text{CNOT}\,(H\otimes\id)=\frac1{\sqrt2}\begin{pmatrix}\id&\id\\X&-X\end{pmatrix}$, and
+$\id\otimes R_y=\begin{pmatrix}R_y&0\\0&R_y\end{pmatrix}$. With $R_yX=\begin{pmatrix}-s&c\\c&s\end{pmatrix}$:
+\[
+U=\frac1{\sqrt2}\begin{pmatrix}R_y&R_y\\R_yX&-R_yX\end{pmatrix}
+=\frac1{\sqrt2}\begin{pmatrix}c&-s&c&-s\\s&c&s&c\\-s&c&s&-c\\c&s&-c&-s\end{pmatrix}.
+\]
+
+\item The output is the first column of $U$:
+\[
+\ket\psi=\frac1{\sqrt2}\left[\ket0R_y\ket0+\ket1R_y\ket1\right]=\frac1{\sqrt2}\left[c\ket{00}+s\ket{01}-s\ket{10}+c\ket{11}\right].
+\]
+For $\theta=0$: $\ket\psi=\frac{\ket{00}+\ket{11}}{\sqrt2}=\ket{\beta_{00}}$. For $\theta=\pi$ ($c=0$,
+$s=1$): $\ket\psi=\frac{\ket{01}-\ket{10}}{\sqrt2}=\ket{\beta_{11}}$ (the singlet).
+
+\item $\alpha=\frac1{\sqrt2}\begin{pmatrix}c&s\\-s&c\end{pmatrix}$, so
+\[
+\rho_A=\alpha\alpha^\dagger=\frac12\begin{pmatrix}c^2+s^2&-cs+sc\\-sc+cs&s^2+c^2\end{pmatrix}=\frac\id2,\qquad
+\rho_B=\alpha^T\alpha^*=\frac\id2 .
+\]
+For every $\theta$: $\gamma(\rho_A)=\gamma(\rho_B)=\frac12$ and $S_{EE}=\log_22=1$. The state is
+maximally entangled for all $\theta$. The reason is that $\ket\psi=(\id\otimes R_y(\theta))\ket{\beta_{00}}$:
+a local unitary acting on a Bell state cannot change its entanglement.
+
+\item For $\theta=\pi/2$, $c=s=\frac1{\sqrt2}$ and $\ket\psi=\frac12\left[\ket{00}+\ket{01}-\ket{10}+\ket{11}\right]$.
+Since $\rho_A=\id/2$ is degenerate ($\eta_1^2=\eta_2^2=\frac12$), \emph{any} orthonormal basis of $A$ is
+an eigenbasis. Taking $\{\ket0,\ket1\}$:
+\[
+\bra0_A\ket\psi=\tfrac12(\ket0+\ket1)=\tfrac1{\sqrt2}\ket+,\qquad
+\bra1_A\ket\psi=\tfrac12(-\ket0+\ket1)=\tfrac1{\sqrt2}\left(-\ket-\right),
+\]
+\[
+\boxed{\ket\psi=\frac1{\sqrt2}\left[\ket0\ket+-\ket1\ket-\right]}
+\]
+The decomposition is \textbf{not unique}, because the Schmidt coefficients are degenerate. Taking
+$\{\ket+,\ket-\}$ for $A$ instead:
+\begin{align*}
+\bra+_A\ket\psi&=\tfrac1{2\sqrt2}\left[(\ket0+\ket1)+(-\ket0+\ket1)\right]=\tfrac1{\sqrt2}\ket1,\\
+\bra-_A\ket\psi&=\tfrac1{2\sqrt2}\left[(\ket0+\ket1)-(-\ket0+\ket1)\right]=\tfrac1{\sqrt2}\ket0,
+\end{align*}
+so $\ket\psi=\frac1{\sqrt2}\left[\ket+\ket1+\ket-\ket0\right]$ is another valid Schmidt decomposition.
+In both cases $\eta_1=\eta_2=\frac1{\sqrt2}$ and $S_{EE}=1$.
+
+\item $Z\otimes Z$ has eigenvalues $+1$ (even parity) and $-1$ (odd parity), with projectors
+$P_+=\ket{00}\!\bra{00}+\ket{11}\!\bra{11}$ and $P_-=\ket{01}\!\bra{01}+\ket{10}\!\bra{10}$.
+\begin{align*}
+P_+\ket\psi&=\tfrac c{\sqrt2}(\ket{00}+\ket{11}), & p(+1)&=c^2=\cos^2\tfrac\theta2, & \ket{\psi_+}&=\ket{\beta_{00}};\\
+P_-\ket\psi&=\tfrac s{\sqrt2}(\ket{01}-\ket{10}), & p(-1)&=s^2=\sin^2\tfrac\theta2, & \ket{\psi_-}&=\ket{\beta_{11}}.
+\end{align*}
+$\langle Z\otimes Z\rangle=c^2-s^2=\cos\theta$. Both post-measurement states are Bell states, so the
+state is still maximally entangled. A joint (non-local) observable can preserve entanglement. On the
+other hand, measuring $Z$ on $B$ only, with $P_m=\id\otimes\ket m\!\bra m$, leaves a product state
+$\ket{\psi'_A}\ket m$ and destroys the entanglement. (For example, outcome $0$:
+$p=\frac12$, $\ket{\psi'_A}=c\ket0-s\ket1$.)
+
+\item If the outcome is not recorded:
+\[
+\rho'=\sum_\pm P_\pm\ket\psi\!\bra\psi P_\pm=c^2\ket{\beta_{00}}\!\bra{\beta_{00}}+s^2\ket{\beta_{11}}\!\bra{\beta_{11}}.
+\]
+The two Bell states are orthogonal, so the eigenvalues of $\rho'$ are $c^2,s^2$ and
+\[
+\gamma(\rho')=c^4+s^4=1-\tfrac12\sin^2\theta .
+\]
+It is pure only for $\theta=0,\pi$, when $\ket\psi$ is already an eigenstate of $Z\otimes Z$. Since
+$\ket\psi$ is pure, $F=\bra\psi\rho'\ket\psi=c^2|\braket{\beta_{00}|\psi}|^2+s^2|\braket{\beta_{11}|\psi}|^2$,
+with $\braket{\beta_{00}|\psi}=c$ and $\braket{\beta_{11}|\psi}=s$:
+\[
+F(\ket\psi\!\bra\psi,\rho')=c^4+s^4=1-\tfrac12\sin^2\theta,
+\]
+which is minimal ($F=\frac12$) for $\theta=\pi/2$.
+Alice cannot notice anything: $\tr_B\ket{\beta_{00}}\!\bra{\beta_{00}}=\tr_B\ket{\beta_{11}}\!\bra{\beta_{11}}=\id/2$,
+so $\rho'_A=c^2\frac\id2+s^2\frac\id2=\frac\id2=\rho_A$. Her local statistics are exactly the same as
+before the measurement.
+\end{enumerate}
+\fi
+
+\end{document}

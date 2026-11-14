@@ -1,0 +1,439 @@
+\chapter{Solved exercises}
+\label{ch:solutions}
+
+\paragraph{How to read this chapter.} Each solution states the \textbf{type} (\cref{ch:toolkit}), the
+\textbf{data} used, the \textbf{reasoning}, and the \textbf{answer}. Values marked \readoff{} were read from the figures in
+\emph{Exercises\_v4.pdf} and carry an uncertainty of about $\pm0.1$--$0.2^\circ$ ($\twotheta$), $\pm0.3$\,eV (XPS) or
+$\pm10$\,\% (sizes). With your own readings the numbers may differ slightly; the method and conclusions should not.
+Unless stated, $\lambda(\text{Cu K}\alpha) = \SI{1.5406}{\angstrom}$.
+
+%=====================================================================
+\section{Exercise 1: UV-vis of Ag, Au and Au--Ag alloys}
+\textbf{Type A.}
+\textbf{Data:} four samples of the \emph{same size} ($\approx$ 18--22 nm by TEM); bands at
+i $\approx$ 400, ii $\approx$ 415, iii $\approx$ 430, iv $\approx$ 520 nm\readoff.
+
+\textbf{Reasoning.} Since the sizes are equal, the band position is set by \textbf{composition}. Pure Ag absorbs at
+$\sim$\SI{400}{nm}, pure Au at $\sim$\SI{520}{nm}. A homogeneous alloy gives \emph{one} band between them, shifting
+towards Au as the Au content increases.
+
+\textbf{Answer.}
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Spectrum & $\lambda_\mathrm{max}$ (nm) & Sample & Colour (vial) \\ \midrule
+i & $\approx$ 400 & Ag & yellow \\
+ii & $\approx$ 415 & Au$_{11}$Ag$_{89}$ & yellow--orange \\
+iii & $\approx$ 430 & Au$_{28}$Ag$_{72}$ & orange \\
+iv & $\approx$ 520 & Au & red/pink \\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{classbox}
+Class answer (Catalan, \slide{166}): ``Ag on the left, Au peak on the right, the two in the middle are the alloys. The
+more Ag the alloy has, the more energetic the peak.''
+\end{classbox}
+
+%=====================================================================
+\section{Exercise 2: indexing an fcc pattern}
+\textbf{Type B.} \textbf{Data:} peaks at $\twotheta$ = 28.5, 33.1, 47.5, 56.3, 59.1, 69.4, 76.7, 79.1$^\circ$\readoff; fcc;
+Cu K$\alpha$.
+
+\begin{center}
+\small
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+$\twotheta$ ($^\circ$) & $d$ (\AA) & $3\sin^2\theta/\sin^2\theta_1$ & $N$ & $hkl$ & $a$ (\AA) \\ \midrule
+28.5 & 3.129 & 3.00 & 3 & 111 & 5.420 \\
+33.1 & 2.704 & 4.02 & 4 & 200 & 5.408 \\
+47.5 & 1.913 & 8.03 & 8 & 220 & 5.410 \\
+56.3 & 1.633 & 11.0 & 11 & 311 & 5.415 \\
+59.1 & 1.562 & 12.0 & 12 & 222 & 5.411 \\
+69.4 & 1.353 & 16.1 & 16 & 400 & 5.413 \\
+76.7 & 1.242 & 19.1 & 19 & 331 & 5.412 \\
+79.1 & 1.210 & 20.1 & 20 & 420 & 5.410 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Answer:} planes (111), (200), (220), (311), (222), (400), (331), (420); $\boxed{a \approx \SI{5.41}{\angstrom}}$.
+This matches CeO$_2$ (fluorite, $a = \SI{5.411}{\angstrom}$), which also explains the strong 111 and the 200/220 intensities.
+
+%=====================================================================
+\section{Exercise 3: BCC or FCC?}
+\textbf{Type B.} \textbf{Data:} $\twotheta$ = 40, 58, 73, 86.8, 100.4, 114.7$^\circ$. The wavelength is not given; Cu
+K$\alpha$ assumed.
+\begin{center}
+\small
+\begin{tabular}{@{}ccccccc@{}}
+\toprule
+$\twotheta$ & $\theta$ & $\sin^2\theta$ & ratio & $N$ & $hkl$ & $a$ (\AA) \\ \midrule
+40.0 & 20.00 & 0.1170 & 1.00 & 2 & 110 & 3.185 \\
+58.0 & 29.00 & 0.2350 & 2.01 & 4 & 200 & 3.178 \\
+73.0 & 36.50 & 0.3538 & 3.02 & 6 & 211 & 3.172 \\
+86.8 & 43.40 & 0.4721 & 4.04 & 8 & 220 & 3.171 \\
+100.4 & 50.20 & 0.5903 & 5.05 & 10 & 310 & 3.171 \\
+114.7 & 57.35 & 0.7087 & 6.06 & 12 & 222 & 3.169 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{(a)} The ratios are 1:2:3:4:5:6. That is \textbf{BCC} ($N$ = 2, 4, 6, \ldots). FCC would give
+1 : 1.33 : 2.67 : 3.67.
+\textbf{(b)} $\boxed{a \approx \SI{3.17}{\angstrom}}$ (high-angle values are the most precise). This is consistent with W
+($a$ = \SI{3.165}{\angstrom})\extra.
+
+%=====================================================================
+\section{Exercise 4: Ag or Ag$_2$O? Size? XPS?}
+\textbf{Types B, C, E.} \textbf{Data:} peaks 38.1, 44.2, 64.4, 77.3$^\circ$; $\lambda = \SI{1.5404}{\angstrom}$;
+$a$(Ag) = \SI{4.090}{\angstrom}, $a$(Ag$_2$O) = \SI{4.723}{\angstrom}.
+
+\textbf{Phase.} Index: ratios $\times3$ = 3.00, 3.99, 8.00, 10.99 $\Rightarrow$ fcc 111, 200, 220, 311 with
+$a$ = 4.087, 4.094, 4.088, \SI{4.090}{\angstrom}.
+Expected positions:
+\begin{center}
+\small
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+ & 110 & 111 & 200 & 211 & 220 & 311 & 222 \\ \midrule
+Ag ($a$=4.090, fcc) & absent & \textbf{38.07} & \textbf{44.25} & absent & \textbf{64.37} & \textbf{77.30} & 81.44 \\
+Ag$_2$O ($a$=4.723, cubic) & 26.67 & 32.81 & 38.07 & 47.09 & 54.93 & 65.48 & 68.79 \\
+\bottomrule
+\end{tabular}
+\end{center}
+All four observed peaks coincide with \textbf{metallic Ag}. Ag$_2$O would show strong peaks at 32.8$^\circ$ and
+26.7/54.9$^\circ$, which are absent. (Its 200 peak at 38.07$^\circ$ coincides with Ag 111, which is why a single peak is not
+enough.) \textbf{Answer: metallic silver.}
+
+\textbf{Size (Scherrer).} $B = 0.94^\circ - 0.16^\circ = 0.78^\circ = 0.01361$ rad; $\theta = 19.05^\circ$,
+$\cos\theta = 0.9452$:
+\[
+L = \frac{0.9\times\SI{1.5404}{\angstrom}}{0.01361\times0.9452} \approx \SI{108}{\angstrom} \approx \boxed{\SI{11}{nm}}.
+\]
+(With quadratic subtraction, $B=\sqrt{0.94^2-0.16^2}=0.926^\circ$, $L\approx\SI{9}{nm}$\extra.)
+
+\textbf{XPS?} Yes:
+\begin{itemize}
+  \item The \textbf{chemical shift} of Ag 3d between Ag$^0$ and Ag$^+$ (course principle). For silver the shift is small and,
+        unusually, Ag$_2$O appears at slightly \emph{lower} $E_B$ than Ag\extra, so it must be combined with the next two points.
+  \item \textbf{O 1s}: Ag$_2$O shows a lattice-oxide O 1s peak ($\approx$\SI{529}{eV}\extra); clean metallic Ag only shows
+        adventitious oxygen.
+  \item \textbf{Auger peaks} (Ag MNN) and the shape/loss features of the Ag 3d peaks differ between metal and oxide\extra.
+\end{itemize}
+Also remember XPS sees only the surface: a thin oxide skin on Ag particles would appear in XPS but not in XRD.
+
+%=====================================================================
+\section{Exercise 5: TiO$_2$ vs TiN, lattice parameter, nanorod facets}
+\textbf{Types E, B, F.}
+
+\textbf{XPS.} Red spectrum: Ti 2p$_{3/2}$ $\approx$ \SI{458.6}{eV}, 2p$_{1/2}$ $\approx$ \SI{464.3}{eV}\readoff.
+Blue spectrum: Ti 2p$_{3/2}$ $\approx$ \SI{455.0}{eV}, 2p$_{1/2}$ $\approx$ \SI{461}{eV}\readoff, with a shoulder near
+\SI{458}{eV}.
+\begin{itemize}
+  \item \textbf{Red = TiO$_2$}: matches Ti$^{4+}$ in TiO$_2$ (\SI{458.8}{eV}, \slide{157}).
+  \item \textbf{Blue = TiN}: lower $E_B$. Oxygen (3.44) is more electronegative than nitrogen (3.04)\extra and withdraws more
+        valence charge from Ti, so Ti in the oxide has the higher $E_B$. The shoulder at $\sim$\SI{458}{eV} in TiN is a thin
+        surface oxide/oxynitride (XPS is surface sensitive).
+\end{itemize}
+
+\textbf{XRD of TiN} (rocksalt, Ti and N each on an fcc lattice). Peaks at 36.7, 42.6, 61.8, 74.1, 78.0$^\circ$\readoff:
+ratios $\times3$ = 3, 3.99, 7.98, 10.99, 11.99 $\Rightarrow$ 111, 200, 220, 311, 222.
+$a$ = 4.238, 4.241, 4.243, 4.240, 4.240 $\Rightarrow$ $\boxed{a \approx \SI{4.24}{\angstrom}}$.
+
+\textbf{Nanorod planes.} HRTEM shows two sets of fringes of \SI{0.21}{nm} at $90^\circ$.
+$d_{200} = 4.24/2 = \SI{2.12}{\angstrom}$ $\checkmark$ ($d_{111}$ = 2.45, $d_{220}$ = \SI{1.50}{\angstrom} do not match).
+So the fringes are (200) and (020), the rod is viewed along [001], and the fringes parallel to the rod surface are
+\{200\}: the exposed side faces are $\boxed{\{100\}}$ planes.
+
+%=====================================================================
+\section{Exercise 6: CeO$_2$--ZrO$_2$, stirring vs no stirring}
+\textbf{Types B, C, D, K.} \textbf{Data:} fcc, $a$(CeO$_2$) = 5.41, $a$(ZrO$_2$) = \SI{5.09}{\angstrom}, $\lambda = \SI{1.5405}{\angstrom}$.
+
+\textbf{(a) Mixture or solid solution?} Expected positions:
+\begin{center}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+ & 111 & 200 & 220 & 311 \\ \midrule
+CeO$_2$ & 28.55 & 33.09 & 47.49 & 56.36 \\
+ZrO$_2$ & 30.39 & 35.23 & 50.68 & 60.25 \\
+Sample A\readoff & 29.0 & 33.6 & 48.5 & 57.6 \\
+Sample B\readoff & 29.8 & 34.6 & 49.7 & 59.1 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Each sample shows \textbf{only one fcc set of peaks}, located \textbf{between} those of CeO$_2$ and ZrO$_2$. A mixture would show
+two sets (eight peaks in this range). $\Rightarrow$ \textbf{Solid solution Ce$_{1-x}$Zr$_x$O$_2$.}
+
+Lattice parameters ($a = d\sqrt N$): A $\approx$ \SI{5.32}{\angstrom}, B $\approx$ \SI{5.18}{\angstrom}. With Vegard's law\extra,
+$x_\mathrm{Zr}\approx(5.41-a)/(5.41-5.09)$: A $\approx$ 0.3, B $\approx$ 0.7.
+\checkflag{these compositions come from my peak readings; if both samples were prepared with the same Ce/Zr ratio,
+the difference could be reading error, so state the qualitative conclusion (solid solution) as the main answer.}
+
+\textbf{(b) Size.} FWHM of the (111) peak\readoff: A $\approx 2.2^\circ$, B $\approx 0.7^\circ$ (no instrumental
+broadening given):
+\[
+L_A = \frac{0.9\times1.5405}{0.0384\times\cos14.5^\circ}\approx\SI{37}{\angstrom}\approx\boxed{\SI{4}{nm}},\qquad
+L_B = \frac{0.9\times1.5405}{0.0122\times\cos14.9^\circ}\approx\SI{117}{\angstrom}\approx\boxed{\SI{12}{nm}}.
+\]
+\textbf{Effect of stirring:} stirring homogenises the solution, so supersaturation is reached everywhere at once. This gives a
+burst of \textbf{many nuclei}, which share the precursor and stay \textbf{small} (A). Without stirring, concentration
+gradients give fewer nuclei that keep growing (and ripen), so crystallites are larger (B). The slides list stirring rate as a
+size-controlling parameter \slide{56}.
+
+\textbf{(c) Other techniques:}
+\begin{itemize}
+  \item \textbf{HRTEM + FT} on single particles: one d-spacing intermediate between CeO$_2$ and ZrO$_2$ in every particle
+        (solid solution) vs particles with either 3.12 or \SI{2.94}{\angstrom} for (111) (mixture).
+  \item \textbf{STEM-EDX or EELS maps}: Ce and Zr in the same particles (solid solution) vs separate particles (mixture),
+        as in \slide{32}.
+  \item XPS gives the surface Ce/Zr ratio and Ce$^{3+}$/Ce$^{4+}$ but cannot tell mixture from solution on its own; Raman\extra.
+\end{itemize}
+
+%=====================================================================
+\section{Exercise 7: Pd/Al$_2$O$_3$ histograms and epitaxy}
+\textbf{Types G, F.} The digital images 2\_1a, 2\_1b, 2\_2 are \textbf{not in the course folder}, so the numbers cannot be
+computed here. Method:
+\begin{enumerate}
+  \item Calibrate each image with its scale bar (20 nm in 2\_1a and 2\_2, 5 nm in 2\_1b).
+  \item Measure $\geq$100 particles per sample (A: images 2\_1a + 2\_1b; B: 2\_2).
+  \item Histogram with 0.5--1 nm bins; $\bar d = \sum n_id_i/\sum n_i$, $\sigma$ as in \cref{ch:tem}.
+\end{enumerate}
+\textbf{Qualitative reading of the thumbnails:} sample A shows many small, well-dispersed dark Pd particles (a few nm) on
+the alumina. In sample B the particles are hard to distinguish from the alumina crystallites, so its histogram has larger
+uncertainty (HAADF would help).
+\textbf{Epitaxy:} in the HRTEM image (2\_1b) measure the Pd fringes ($d_{111}$ = 2.25, $d_{200}$ = \SI{1.95}{\angstrom}) and check
+whether they are aligned/continuous with the Al$_2$O$_3$ fringes at the interface. Aligned $\Rightarrow$ epitaxy.
+Random orientation $\Rightarrow$ no epitaxy.
+
+%=====================================================================
+\section{Exercise 8: CeO$_2$ cubes at 573 and 973 K}
+\textbf{Type F.} The digital images 3\_1 and 3\_2 are not in the folder; the answer below uses the thumbnails and must be
+checked by measuring the fringes.
+\begin{itemize}
+  \item \textbf{573 K (3\_1):} a well-defined cube, with fringes parallel to its edges. CeO$_2$ cubes are bounded by
+        \textbf{\{100\}} faces. Viewed along [001], the fringes parallel to the faces are \textbf{\{200\}}
+        ($d_{200} = 5.411/2 = \SI{2.71}{\angstrom}$); \{111\} fringes ($d = \SI{3.12}{\angstrom}$) would appear at $\sim$45$^\circ$/54.7$^\circ$ to
+        the edges in other orientations. Edges: \{100\} faces meeting at $90^\circ$, possibly slightly truncated by \{110\}.
+  \item \textbf{973 K (3\_2):} the particle has grown and its corners/edges are rounded: heating sinters the cubes and
+        exposes the more stable \textbf{\{111\}} (and \{110\}) facets at the truncated edges.
+\end{itemize}
+How to verify: measure $d$ inside the particle (2.71 vs \SI{3.12}{\angstrom}) and the angle of the fringes relative to the edges.
+
+%=====================================================================
+\section{Exercise 9: Ni/Pd core--shell in a microreactor}
+\textbf{Types F, K, J.}
+
+\textbf{(a) Core metal.} HRTEM fringes in the core: \SI{1.95}{\angstrom}.
+\begin{center}
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+ & $d_{111}$ (\AA) & $d_{200}$ (\AA) & $d_{220}$ (\AA) \\ \midrule
+Ni ($a$=3.524) & 2.035 & 1.762 & 1.246 \\
+Pd ($a$=3.891) & 2.246 & \textbf{1.946} & 1.376 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\SI{1.95}{\angstrom} = Pd(200). $\Rightarrow$ \textbf{Pd core}, so the shell is \textbf{NiO}. This agrees with the darker (higher-$Z$) core
+in the TEM image and with the exercise on \slide{101}.
+
+\textbf{(b) Shell composition:} EDX or EELS maps/line scans across the particle (Ni and O in the shell, Pd in the core);
+XPS Ni 2p (surface sensitive, so it sees the shell: Ni$^{2+}$ with satellites); HRTEM fringes of the shell matched to
+NiO (rocksalt, $a$ = \SI{4.177}{\angstrom}, $d_{200}$ = \SI{2.09}{\angstrom}\extra); XRD (Pd + NiO peaks).
+
+\textbf{(c) Microreactor design} (class solution, \cref{fig:microreactor}):
+\begin{enumerate}
+  \item From TEM\readoff: core $d_c\approx\SI{10}{nm}$, total $d_t\approx\SI{50}{nm}$, so the shell adds \SI{40}{nm} to the diameter.
+  \item Times: $t_\mathrm{core} = 10/2 = \SI{5}{min}$ at \SI{35}{\celsius}; $t_\mathrm{shell} = 40/10 = \SI{4}{min}$ at
+        \SI{5}{\celsius}.
+  \item Flows: core zone PdCl$_2$ + NaBH$_4$ = $2\times15 = \SI{30}{\micro L/min}$; shell zone + NiCl$_2$ + NaBH$_4$ =
+        \SI{60}{\micro L/min}.
+  \item Volumes: $V_\mathrm{core} = 30\times5 = \SI{150}{\micro L}$; $V_\mathrm{shell} = 60\times4 = \SI{240}{\micro L}$.
+  \item Channel of radius $r = \SI{0.5}{mm}$ ($A = \pi r^2 = \SI{0.785}{mm^2}$; \SI{1}{\micro L} = \SI{1}{mm^3}):
+        $L_\mathrm{core} = 150/0.785 \approx \SI{191}{mm} \approx \boxed{\SI{19}{cm}}$,
+        $L_\mathrm{shell} = 240/0.785 \approx \SI{306}{mm} \approx \boxed{\SI{31}{cm}}$ (serpentines).
+  \item Finally inject KMnO$_4$ to oxidise the Ni shell to NiO; collect at the outlet.
+\end{enumerate}
+Reactions written in class: \ce{PdCl2 + NaBH4 -> Pd^0 + ...} (Pd$^{2+}$ + 2e$^-$ $\to$ Pd), \ce{NiCl2 + NaBH4 -> Ni + ...},
+then \ce{Ni + KMnO4 + H2O -> NiO + ...}.
+\checkflag{the handwritten equations on slide 102 (products ``NaBH$_2$ + 2HCl'' and ``KMnO$_3$'') are oxidation-state
+bookkeeping, not balanced reactions. In reality borohydride is oxidised to borate and permanganate is reduced to MnO$_2$.
+Use them for the electron count only.}
+
+%=====================================================================
+\section{Exercise 10: Cu/CeO$_2$ methanol catalyst}
+\textbf{Types E, F, A, I.}
+
+\textbf{(a) What happens to Cu?} Spectrum A (before)\readoff: Cu 2p$_{3/2}$ $\approx$ \SI{934}{eV}, broad, with strong
+\textbf{shake-up satellites} at \SIrange{938}{945}{eV}, which is typical of \textbf{Cu$^{2+}$ (CuO)}\extra. Spectrum B (after): a sharp
+peak at $\approx$ \SI{932.5}{eV} and 2p$_{1/2}$ at $\approx$ \SI{952.5}{eV}, \textbf{no satellites} and lower $E_B$, i.e.\ reduced
+copper (Cu$^0$; Cu$^+$ has the same 2p position and would need the Cu LMM Auger peak to be excluded\extra).
+$\Rightarrow$ \textbf{The CuO nanoparticles are reduced to metallic Cu during the reaction} (reducing H$_2$/CO atmosphere).
+
+\textbf{(b) Fringes.}
+$d_{111}$(CeO$_2$) = $5.411/\sqrt3$ = \SI{3.124}{\angstrom} $\leftrightarrow$ \SI{3.12}{\angstrom} measured $\Rightarrow$ the large crystal is the
+\textbf{ceria support}.
+$d_{200}$(Cu) = $3.615/2$ = \SI{1.808}{\angstrom} $\leftrightarrow$ \SI{1.81}{\angstrom} $\Rightarrow$ the small particle in the box is
+\textbf{metallic Cu} (consistent with XPS B). (Cu $d_{111}$ = \SI{2.09}{\angstrom} is not observed.)
+
+\textbf{(c) Epitaxy?} In the inset the Cu (200) fringes run parallel to the CeO$_2$ (111) fringes of the support at the
+interface, so there is a defined orientation relationship, Cu\{200\} $\parallel$ CeO$_2$\{111\}: \textbf{yes, epitaxial}.
+This is a judgement from the image; justify it with ``fringes aligned across the interface''.
+
+\textbf{(d) UV-vis.} Before: Cu is CuO (an oxide), so \textbf{no plasmon band}. Ceria only absorbs in the UV ($<$\SI{400}{nm}).
+After: metallic Cu nanoparticles, so a \textbf{plasmon band around \SI{570}{nm}} \slide{132} is expected, weak and broad because the
+particles are only a few nm.
+
+\textbf{(e) Preparation:} \textbf{impregnation} of CeO$_2$ with an aqueous Cu(NO$_3$)$_2$ solution $\to$ drying $\to$
+calcination (gives CuO/CeO$_2$, spectrum A) $\to$ reduction in H$_2$ (or in the reaction feed) \slide{87}.
+Alternative: ball milling of CuO + CeO$_2$ \slide{32}.
+
+%=====================================================================
+\section{Exercise 11: how to prepare\ldots}
+\textbf{Type I.}
+\begin{itemize}
+  \item \textbf{(a) Ag triangular nanoparticles:} reduction of AgNO$_3$ in the presence of a \textbf{capping agent} that binds
+        preferentially to \{111\} facets, so the particle grows laterally into flat triangular prisms \slide{71};
+        or solvo/hydrothermal synthesis. Verify by TEM and UV-vis (strongly red-shifted in-plane plasmon).
+  \item \textbf{(b) Pt nanoparticles coated with SiO$_2$:} Pt colloid by reduction of a Pt salt (e.g.\ H$_2$PtCl$_6$ +
+        NaBH$_4$/citrate), then \textbf{sol--gel} hydrolysis/condensation of a Si alkoxide (TEOS) around the Pt cores. For
+        reproducible core and shell sizes, do both steps in a \textbf{microreactor} (core zone + coating zone, as for
+        SiO$_2$/TiO$_2$ on \slide{98}). A microemulsion is an alternative. Class note: ``b) Microreactor.''
+  \item \textbf{(c) TiO$_2$ photonic crystal} (ordered periodic porosity): \textbf{template method}: mix polystyrene
+        spheres with a TiO$_2$ precursor (Ti alkoxide sol), let them order, then calcine to burn off the polymer and
+        crystallise TiO$_2$. The result is an ordered macroporous (inverse-opal) structure, as for macroporous SiO$_2$ by
+        spray pyrolysis \slide{45}.
+  \item \textbf{(d) Carbon aerogel:} \textbf{sol--gel} of an organic precursor (resorcinol--formaldehyde\extra) $\to$ gel $\to$
+        \textbf{supercritical drying} (no surface tension, pores kept) $\to$ pyrolysis in inert gas to convert it to
+        carbon\extra.
+\end{itemize}
+\begin{classbox}
+Class notes (\slide{166}): ``11.\ a) Capping agents or hydrothermal sources; b) Microreactor.''
+\end{classbox}
+
+%=====================================================================
+\section{Exercise 12: CoMg nanocubes; Pd on SiO$_2$ aerogel}
+\textbf{Type I.}
+\begin{itemize}
+  \item \textbf{(A) CoMg nanocubes:} shape control needs either \textbf{capping agents} that adsorb on \{100\} facets, or a
+        \textbf{hydrothermal} route where base concentration and temperature select the cube shape (as for CeO$_2$
+        nanocubes at high NaOH/high $T$, \slide{61}). Class note: ``To control the shape, either of the two: capping agents or
+        hydrothermal.''
+  \item \textbf{(B) Pd on SiO$_2$ aerogel:} sol--gel of TEOS with Pd added to the sol (Pd salt or pre-formed capped Pd
+        colloid, the ``catalytic nanoparticle'' of \slide{64}) $\to$ gelation $\to$ \textbf{supercritical drying} (aerogel)
+        $\to$ calcination/reduction in H$_2$ to metallic Pd. Alternatively make the aerogel first and then deposit Pd
+        (impregnation, with care: liquid can collapse the pores\extra).
+\end{itemize}
+
+%=====================================================================
+\section{Exercise 13: Au@SiO$_2$, UV-vis and controlled preparation}
+\textbf{Types A, I.} \textbf{Data (TEM)}\readoff: (a) medium Au core ($\sim$15 nm) + thick shell; (b) largest Au core
+($\sim$20 nm) + thinner shell; (c) very small core ($\lesssim$5 nm) + thick shell. Spectra: black has a clear band at
+$\sim$\SI{520}{nm}; red has a weaker band; blue has no band, only a rising background.
+
+\textbf{Assignment:} the plasmon band grows and sharpens with core size and is damped for very small cores; silica only
+adds scattering:
+\textbf{black $\to$ (b)} (largest core), \textbf{red $\to$ (a)}, \textbf{blue $\to$ (c)} (tiny core, no visible band).
+Class note: ``As the core varies, the absorbance peak will be more to the right the bigger the plasmon.''
+
+\textbf{Reproducible, controlled preparation:} two-step microreactor: (1) Au core by HAuCl$_4$ + citrate at high $T$; the core
+size is set by the citrate/Au ratio and residence time \slide{128}. (2) Silica shell by sol--gel (TEOS hydrolysis and
+condensation) in a second zone; the shell thickness is set by TEOS concentration and residence time \slide{98}.
+
+%=====================================================================
+\section{Exercise 14: can UV-vis distinguish these Au samples?}
+\textbf{Types A, G.} \textbf{Data}\readoff: histograms centred at $\approx$7--8 nm (5--12), $\approx$11 nm (6--17) and
+$\approx$19 nm (13--27).
+
+\textbf{Answer:} \textbf{hardly}. All three are below $\sim$30 nm, where the Au plasmon barely moves (518--522 nm,
+\slide{128--129}). The distributions also overlap. Differences would be small: the larger particles give a slightly
+red-shifted, more intense and narrower band, while the smallest give a weaker, broader (damped) band. The support
+(grey particles) may also absorb/scatter. To distinguish them use \textbf{TEM histograms} (as given) or \textbf{XRD Scherrer}
+widths.
+
+%=====================================================================
+\section{Exercise 15: Au nanotubes decorated with Pt}
+\textbf{Types I, F, A, K, E.}
+
+\textbf{(a) Preparation.} Au nanotubes: \textbf{galvanic replacement} of Ag nanowires with HAuCl$_4$
+(\ce{3Ag + Au^{3+} -> 3Ag+ + Au}, $E = 1.50 - 0.799 > 0$, \slide{90}). The Ag template dissolves, leaving a hollow Au tube.
+Pt decoration: chemical \textbf{reduction of a Pt salt} (H$_2$PtCl$_6$ with NaBH$_4$/ascorbic acid/citrate) in a suspension
+of the tubes, so Pt nucleates on the Au surface (seeded growth). Galvanic replacement of Au by Pt is not spontaneous (Pt is
+less noble than Au)\extra.
+
+\textbf{(b) Plane on the walls.} $d$ = \SI{0.237}{nm}; Au: $d_{111} = 4.065/\sqrt3 = \SI{0.2347}{nm}$ $\checkmark$,
+$d_{200}$ = \SI{0.203}{nm} $\times$. $\Rightarrow$ lateral walls expose \textbf{\{111\}} planes.
+\textbf{UV-vis:} yes, Au nanotubes are metallic Au and show a \textbf{plasmon band}. Being hollow and elongated, the band is
+red-shifted compared to Au spheres (longitudinal mode, as for rods \slide{131})\extra.
+
+\textbf{(c) Inside or outside?} (1) \textbf{TEM tomography} (3D reconstruction, \slide{204}); (2) \textbf{XPS}: outside particles
+are fully detected, while particles inside are attenuated by the Au wall (IMFP of a few nm), so the Pt/Au intensity ratio
+tells. Also SEM (only outside visible) and HAADF/EDX maps at several tilts.
+
+\textbf{(d) Pt 4f doublets}\readoff: blue doublet 4f$_{7/2}$ $\approx$ \SI{71.4}{eV} / 4f$_{5/2}$ $\approx$ \SI{74.7}{eV} =
+\textbf{Pt$^0$} (lower $E_B$, majority); red doublet $\approx$ 72.6/\SI{75.9}{eV} = \textbf{Pt$^{2+}$} (higher $E_B$).
+Splitting $\approx$ \SI{3.3}{eV} in both.
+\textbf{Explanation:} Au (2.54) is more electronegative than Pt (2.28). At the Au--Pt interface electron density flows from Pt to
+Au, so the Pt atoms in contact with Au become electron-deficient and appear at higher $E_B$ (Pt$^{\delta+}$, fitted as Pt$^{2+}$).
+The rest of each Pt particle stays metallic. Residual oxidised Pt from incomplete reduction of the precursor would add to
+the same component.
+
+%=====================================================================
+\section{Exercise 16: Au--Ag bimetallic particles (multi-technique)}
+\textbf{Types D, A, E, F, I.} Discuss one technique at a time, then conclude.
+\begin{enumerate}
+  \item \textbf{EELS/energy-filtered maps (A):} one metal (yellow) fills the \textbf{centre}; the other (red) forms a
+        \textbf{ring} around it $\Rightarrow$ \textbf{core--shell} architecture, not a homogeneous alloy. The particles are
+        faceted (cubes, triangles, polyhedra), which indicates shape control.
+  \item \textbf{XRD (B)}\readoff: peaks at 38.2, 44.4, 64.6, 77.5, 81.6$^\circ$ $\Rightarrow$ fcc 111, 200, 220, 311, 222;
+        $a\approx\SI{4.08}{\angstrom}$. Au (4.065) and Ag (4.079) differ by only 0.3\,\% ($\Delta\twotheta(111)\approx0.1^\circ$),
+        so \textbf{XRD cannot distinguish Au, Ag, alloy or mixture}. It only says: one fcc metallic phase, no oxide.
+        The narrow peaks mean large crystallites (tens of nm).
+  \item \textbf{HRTEM (F):} \SI{2.35}{\angstrom} $\Rightarrow$ (111) of Au or Ag (2.347 vs \SI{2.355}{\angstrom}). Again, it cannot tell
+        which.
+  \item \textbf{UV-vis (C):} as prepared there are \textbf{two bands} ($\sim$400 and $\sim$\SI{490}{nm}\readoff): an Ag-like plasmon
+        and an Au-like plasmon, so the two metals are \textbf{segregated} (an alloy would give one band). After shell removal
+        a single band at $\sim$\SI{540}{nm}, typical of (large) Au, remains $\Rightarrow$ \textbf{the core is Au}.
+  \item \textbf{XPS Au 4f (E):} 4f$_{7/2}$ $\approx$ \SI{83.8}{eV} as prepared, $\approx$ \SI{84.0}{eV} after shell removal\readoff.
+        After removal the value is that of pure metallic Au. As prepared it is \textbf{shifted to lower $E_B$}: Au has gained
+        electron density, as expected for Au in contact/alloyed with the less electronegative Ag (1.93 vs 2.54).
+        Au is detected at all through the shell (XPS depth 5--10 nm), so the shell is thin and/or contains some Au.
+  \item \textbf{XPS Ag 3d (D):} two components; the main 3d$_{5/2}$ at $\approx$ \SI{368.6}{eV} and a minor one at
+        $\approx$ \SI{368.2}{eV}\readoff. Ag gives electron density to Au, which raises its $E_B$, so the main component is Ag
+        interacting/alloyed with Au. The minor one is closer to pure Ag.
+\end{enumerate}
+\textbf{(a) Conclusion:} yellow = Au, red = Ag. The particles are \textbf{Au core @ Ag shell}. Au and Ag are \textbf{not
+completely separated}: the XPS shifts show electronic interaction and partial alloying (an Au--Ag alloyed region at the
+interface and/or Au in the shell). However, they do not form a homogeneous alloy throughout (EELS maps, two UV-vis bands).
+The core is pure Au after shell removal.
+
+\textbf{(b) Preparation:} \textbf{seeded (sequential) reduction} \slide{59}: (1) Au cores by reduction of HAuCl$_4$ with a
+\textbf{capping agent} to obtain faceted shapes \slide{71}; (2) reduction of AgNO$_3$ (e.g.\ with ascorbic acid/citrate) on the
+Au seeds to grow the Ag shell. Partial interdiffusion at the interface gives the alloyed layer. A microreactor improves
+reproducibility of core and shell sizes.
+
+%=====================================================================
+\section{Exercise 17: capped Pt, AFM vs TEM}
+\textbf{Type H.} \textbf{Data}\readoff: AFM height histogram centred at $h\approx\SI{5}{nm}$ (3--8 nm); HRTEM shows a crystalline Pt
+core of $d\approx\SI{2.5}{nm}$ (scale bar 2 nm).
+
+\textbf{Reasoning.} AFM measures the full height, including the organic shell (one layer under, one on top). TEM only shows
+the dense Pt core (organics have no contrast). $h_\mathrm{AFM} > d_\mathrm{TEM}$ $\Rightarrow$ \textbf{the capping shell is
+still present}.
+\[
+\ell_\mathrm{cap}\approx\frac{h_\mathrm{AFM}-d_\mathrm{TEM}}{2}\approx\frac{5-2.5}{2}\approx\boxed{\SI{1.2}{nm}}.
+\]
+Do not use the AFM lateral size: the dots look tens of nm wide because of tip convolution.
+
+%=====================================================================
+\section{Exercise 18: Rh/TiO$_2$ of different sizes}
+\textbf{Type F.} \textbf{Data:} (A) small ($\sim$2--3 nm), flat Rh particle; (B) medium ($\sim$4 nm), truncated; (C) large
+($\sim$8 nm), almost spherical, with a small contact area (see the models below the images).
+
+\textbf{Epitaxy:} in \textbf{A and B} the Rh fringes are aligned with the TiO$_2$ fringes and the particle wets the support with a
+flat interface, so they are \textbf{epitaxial}. In \textbf{C} the particle has its own orientation and only touches the support
+at its base, so there is \textbf{no (or no clear) epitaxy}. These are judgements from the images: state the criterion
+(continuity/alignment of fringes across the interface).
+
+\textbf{Catalysis:} choose the \textbf{smallest particles (A)}: highest fraction of surface atoms (dispersion) and the longest
+metal--support perimeter per Rh atom (\cref{ch:fundamentals}). The epitaxial anchoring also helps them resist sintering.
+If the reaction needs larger Rh facets, B is the compromise; C wastes most Rh atoms in the bulk.

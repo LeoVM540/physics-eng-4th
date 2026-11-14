@@ -1,0 +1,169 @@
+\chapter{X-ray diffraction (XRD)}
+\label{ch:xrd}
+
+\paragraph{In this chapter.} Lattice planes and Miller indices, Bragg's law, d-spacings, systematic absences (how to tell
+fcc from bcc), the full procedure to index a pattern and get the lattice parameter, peak broadening and the Scherrer
+equation. XRD is the most frequent calculation in the exercises.
+
+\section{Lattice planes and Miller indices}
+\slide{169--171}: a crystal lattice contains many families of parallel planes, labelled by Miller indices $(hkl)$.
+Each family gives one diffraction peak; its \textbf{d-spacing} sets the peak angle.
+\begin{itemize}
+  \item $(100)$, $(010)$, $(001)$: cube faces. $(110)$: diagonal plane. $(111)$: plane cutting the three axes at 1.
+  \item $(200)$ has half the spacing of $(100)$; $(300)$ one third \slide{170}.
+  \item $\{hkl\}$ = family of equivalent planes (e.g.\ $\{100\}$ = all six cube faces).
+\end{itemize}
+
+\begin{keybox}[: d-spacing for orthogonal systems \slide{172--173}]
+\begin{equation}
+\text{Cubic:}\quad \frac{1}{d_{hkl}^2} = \frac{h^2+k^2+l^2}{a^2}
+\qquad\Longleftrightarrow\qquad \boxed{d_{hkl} = \frac{a}{\sqrt{h^2+k^2+l^2}}}
+\label{eq:dcubic}
+\end{equation}
+Tetragonal: $\dfrac{1}{d^2} = \dfrac{h^2+k^2}{a^2} + \dfrac{l^2}{c^2}$; \quad
+Orthorhombic: $\dfrac{1}{d^2} = \dfrac{h^2}{a^2}+\dfrac{k^2}{b^2}+\dfrac{l^2}{c^2}$; \quad
+Hexagonal: $\dfrac{1}{d^2} = \dfrac{4}{3}\dfrac{h^2+hk+k^2}{a^2}+\dfrac{l^2}{c^2}$.
+\end{keybox}
+
+\section{Bragg's law}
+\begin{keybox}[: Bragg equation \slide{174}]
+\begin{equation}
+\boxed{2\,d\,\sin\theta = n\,\lambda}
+\label{eq:bragg}
+\end{equation}
+Rays reflected by consecutive planes have a path difference $2d\sin\theta$; constructive interference when it is an
+integer number of wavelengths. Lab source: \textbf{Cu K$\alpha$, $\lambda = \SI{1.54}{\angstrom}$} \slide{168}.
+\end{keybox}
+\begin{pitfall}
+The diffractogram's x-axis is $\twotheta$. Divide by 2 before taking $\sin\theta$. Using $\sin(2\theta)$ is the most
+common error.
+\end{pitfall}
+Combining \cref{eq:dcubic,eq:bragg} ($n=1$):
+\begin{equation}
+\sin^2\theta = \frac{\lambda^2}{4a^2}\,(h^2+k^2+l^2).
+\label{eq:sin2}
+\end{equation}
+Since $\lambda^2/4a^2$ is the same for all peaks, \textbf{$\sin^2\theta$ of the peaks are in the ratio of the integers
+$N = h^2+k^2+l^2$}. The \emph{lowest-angle} peaks come from the \emph{largest} d-spacings (smallest $N$) \slide{177}.
+
+\textbf{Monocrystal vs polycrystal} \slide{175--176}: a single crystal gives spots; a powder (random crystallites) gives
+Debye--Scherrer rings, recorded by the diffractometer as peaks vs $\twotheta$.
+
+\section{Systematic absences: which peaks appear}
+\begin{keybox}[: selection rules for cubic lattices \slide{179--182}]
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Lattice & Reflection observed if\ldots & First lines \\ \midrule
+Simple cubic (P) & all $hkl$ & 100, 110, 111, 200, 210, 211, \ldots \\
+Body-centred (I, bcc) & $h+k+l$ even & 110, 200, 211, 220, 310, 222, \ldots \\
+Face-centred (F, fcc) & $h,k,l$ all odd or all even & 111, 200, 220, 311, 222, 400, \ldots \\
+\bottomrule
+\end{tabular}
+\end{center}
+Why: in bcc the atom at the body centre lies on a plane halfway between two (100) planes and scatters exactly out of
+phase, so (100) vanishes but (200) is observed \slide{179}. In fcc (NaCl) the (110) planes have an identical plane
+halfway between them, so (110) is absent, while (111) is observed \slide{180}.
+\end{keybox}
+
+\begin{keybox}[: the fingerprint sequences of $N = h^2+k^2+l^2$]
+\begin{center}
+\small
+\begin{tabular}{@{}lll>{\raggedright\arraybackslash}p{2.8cm}@{}}
+\toprule
+Lattice & $N$ sequence & ratios $N/N_1$ & looks like \\ \midrule
+SC  & 1, 2, 3, 4, 5, 6, 8, 9 & 1:2:3:4:5:6:8 & integers, 7 missing \\
+BCC & 2, 4, 6, 8, 10, 12, 14 & 1:2:3:4:5:6:7 & all integers \\
+FCC & 3, 4, 8, 11, 12, 16, 19 & 1:1.33:2.67:3.67:4:5.33 & \textbf{pair, gap, pair} \\
+\bottomrule
+\end{tabular}
+\end{center}
+Visual pattern: fcc peaks come in \textbf{pairs} (111/200, 311/222, 331/420) with the first of the pair stronger;
+bcc peaks are roughly evenly spaced \slide{183}.
+\end{keybox}
+\begin{tipbox}
+SC and BCC both give integer ratios for the first six lines. Look at the 7th line (SC has no $N=7$, BCC gives 7 $\to$
+$N=14$), or use physical knowledge: metals are fcc or bcc, almost never sc.
+\end{tipbox}
+Structures with a basis (e.g.\ ZnS zincblende, NaCl rocksalt, CeO$_2$ fluorite, TiN rocksalt) are on an \textbf{fcc}
+lattice and follow the fcc rule. Some fcc peaks are weak or missing for compounds (e.g.\ ZnS (200) weak) \slide{184}.
+
+\section{Procedure: indexing a cubic pattern}
+\label{sec:xrd-indexing}
+\begin{recipe}{indexing and lattice parameter}
+\begin{enumerate}
+  \item Read all peak positions $\twotheta_i$. Compute $\theta_i$ and $\sin^2\theta_i$.
+  \item Divide by the first: $r_i = \sin^2\theta_i/\sin^2\theta_1$.
+        \begin{itemize}
+          \item $r = 1, 2, 3, 4, 5, 6 \Rightarrow$ BCC ($N = 2r$).
+          \item $r = 1, 1.33, 2.67, 3.67, 4 \Rightarrow$ FCC ($N = 3r$).
+        \end{itemize}
+  \item Assign $hkl$ from $N$ (table above).
+  \item For each peak: $d_i = \lambda/(2\sin\theta_i)$ and $a_i = d_i\sqrt{N_i}$.
+  \item Average the $a_i$ (high-angle peaks are more precise).
+\end{enumerate}
+Sanity check: metals have $a\approx\SIrange{3}{4.2}{\angstrom}$; fluorite oxides (CeO$_2$) $\approx$ \SI{5.4}{\angstrom}.
+\end{recipe}
+Worked example: a cubic lattice with $a = \SI{4}{\angstrom}$, $\lambda = \SI{1.54}{\angstrom}$ gives (100) $d=4.00$, $\twotheta=22.2^\circ$;
+(110) 2.83, $31.6^\circ$; (111) 2.31, $39.0^\circ$; (200) 2.00, $45.2^\circ$; (210) 1.79, $51.0^\circ$ \slide{178}.
+
+\subsection*{Identifying a phase / distinguishing two compounds}
+Compute the expected $\twotheta$ of the first allowed reflections for each candidate (from its $a$ and lattice type)
+and compare with the measured pattern (Exercise~4). Two phases in a mixture give \textbf{two sets of peaks}; a
+\textbf{solid solution} gives \textbf{one set} at intermediate positions (Exercise~6, \cref{sec:vegard}).
+
+\section{Peak broadening and the Scherrer equation}
+Real crystals are finite, so destructive interference is incomplete over a range of angles and peaks broaden
+\slide{185}. Contributions to the observed width: \textbf{instrumental profile}, \textbf{crystallite size},
+\textbf{microstrain}. Smaller crystallites give broader peaks (7 $\to$ 2 nm, \slide{186}).
+\begin{keybox}[: Scherrer equation \slide{186}]
+\begin{equation}
+\boxed{L = \frac{K\,\lambda}{B_{(2\theta)}\,\cos\theta_\mathrm{max}}}, \qquad K = 0.9
+\label{eq:scherrer}
+\end{equation}
+$L$: mean crystallite size; $K$: shape factor; $\theta_\mathrm{max}$: Bragg angle of the peak (half of its $\twotheta$);
+$B$: FWHM of the peak \textbf{in radians}, after subtracting the instrumental broadening.
+Class note: ``As particle size increases, peaks get narrower.''
+\end{keybox}
+\begin{pitfall}
+\begin{enumerate}
+  \item Convert $B$ to \textbf{radians}: $B[\mathrm{rad}] = B[^\circ]\cdot\pi/180$.
+  \item Use $\cos\theta$ with $\theta = (\twotheta)/2$, not $\cos 2\theta$.
+  \item Subtract the instrumental broadening: the course says ``after subtracting'', i.e.\ $B = B_\mathrm{obs}-B_\mathrm{inst}$.
+        Some books use $B^2 = B_\mathrm{obs}^2 - B_\mathrm{inst}^2$\extra. Say which one you use.
+  \item The result is in the units of $\lambda$ (usually \AA; divide by 10 for nm).
+\end{enumerate}
+\end{pitfall}
+\begin{keybox}[: crystallite size $\neq$ particle size \slide{187}]
+A particle may be made of several crystallites. Crystallite size often matches grain size, but not always.
+XRD (Scherrer) gives the \emph{crystallite} size; TEM gives the \emph{particle} size. If $L_\mathrm{XRD} < d_\mathrm{TEM}$,
+the particles are polycrystalline.
+\end{keybox}
+
+\section{Vegard's law (mixtures vs solid solutions)\extra}
+\label{sec:vegard}
+For a substitutional solid solution A$_{1-x}$B$_x$ with the same structure, the lattice parameter varies approximately
+linearly between the end members:
+\begin{equation}
+a_{\mathrm{A}_{1-x}\mathrm{B}_x} \approx (1-x)\,a_\mathrm{A} + x\,a_\mathrm{B}
+\qquad\Rightarrow\qquad x \approx \frac{a_\mathrm{A} - a_\mathrm{measured}}{a_\mathrm{A}-a_\mathrm{B}}.
+\end{equation}
+Not in the slides, but it is the standard way to answer ``mixture or solid solution?'' quantitatively (Exercise~6).
+\begin{pitfall}
+If the two lattice parameters are almost equal (Au \SI{4.065}{\angstrom} vs Ag \SI{4.079}{\angstrom}), XRD \textbf{cannot}
+distinguish alloy from mixture. Use another technique (UV-vis, XPS, EELS, Exercise~16).
+\end{pitfall}
+
+\section{Advantages and limitations}
+\proscons{
+\begin{itemize}
+  \item Crystal structure and phase identification.
+  \item Lattice parameter $\to$ alloy/solid-solution composition.
+  \item Crystallite size (Scherrer); bulk-averaged, representative.
+  \item Simple, cheap, non-destructive.
+\end{itemize}}{
+\begin{itemize}
+  \item Only \textbf{crystalline} phases; amorphous and very small ($<$2--3 nm) particles give no/very broad peaks.
+  \item Low sensitivity to minor phases ($<$\,few \%).
+  \item No information on shape, location or surface.
+\end{itemize}}

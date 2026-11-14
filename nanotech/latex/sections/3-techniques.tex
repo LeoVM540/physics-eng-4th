@@ -1,0 +1,148 @@
+\section{Characterization techniques}
+\label{sec:techniques}
+Each card lists: \textbf{principle} (how it works), \textbf{what you can do with it}, \textbf{limits}, and the \textbf{exercises}
+that need it.
+
+\newcommand{\tech}[5]{%
+\begin{cardbox}{#1}
+\textbf{Principle:} #2\par\smallskip
+\textbf{You can:} #3\par
+\textbf{Limits:} #4\par
+\textbf{Exercises:} #5
+\end{cardbox}}
+
+\subsection{UV-vis and fluorescence}
+\tech{UV-vis \slide{124--136}}
+{UV and visible photons (\SIrange{200}{800}{nm}) have the energy of electronic transitions, so the sample absorbs at wavelengths
+set by its electronic structure. In molecules and semiconductors these are HOMO$\to$LUMO or band-gap transitions. In Au, Ag and Cu
+nanoparticles the light's electric field drives the conduction electrons to oscillate collectively against the ionic cores: the
+\textbf{localised surface plasmon resonance (LSPR)}. At resonance absorption is very strong and gives a band in the visible. Its
+position depends on the metal, size, shape, composition and surroundings of the particle. The colour we see is the complementary
+colour of the absorbed light (Au absorbs green and looks red; Ag absorbs violet and looks yellow). Larger particles have electrons
+less bound to the atoms, so the oscillation is ``softer'' and the band moves to longer $\lambda$; in rods the electrons can also
+oscillate along the long axis, which gives a second, lower-energy band.}
+{\begin{itemize}
+ \item identify the \textbf{metal}: Ag $\approx$ 400 nm, Au $\approx$ 520 nm, Cu $\approx$ 570 nm; oxides show no band;
+ \item tell an \textbf{alloy} (one band in between, moving with composition) from segregated metals (two bands);
+ \item see \textbf{size} (bigger $\to$ red shift + broader; small effect below $\sim$30 nm) and \textbf{distribution} (band width);
+ \item see \textbf{shape}: rods give a transverse ($\sim$520 nm) and a longitudinal band that red-shifts with aspect ratio.
+\end{itemize}}
+{indirect; only plasmonic metals/semiconductors; tiny particles ($\lesssim$3 nm) show a damped band. Fast, cheap and
+representative of the whole sample.}
+{1, 10d, 13, 14, 15b, 16.}
+\textbf{Fluorescence/quantum dots:} the sample absorbs a photon, relaxes non-radiatively within the excited state and then emits a
+photon of lower energy (Stokes shift). In CdSe quantum dots the band gap grows as the size decreases (quantum confinement), so small
+dots emit blue and large ones red \slide{133--135}. Used for \emph{in vivo} imaging.
+
+\subsection{X-ray photoelectron spectroscopy (XPS)}
+\tech{XPS \slide{137--165}}
+{X-ray photons (Al K$\alpha$ 1486.6 eV, Mg K$\alpha$ 1253.6 eV) eject core electrons by the photoelectric effect. A hemispherical
+analyser measures their kinetic energy, and energy conservation gives the binding energy:
+$E_\mathrm{kin} = h\nu - E_B - \phi$ ($\phi$ = spectrometer work function). $E_B$ is characteristic of each element and orbital.
+It also shifts by a few eV with the chemical environment: core electrons feel the nucleus screened by all other electrons, so
+removing valence charge (oxidation) reduces the screening and raises $E_B$ (the \textbf{chemical shift}). X-rays penetrate microns,
+but photoelectrons lose energy after travelling only one inelastic mean free path (0.5--3 nm), so only those from the top
+\textbf{5--10 nm} leave without losses. This makes XPS a \textbf{surface technique}. It needs ultra-high vacuum so the electrons
+reach the detector.}
+{\begin{itemize}
+ \item identify elements at the surface; quantify with $I_i = N_i\sigma_i\lambda_iK$ (peak areas, Shirley background);
+ \item determine \textbf{oxidation state} from the chemical shift: losing valence charge (oxidation, more electronegative
+       neighbour) $\Rightarrow E_B\uparrow$; gaining charge $\Rightarrow E_B\downarrow$ (Ti$^0$ 454.1 $\to$ TiO$_2$ 458.8 eV);
+ \item detect \textbf{electron transfer between two metals}: the more electronegative one gains charge ($E_B\downarrow$), the other
+       loses it ($E_B\uparrow$);
+ \item compare surface vs core: a shell hides the core; particles outside a tube give more signal than particles inside.
+\end{itemize}}
+{surface only, UHV (except near-ambient-pressure XPS at synchrotrons, where tunable $h\nu$ also allows depth profiling); small
+shifts for Cu$^0$/Cu$^+$ and Ag$^0$/Ag$^+$.}
+{4, 5, 9b, 10a, 15c--d, 16.}
+\begin{keybox}[: reading peaks]
+$s$ levels: one peak. $p$, $d$, $f$: \textbf{doublets} from spin--orbit coupling ($j = l\pm\frac12$) with area ratios
+$p_{1/2}:p_{3/2}=1:2$, $d_{3/2}:d_{5/2}=2:3$, $f_{5/2}:f_{7/2}=3:4$; the higher-$j$ peak is at lower $E_B$. Auger peaks (e.g.\ Cu KLL)
+have a kinetic energy independent of $h\nu$. Cu$^{2+}$/Ni$^{2+}$ show shake-up satellites\extra. The $E_B$ axis runs from high (left)
+to low (right).
+\end{keybox}
+
+\subsection{X-ray diffraction (XRD)}
+\tech{XRD \slide{167--187}}
+{A crystal is a stack of parallel atomic planes, labelled by Miller indices $(hkl)$ with spacing $d_{hkl}$. X-rays (Cu K$\alpha$,
+1.54 \AA) reflected by successive planes interfere constructively only when their path difference is a whole number of wavelengths:
+\textbf{Bragg's law} $2d\sin\theta = n\lambda$. Each family of planes therefore gives a peak at its own angle $\twotheta$; for cubic
+crystals $d_{hkl} = a/\sqrt{h^2+k^2+l^2}$. In a powder, randomly oriented crystallites produce all allowed reflections at once.
+In centred lattices some reflections cancel because an extra plane of atoms sits halfway and scatters in antiphase (systematic
+absences), so the list of observed $(hkl)$ reveals the lattice type. A finite crystal cannot cancel the intensity fully slightly away
+from the Bragg angle, so \textbf{small crystallites give broad peaks} (Scherrer).}
+{\begin{itemize}
+ \item \textbf{identify phases} (compare expected and measured $\twotheta$);
+ \item get the \textbf{lattice parameter} and the \textbf{lattice type} (fcc/bcc) by indexing;
+ \item distinguish \textbf{mixture} (two sets of peaks) from \textbf{solid solution} (one set at intermediate positions, Vegard\extra);
+ \item estimate \textbf{crystallite size} with Scherrer, $L = 0.9\lambda/(B\cos\theta)$, $B$ = FWHM $-$ instrumental, in radians.
+\end{itemize}}
+{only crystalline phases; very small/amorphous particles give broad or no peaks; minor phases ($<$ few \%) invisible; cannot tell
+Au from Ag (lattice parameters 0.3\,\% apart). Crystallite size $\neq$ particle size (a particle can contain several
+crystallites).}
+{2, 3, 4, 5, 6, 16.}
+\begin{keybox}[: selection rules \slide{179--182}]
+SC: all $hkl$. \textbf{BCC}: $h+k+l$ even $\to$ 110, 200, 211, 220, 310, 222 ($N$ = 2, 4, 6, 8, 10, 12; ratios 1:2:3:4:5:6).
+\textbf{FCC}: all odd or all even $\to$ 111, 200, 220, 311, 222, 400 ($N$ = 3, 4, 8, 11, 12, 16; ratios 1:1.33:2.67:3.67:4:5.33,
+peaks in pairs). Rocksalt (TiN, NiO) and fluorite (CeO$_2$) follow the fcc rule.
+\end{keybox}
+
+\subsection{Transmission electron microscopy (TEM)}
+\tech{TEM, HRTEM, STEM, EDX, EELS \slide{188--218}}
+{A beam of high-energy electrons passes through a very thin sample (particles dispersed on a carbon-coated Cu grid). Electrons
+scattered elastically (same energy, new direction) form images and diffraction patterns; inelastically scattered ones (energy lost)
+carry chemical information. An aperture in the back focal plane of the objective lens selects the electrons used for the image.
+\textbf{Bright field} uses the direct beam, so heavy or thick regions that scatter strongly look dark. \textbf{Dark field/HAADF}
+collects scattered electrons, whose intensity grows as $Z^2$, so heavy atoms look bright (Z-contrast). In \textbf{HRTEM} the direct
+and diffracted beams interfere and give \textbf{lattice fringes} spaced by $d_{hkl}$ (an interference pattern, not images of atoms);
+their Fourier transform (FFT) looks like a diffraction pattern. The beam also excites characteristic X-rays (\textbf{EDX}) and
+element-specific energy losses (\textbf{EELS}); filtering the image at one energy loss gives elemental maps (\textbf{EFTEM}).}
+{\begin{itemize}
+ \item measure \textbf{size distribution}: $\bar d = \sum n_id_i/\sum n_i$ with $\geq$100 particles; see shape and location;
+ \item identify a particle or phase from fringe spacings, and the \textbf{exposed facets} (fringes parallel to the surface);
+ \item judge \textbf{epitaxy}: fringes of particle and support aligned across the interface;
+ \item map \textbf{which element is where} (core/shell, alloy) with EDX/EELS; see heavy metals on light supports with HAADF;
+ \item find the 3D location (inside/outside a tube or pore) with \textbf{tomography}; follow reactions in situ (environmental TEM).
+\end{itemize}}
+{local (few particles, not representative; one big particle can hold 50\,\% of the mass \slide{202}), 2D projection, vacuum, beam
+damage, organics invisible.}
+{5, 7, 8, 9, 10b--c, 13, 14, 15b--c, 16, 17, 18.}
+
+\subsection{Scanning probe microscopy (AFM, STM)}
+\tech{AFM and STM \slide{219--237}}
+{A sharp tip is scanned over the surface by a piezoelectric scanner with sub-nm precision, and a feedback loop keeps the tip--sample
+interaction constant. The image is the record of the tip's height. \textbf{AFM}: the tip sits on a flexible cantilever; the force
+from the surface bends it, and a laser reflected onto a photodiode measures the bending (contact mode, or tapping mode with an
+oscillating cantilever for soft samples). The result is the real \textbf{topography} of anything on the surface. \textbf{STM}: a
+metal tip a few \AA{} from a conducting sample lets electrons tunnel through the vacuum gap, $I_t\sim V\rho(E_F)e^{-2kd}$ with
+$k\approx\SI{1}{\per\angstrom}$, so 1 \AA{} more distance lowers $I_t$ about tenfold. This extreme sensitivity gives atomic
+resolution. In constant-current mode the tip follows the local density of electronic states, not just the topography.}
+{\begin{itemize}
+ \item AFM: measure precise \textbf{heights} (sub-nm) on any material, in air or liquid, \textbf{including organic shells};
+ \item STM: get \textbf{atomic resolution} and the local density of states on conducting surfaces; move single atoms (IBM Xe logo,
+       Fe quantum corrals).
+\end{itemize}}
+{AFM lateral sizes overestimated by the tip shape; STM needs conducting, clean, flat samples (UHV).}
+{17 (capped particle on a surface: $h_\mathrm{AFM}\approx d_\mathrm{TEM}+2\ell_\mathrm{cap}$); 15c (SEM/AFM see only outside).}
+
+\subsection{Which technique for which question}
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.4cm}X>{\raggedright\arraybackslash}p{2.2cm}@{}}
+\toprule
+Question & Best techniques (what you see) & Exercises \\ \midrule
+Particle size & TEM histogram; XRD Scherrer (crystallite); AFM height; UV-vis (indirect) & 4, 6, 7, 14, 17 \\
+Phase, lattice parameter & XRD; HRTEM fringes (local) & 2--6, 9, 10, 16 \\
+Mixture vs solid solution & XRD (two sets vs one shifted set); STEM-EDX maps; HRTEM per particle & 6, 16 \\
+Metal vs oxide & XPS (shift, satellites, O 1s); XRD (structure); UV-vis (plasmon only for metal) & 4, 5, 10 \\
+Core/shell, alloy & EELS/EDX maps; UV-vis (one vs two bands); XPS before/after shell removal; HAADF & 9, 13, 16 \\
+Electronic interaction & XPS shifts + electronegativity & 15d, 16 \\
+Exposed facets, epitaxy & HRTEM + FFT & 5, 8, 10c, 15b, 18 \\
+Inside vs outside & TEM tomography; XPS intensity; SEM/AFM & 15c \\
+Capping shell present & AFM height vs TEM core; XPS (C 1s, S 2p) & 17 \\
+Whole-sample average & UV-vis, XRD (not TEM) & --- \\
+\bottomrule
+\end{tabularx}
+\end{center}

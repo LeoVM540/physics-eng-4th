@@ -1,0 +1,350 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts,bm}
+\usepackage{braket}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{quantikz2}
+
+\newcommand{\pts}[1]{\textbf{(#1)}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\id}{\mathbb{I}}
+\newcommand{\sol}{\color{blue!60!black}}
+
+\setlist[enumerate,1]{label=\alph*)}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\title{Quantum Technologies -- First partial exam\\[4pt] \large Practice exam A}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-1.5cm}
+\begin{center}
+Duration: 2 hours. Total: 10 points.
+\end{center}
+
+%=====================================================================
+\section{Open question (1pt)}
+
+A quantum computer can evaluate a function $f:\{0,1\}^n\to\{0,1\}$ on all $2^n$ inputs with a
+single call to the oracle $U_f$ (\emph{quantum parallelism}). Explain why quantum parallelism by itself
+does not provide a computational advantage, and which additional ingredient is needed to extract
+useful information. Illustrate your answer with TWO quantum algorithms seen in class, indicating
+in each case what the algorithm learns about $f$ and the speed-up with respect to the best
+classical strategy. (Maximum 200 words, $\sim$1 page)
+
+%=====================================================================
+\section{Short questions (3pts)}
+
+\begin{enumerate}
+\item Consider the following circuit acting on three qubits. Can it be used as the oracle of the
+Grover algorithm? If so, indicate (i) which is[are] the marked item[s] and (ii) the number of
+Grover iterations that maximizes the probability of finding a marked item, together with that
+probability \pts{1 p}.
+\begin{center}
+\begin{quantikz}[row sep=0.25cm, column sep=0.35cm]
+\lstick{$\ket{q_0}$} & \gate{X} & \ctrl{2} & \gate{X} & \\
+\lstick{$\ket{q_1}$} & & & & \\
+\lstick{$\ket{q_2}$} & & \gate{Z} & &
+\end{quantikz}
+\end{center}
+
+\item We use the quantum phase estimation algorithm to find the phases $\varphi$ associated to the
+eigenstates $\ket{u}=\ket{0}$ and $\ket{u}=\ket{1}$ of the unitary operator
+$U = R_z(\pi/2) = \begin{pmatrix} e^{-i\pi/4} & 0\\ 0 & e^{i\pi/4}\end{pmatrix}$.
+If we use $n=4$ qubits in the first register, what is the expected measurement $\vec{x}$ for each
+qubit in the register, for each of the two eigenstates? \pts{1 p}
+
+\item Solving the order-finding problem with a quantum computer for $x=2$ and $M=21$, we measure
+the value $\vec{y}_0=\{001011\}$ in the first register, formed by $n=6$ qubits. With this
+information, use the continued fraction expansion to find the order of $x$ modulo $M$. Would the
+measurement $\vec{y}_0^{\,\prime}=\{101000\}$ also be compatible with this problem? \pts{1 p}
+\end{enumerate}
+
+%=====================================================================
+\section*{Problems}
+
+\section{An imperfect state preparation (3pts)}
+
+A device is designed to prepare a qubit in the state $\ket{0}$. Due to experimental imperfections,
+it prepares $\ket{0}$ with probability $p$ and the state $\ket{+}=(\ket{0}+\ket{1})/\sqrt{2}$ with
+probability $1-p$, with $0\le p\le 1$.
+
+\begin{enumerate}
+\item Write the density matrix $\rho$ describing the output of the device in the computational
+basis, and check that it satisfies the properties of a density matrix \pts{0.5 p}.
+\item Find its Bloch vector $\bm{r}$ and locate it in the Bloch sphere. For which values of $p$ is
+$\rho$ a pure state? \pts{0.5 p}
+\item Calculate the purity $\gamma(\rho)$ and the eigenvalues of $\rho$ as a function of $p$.
+Evaluate the von Neumann entropy for $p=1/2$ \pts{0.5 p}.
+\item The observable $\sigma_x$ is measured on the output of the device. Which are the possible
+outcomes, their probabilities and the state after the measurement for each outcome? What is the
+average value $\langle\sigma_x\rangle$? \pts{0.5 p}
+\item Calculate the fidelity $F(\rho,\ket{0}\!\bra{0})$ between the prepared state and the target
+state \pts{0.5 p}.
+\item Calculate the trace distance $d(\rho,\ket{0}\!\bra{0})$. Is $\ket{0}$ the pure state with the
+largest fidelity with $\rho$? If not, which pure state is it, and what is that fidelity? \pts{0.5 p}
+\end{enumerate}
+
+\section{Controlled rotation (3pts)}
+
+Consider the following two-qubit circuit, where
+$R_y(\theta)=\begin{pmatrix}\cos\frac{\theta}{2} & -\sin\frac{\theta}{2}\\ \sin\frac{\theta}{2} & \cos\frac{\theta}{2}\end{pmatrix}$
+and $0\le\theta<2\pi$.
+\begin{center}
+\begin{quantikz}[row sep=0.4cm, column sep=0.4cm]
+\lstick{$\ket{q_0}$} & \gate{H} & \ctrl{1} & \\
+\lstick{$\ket{q_1}$} & & \gate{R_y(\theta)} &
+\end{quantikz}
+\end{center}
+
+\begin{enumerate}
+\item Write the matrix of the circuit in the computational basis $\{\ket{00},\ket{01},\ket{10},\ket{11}\}$ \pts{0.5 p}.
+\item Consider the input state $\ket{00}$. Write the output state $\ket{\psi}$. For which values of
+$\theta$ is the output a product state? For which value is it a Bell state? \pts{0.5 p}
+\item Calculate the reduced density matrices $\rho_A$ (first qubit) and $\rho_B$ (second qubit),
+their Bloch vectors and their purities. For which values of $\theta$ is $\ket{\psi}$ entangled?
+\pts{0.5 p}
+\item For $\theta=2\pi/3$, find the Schmidt decomposition of $\ket{\psi}$ and its entanglement
+entropy \pts{1 p}.
+\item For $\theta=2\pi/3$, we measure $\sigma_z$ on the second qubit. Calculate the probability of
+each outcome and the state of the first qubit after the measurement. Is the two-qubit state still
+entangled after the measurement? \pts{0.5 p}
+\end{enumerate}
+
+\textit{Useful formulas:} $1+\cos x = 2\cos^2\frac{x}{2}$, $\;1-\cos x = 2\sin^2\frac{x}{2}$, $\;2\sin x\cos x=\sin 2x$.
+
+%=====================================================================
+\newpage
+\begin{center}
+\Large\textbf{Solutions}
+\end{center}
+\sol
+
+\section*{1\quad Open question}
+
+Using $n$ qubits in the superposition $\ket{s}=H^{\otimes n}\ket{0}^{\otimes n}$, one call to
+$U_f:\ket{x}\ket{y}\mapsto\ket{x}\ket{y\oplus f(x)}$ produces
+$\frac{1}{\sqrt N}\sum_x\ket{x}\ket{f(x)}$, i.e.\ the function is evaluated on all
+$N=2^n$ inputs at once. However, the values $f(x)$ are not accessible: a measurement collapses the
+state to a single random pair $(x,f(x))$, which is no better than one classical evaluation.
+
+The additional ingredient is \textbf{interference}. Preparing the target in $\ket{-}$, the oracle
+writes $f$ into the phases, $\ket{x}\ket{-}\mapsto(-1)^{f(x)}\ket{x}\ket{-}$ (phase kickback). A further
+unitary (Hadamards, QFT, diffuser) makes the amplitudes interfere so that the answer to a
+\emph{global} question about $f$ is concentrated on a few computational states.
+\begin{itemize}
+\item \textbf{Deutsch--Jozsa}: decides whether $f$ is constant or balanced. After
+$H^{\otimes n}$, the probability of measuring $0\dots0$ is $|\frac1N\sum_x(-1)^{f(x)}|^2$, which is 1
+for a constant function and 0 for a balanced one. One query, compared to $2^{n-1}+1$ classical
+queries in the worst case (exponential speed-up).
+\item \textbf{Bernstein--Vazirani}: for $f(x)=\vec s\cdot\vec x$, the state
+$\frac1{\sqrt N}\sum_x(-1)^{\vec s\cdot\vec x}\ket{x}$ is mapped by $H^{\otimes n}$ to $\ket{s}$. The
+hidden string is found with one query instead of $n$.
+\item (Also valid: \textbf{Grover}, where the oracle marks items with a phase and the diffuser
+amplifies their amplitude, giving $\mathcal{O}(\sqrt N)$ queries instead of $\mathcal{O}(N)$.)
+\end{itemize}
+
+\section*{2\quad Short questions}
+
+\begin{enumerate}
+\item Yes. The gate $X$--$CZ$--$X$ only adds a sign $-1$ when the control (after the first $X$) and
+the target are both in $\ket1$, that is when $q_0=0$ and $q_2=1$, whatever the value of $q_1$. It is
+diagonal with entries $\pm1$, so it is a valid oracle $U_f\ket{x}=(-1)^{f(x)}\ket{x}$, with
+\[
+\text{marked items: } \ket{w}\in\{\ket{001},\ket{011}\}\quad(M=2,\ N=2^3=8).
+\]
+With $M$ marked items, $\sin\theta_0=\sqrt{M/N}=\sqrt{2/8}=1/2$, so $\theta_0=\pi/6$. After $k$
+iterations, $P_k=\sin^2[(2k+1)\theta_0]$:
+\[
+k_{\max}\simeq\left\lfloor\frac{\pi}{4}\sqrt{\frac{N}{M}}\right\rfloor=\left\lfloor\frac{\pi}{2}\right\rfloor=1,
+\qquad P_{k=1}=\sin^2\!\left(3\cdot\frac{\pi}{6}\right)=1 .
+\]
+A single Grover iteration finds one of the marked items with certainty. (A second iteration
+would drop the probability back to $\sin^2(5\pi/6)=1/4$.)
+
+\item $U$ is diagonal, so $\ket0$ and $\ket1$ are eigenstates. We write each eigenvalue as
+$e^{2\pi i\varphi}$ with $\varphi\in[0,1)$:
+\[
+U\ket1=e^{i\pi/4}\ket1=e^{2\pi i\frac18}\ket1\ \Rightarrow\ \varphi=\tfrac18=\tfrac{x}{2^4}\ \Rightarrow\ x=2\equiv\{0010\}.
+\]
+\[
+U\ket0=e^{-i\pi/4}\ket0=e^{2\pi i\left(1-\frac18\right)}\ket0\ \Rightarrow\ \varphi=\tfrac78=\tfrac{x}{2^4}\ \Rightarrow\ x=14\equiv\{1110\}.
+\]
+In both cases $\varphi N$ is an integer, so the result is obtained with probability 1. (A negative
+phase has to be mapped to $[0,1)$ first.)
+
+\item $\vec y_0=\{001011\}$ corresponds to $y_0=11$, with $N=2^6=64$. We look for $k/r$ such that
+$\left|\frac{y_0}{N}-\frac kr\right|<\frac1{2N}=\frac1{128}$. The continued fraction expansion is
+\[
+\frac{11}{64}=\cfrac{1}{5+\cfrac{1}{1+\cfrac{1}{4+\cfrac12}}}\equiv[0;5,1,4,2],
+\qquad\text{convergents: } \frac01,\ \frac15,\ \frac16,\ \frac5{29},\ \frac{11}{64}.
+\]
+$\left|\frac{11}{64}-\frac15\right|=\frac{9}{320}\approx0.028>\frac1{128}$, while
+$\left|\frac{11}{64}-\frac16\right|=\frac{2}{384}\approx0.0052<\frac1{128}\approx0.0078$. Therefore
+$r=6$. Check: $2^1,\dots,2^6 \bmod 21 = 2,4,8,16,11,1$, so indeed $2^6\equiv1\bmod 21$ and $r=6$ is the order.
+
+$\vec y_0^{\,\prime}=\{101000\}$ corresponds to $y_0'=40$, $\frac{40}{64}=\frac58=[0;1,1,1,2]$ with
+convergents $0,\ 1,\ \frac12,\ \frac23,\ \frac58$. The fractions with denominator $r=6$ closest to
+$5/8=0.625$ are $\frac36=0.5$ and $\frac46=0.667$, and
+$\left|\frac58-\frac46\right|=\frac1{24}\approx0.042>\frac1{128}$. So $y_0'$ is \textbf{not}
+compatible with $r=6$. (The likely outcomes are $y_0\approx 64k/6$: $0,11,21,32,43,53$.)
+\end{enumerate}
+
+\section*{3\quad An imperfect state preparation}
+
+\begin{enumerate}
+\item The ensemble $\{(p,\ket0),(1-p,\ket+)\}$ gives
+\[
+\rho=p\ket0\!\bra0+(1-p)\ket+\!\bra+
+= p\begin{pmatrix}1&0\\0&0\end{pmatrix}+\frac{1-p}{2}\begin{pmatrix}1&1\\1&1\end{pmatrix}
+=\frac12\begin{pmatrix}1+p&1-p\\1-p&1-p\end{pmatrix}.
+\]
+It is Hermitian (a real symmetric matrix), $\tr\rho=\frac12[(1+p)+(1-p)]=1$, and positive
+semi-definite: $\tr\rho=1>0$ and $\det\rho=\frac14[(1+p)(1-p)-(1-p)^2]=\frac{p(1-p)}{2}\ge0$, so both
+eigenvalues are non-negative. (It is also a convex combination of projectors, which is positive by construction.)
+
+\item Using $r_\alpha=\tr[\rho\sigma_\alpha]$:
+\[
+r_x=2\,\mathrm{Re}\,\rho_{01}=1-p,\qquad r_y=-2\,\mathrm{Im}\,\rho_{01}=0,\qquad r_z=\rho_{00}-\rho_{11}=p,
+\]
+so $\bm r=(1-p,\,0,\,p)$, i.e.\ $\rho=\frac12\left[\id+(1-p)\sigma_x+p\,\sigma_z\right]$. This is
+the convex combination $p\,\hat{\bm z}+(1-p)\hat{\bm x}$: the segment joining the north pole
+($\ket0$) and the point $+\hat{\bm x}$ of the equator ($\ket+$), in the $xz$ plane. Its norm is
+$|\bm r|=\sqrt{p^2+(1-p)^2}$, and $|\bm r|^2=1-2p(1-p)=1\iff p(1-p)=0$. So the state is pure only
+for $p=0$ ($\rho=\ket+\!\bra+$) or $p=1$ ($\rho=\ket0\!\bra0$). Otherwise it lies inside the Bloch ball.
+
+\item Purity:
+\[
+\gamma(\rho)=\tr\rho^2=\frac{1+|\bm r|^2}{2}=\frac{1+p^2+(1-p)^2}{2}=1-p(1-p).
+\]
+Eigenvalues: $\lambda_\pm=\frac12(1\pm|\bm r|)=\frac12\left(1\pm\sqrt{p^2+(1-p)^2}\right)$. One can
+check $\lambda_+^2+\lambda_-^2=\frac{1+|\bm r|^2}{2}=\gamma$.
+
+For $p=1/2$: $|\bm r|=1/\sqrt2$, $\lambda_\pm=\frac12\left(1\pm\frac1{\sqrt2}\right)\approx0.854,\ 0.146$, $\gamma=3/4$, and
+\[
+S(\rho)=-\lambda_+\log_2\lambda_+-\lambda_-\log_2\lambda_-\approx-0.854\log_2 0.854-0.146\log_2 0.146\approx0.60 .
+\]
+
+\item $\sigma_x=\ket+\!\bra+-\ket-\!\bra-$, so the possible outcomes are $\pm1$, with projectors
+$P_\pm=\ket\pm\!\bra\pm$:
+\[
+p(+1)=\tr[P_+\rho]=\bra+\rho\ket+=\frac{1+r_x}{2}=1-\frac p2,\qquad
+p(-1)=\bra-\rho\ket-=\frac{1-r_x}{2}=\frac p2 .
+\]
+(Directly: $\bra+\rho\ket+=\frac14[(1+p)+2(1-p)+(1-p)]=1-\frac p2$.) After the measurement the state
+is $P_\pm\rho P_\pm/p(\pm1)=\ket\pm\!\bra\pm$ for outcome $\pm1$. The average value is
+$\langle\sigma_x\rangle=\tr[\rho\sigma_x]=p(+1)-p(-1)=1-p=r_x$.
+
+\item Since $\ket0\!\bra0$ is pure, $F(\rho,\ket0\!\bra0)=\bra0\rho\ket0=\rho_{00}=\dfrac{1+p}{2}$.
+Equivalently, $F=\frac{1+\bm r\cdot\hat{\bm z}}{2}=\frac{1+p}{2}$. It equals 1 only for $p=1$, and it is $1/2$ for
+$p=0$, since $|\bra0+\rangle|^2=1/2$.
+
+\item For qubits, the trace distance is half the Euclidean distance between the Bloch vectors.
+With $\bm s=(0,0,1)$ for $\ket0$:
+\[
+d(\rho,\ket0\!\bra0)=\frac12|\bm r-\bm s|=\frac12\sqrt{(1-p)^2+(p-1)^2}=\frac{1-p}{\sqrt2}.
+\]
+For a pure state $\ket\phi$ with Bloch vector $\hat{\bm n}$, $F=\bra\phi\rho\ket\phi=\frac{1+\bm r\cdot\hat{\bm n}}{2}$.
+This is maximal when $\hat{\bm n}\parallel\bm r$, i.e.\ for the eigenvector of $\rho$ with the
+largest eigenvalue, giving
+\[
+F_{\max}=\lambda_+=\tfrac12\left(1+\sqrt{p^2+(1-p)^2}\right).
+\]
+This is
+larger than $\frac{1+p}{2}$ whenever $0\le p<1$, because $\sqrt{p^2+(1-p)^2}>p$. So $\ket0$ is
+\textbf{not} the closest pure state. The closest one points along $\bm r$, between $\ket0$ and
+$\ket+$. For $p=1/2$, it is the state along $(\hat{\bm x}+\hat{\bm z})/\sqrt2$, with
+$F_{\max}\approx0.854>0.75$.
+\end{enumerate}
+
+\section*{4\quad Controlled rotation}
+
+Notation: $c\equiv\cos\frac\theta2$, $s\equiv\sin\frac\theta2$.
+
+\begin{enumerate}
+\item The circuit is $U=C\text{-}R_y(\theta)\,(H\otimes\id)$, with
+$C\text{-}R_y=\begin{pmatrix}\id&0\\0&R_y(\theta)\end{pmatrix}$ and
+$H\otimes\id=\frac1{\sqrt2}\begin{pmatrix}\id&\id\\ \id&-\id\end{pmatrix}$ ($2\times2$ blocks). Therefore
+\[
+U=\frac1{\sqrt2}\begin{pmatrix}\id&\id\\ R_y&-R_y\end{pmatrix}
+=\frac1{\sqrt2}\begin{pmatrix}1&0&1&0\\0&1&0&1\\ c&-s&-c&s\\ s&c&-s&-c\end{pmatrix}.
+\]
+(Equivalently, one can follow the basis states: $\ket{00}\to\ket{+}\ket0\to\frac1{\sqrt2}[\ket{00}+c\ket{10}+s\ket{11}]$, and so on.)
+
+\item The output is the first column of $U$:
+\[
+\ket\psi=\frac1{\sqrt2}\left[\ket0\ket0+\ket1 R_y(\theta)\ket0\right]
+=\frac1{\sqrt2}\left[\ket{00}+c\ket{10}+s\ket{11}\right].
+\]
+For $\theta=0$ we get $R_y=\id$ and $\ket\psi=\frac1{\sqrt2}(\ket{00}+\ket{10})=\ket+\ket0$, a product
+state. For $\theta=\pi$ we get $c=0$, $s=1$, and $\ket\psi=\frac1{\sqrt2}(\ket{00}+\ket{11})=\ket{\beta_{00}}$, a Bell state.
+
+\item We write $\ket\psi=\sum_{ij}\alpha_{ij}\ket{ij}$ with
+$\alpha=\frac1{\sqrt2}\begin{pmatrix}1&0\\c&s\end{pmatrix}$. Then $\rho_A=\alpha\alpha^\dagger$ and $\rho_B=\alpha^T\alpha^*$:
+\[
+\rho_A=\frac12\begin{pmatrix}1&c\\c&c^2+s^2\end{pmatrix}=\frac12\begin{pmatrix}1&c\\c&1\end{pmatrix},
+\qquad
+\rho_B=\frac12\begin{pmatrix}1+c^2&cs\\cs&s^2\end{pmatrix}.
+\]
+Bloch vectors ($r_x=2\mathrm{Re}\rho_{01}$, $r_z=\rho_{00}-\rho_{11}$):
+\[
+\bm r_A=(c,0,0)=\left(\cos\tfrac\theta2,0,0\right),\qquad
+\bm r_B=\left(cs,\,0,\,\tfrac{1+c^2-s^2}{2}\right)=\left(\tfrac12\sin\theta,\,0,\,\cos^2\tfrac\theta2\right).
+\]
+Both have the same norm: $|\bm r_B|^2=c^2s^2+c^4=c^2=|\bm r_A|^2$. So both purities are equal, as
+expected for a pure global state:
+\[
+\gamma(\rho_A)=\gamma(\rho_B)=\frac{1+\cos^2(\theta/2)}{2}.
+\]
+$\ket\psi$ is entangled $\iff$ $\rho_A$ is mixed $\iff$ $\cos^2(\theta/2)<1$ $\iff$ $\theta\neq0$.
+It is maximally entangled ($\gamma=1/2$, $\rho_A=\id/2$) for $\theta=\pi$.
+
+\item For $\theta=2\pi/3$: $c=\frac12$, $s=\frac{\sqrt3}2$, and
+$\ket\psi=\frac1{\sqrt2}\left[\ket{00}+\frac12\ket{10}+\frac{\sqrt3}2\ket{11}\right]$.
+
+\emph{Schmidt coefficients and basis of $A$.} $\rho_A=\frac12\begin{pmatrix}1&1/2\\1/2&1\end{pmatrix}=\frac12\left(\id+\frac12\sigma_x\right)$
+has eigenvalues $\eta_1^2=\frac34$ (eigenvector $\ket+$) and $\eta_2^2=\frac14$ (eigenvector $\ket-$).
+So $\eta_1=\frac{\sqrt3}2$, $\eta_2=\frac12$, with $\ket{1_A}=\ket+$ and $\ket{2_A}=\ket-$.
+
+\emph{Basis of $B$.} We project $\ket\psi$ onto the Schmidt vectors of $A$:
+\begin{align*}
+\bra{+}_A\ket\psi&=\frac12\left[\ket0+\tfrac12\ket0+\tfrac{\sqrt3}2\ket1\right]=\frac{\sqrt3}2\cdot\underbrace{\frac{\sqrt3\ket0+\ket1}{2}}_{\ket{1_B}},\\
+\bra{-}_A\ket\psi&=\frac12\left[\ket0-\tfrac12\ket0-\tfrac{\sqrt3}2\ket1\right]=\frac12\cdot\underbrace{\frac{\ket0-\sqrt3\ket1}{2}}_{\ket{2_B}}.
+\end{align*}
+$\ket{1_B},\ket{2_B}$ are orthonormal. They are the eigenvectors of
+$\rho_B=\frac18\begin{pmatrix}5&\sqrt3\\\sqrt3&3\end{pmatrix}$ with eigenvalues $3/4$ and $1/4$. Therefore
+\[
+\boxed{\ket\psi=\frac{\sqrt3}{2}\ket{+}\otimes\frac{\sqrt3\ket0+\ket1}{2}+\frac12\ket{-}\otimes\frac{\ket0-\sqrt3\ket1}{2}}
+\]
+The Schmidt rank is 2, so the state is entangled. The entanglement entropy is
+\[
+S_{EE}=-\sum_k\eta_k^2\log_2\eta_k^2=-\tfrac34\log_2\tfrac34-\tfrac14\log_2\tfrac14=2-\tfrac34\log_2 3\approx0.81 .
+\]
+(For general $\theta$: $\eta_1=\cos\frac\theta4$, $\eta_2=\sin\frac\theta4$, $\ket{1_B}=\cos\frac\theta4\ket0+\sin\frac\theta4\ket1$, $\ket{2_B}=\sin\frac\theta4\ket0-\cos\frac\theta4\ket1$.)
+
+\item We group the terms according to the state of the second qubit:
+\[
+\ket\psi=\frac1{\sqrt2}\left[\left(\ket0+\tfrac12\ket1\right)\ket0+\tfrac{\sqrt3}2\ket1\ket1\right].
+\]
+With the projectors $P_m=\id\otimes\ket m\!\bra m$:
+\[
+p(+1)=p(\ket0_B)=\frac12\left(1+\frac14\right)=\frac58,\qquad
+\ket{\psi'_A}=\frac{\ket0+\frac12\ket1}{\sqrt{5/4}}=\frac{2\ket0+\ket1}{\sqrt5};
+\]
+\[
+p(-1)=p(\ket1_B)=\frac12\cdot\frac34=\frac38,\qquad \ket{\psi'_A}=\ket1 .
+\]
+After the measurement the global state is $\ket{\psi'_A}\otimes\ket m$, a product state, so it is
+no longer entangled: the projective measurement has destroyed the entanglement.
+(Consistency check: if the outcome is not recorded, the first qubit is in
+$\frac58\cdot\frac15\begin{pmatrix}4&2\\2&1\end{pmatrix}+\frac38\begin{pmatrix}0&0\\0&1\end{pmatrix}=\frac12\begin{pmatrix}1&1/2\\1/2&1\end{pmatrix}=\rho_A$,
+unchanged, as it must be for a measurement performed on the other qubit.)
+\end{enumerate}
+
+\end{document}

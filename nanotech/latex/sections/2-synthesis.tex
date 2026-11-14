@@ -1,0 +1,195 @@
+\section{Synthesis methods}
+\label{sec:synthesis}
+\textbf{Top-down} methods break bulk material into small pieces: simple, but poor size control. \textbf{Bottom-up} methods build
+particles from atoms or molecules (atoms $\to$ clusters $\to$ particles): more complex, but good size and shape control
+\slide{29}. In solution, size is set by the competition between \textbf{nucleation and growth}: fast, homogeneous nucleation
+(strong reductant, good stirring) gives many small particles; capping agents stop growth; confinement (micelle, pore, droplet)
+limits the final size.
+
+Each card lists: \textbf{what it is}, \textbf{advantages} (+) and \textbf{drawbacks} (--), and \textbf{use for} (typical products
+and exercises).
+
+\newcommand{\meth}[5]{%
+\begin{cardbox}{#1}
+\textbf{What it is:} #2\par\smallskip
+\textcolor{proc}{\textbf{+}} #3\par
+\textcolor{conc}{\textbf{--}} #4\par
+\textcolor{recc}{\textbf{Use for:}} #5
+\end{cardbox}}
+
+\subsection{Top-down}
+\meth{Ball milling \slide{31--32}}
+{Powder is sealed in a jar with hard balls and rotated at high speed (planetary mill). The repeated impacts deform the grains,
+first elastically, then plastically and by shear, until they fracture. Long milling can also amorphise the material or drive
+solid-state reactions (mechanochemistry), e.g.\ mixing CuO with CeO$_2$.}
+{cheap, fast, easy, no solvents, scalable.}
+{poor size control, contamination from balls/jar, many defects (dislocations).}
+{large amounts of powders and mixed oxides (alternative route in Ex.~10e).}
+\meth{Lithography + selective etching \slide{33--36}}
+{A Si wafer is masked by lithography and etched (TMAH, then photo-assisted etching) into a regular array of
+$\sim$\SI{4e6}{channels/cm^2}. The walls are oxidised to SiO$_2$; their --OH groups react with a metal precursor (grafting),
+which is calcined to a thin oxide layer that can carry metal nanoparticles (Au/TiO$_2$, RhPd/CeO$_2$).}
+{perfect, ordered geometry; very reproducible.}
+{multi-step, expensive (clean room).}
+{structured supports and micro-monolith catalysts.}
+
+\subsection{Bottom-up, gas phase}
+\textbf{PVD} (physical vapour deposition) involves no catalytic interaction; \textbf{CVD} (chemical vapour deposition) involves
+a catalytic reaction of the precursor on a surface \slide{38}. The common problem of gas-phase methods is coalescence and
+agglomeration of the particles in flight, solved with a carrier gas and fast cooling.
+
+\meth{Sputtering (PVD) \slide{39}}
+{An Ar plasma is created in a vacuum chamber. Ar$^+$ ions are accelerated onto a target of the material; momentum transfer ejects
+atoms or clusters, which land on a substrate. Short deposition gives isolated particles; longer deposition gives islands and
+then a continuous film.}
+{clean (no solvents or ligands), works for any metal or alloy target.}
+{vacuum equipment, little shape control, small amounts.}
+{model catalysts and thin films.}
+\meth{Spray pyrolysis \slide{40--46}}
+{A solution of a volatile precursor (TiCl$_4$, SiH$_4$) is atomised into droplets and carried by a gas (Ar, N$_2$, O$_2$, H$_2$)
+through a furnace at \SIrange{300}{1200}{\celsius}. Each droplet evaporates, precipitates, dries, decomposes and sinters
+into one particle (\ce{TiCl4 + O2 -> TiO2 + 2Cl2}); particles are cooled in inert gas. Size is set by temperature, pressure,
+gas flow (= reaction time) and concentration: ``the growth is not predictable, but it is reproducible''. Adding polystyrene spheres
+that burn off at \SI{600}{\celsius} gives ordered macroporous particles \slide{45}.}
+{continuous and scalable; the droplet composition fixes the particle composition (mixed oxides); templates give ordered porosity.}
+{agglomeration, empirical tuning, high temperature.}
+{oxide particles, porous and photonic structures (Ex.~11c).}
+\meth{Flame synthesis \slide{47--48}}
+{The precursor is injected into a CH$_4$/O$_2$, H$_2$/O$_2$ or C$_2$H$_2$/O$_2$ flame at \SIrange{1000}{2400}{\celsius}. It reacts into
+monomers, which grow by coagulation and coalescence during a residence time of only \SIrange{10}{100}{ms}, and agglomerate after the
+flame.}
+{one-step, the largest production scale ($10^6$ t/year of SiO$_2$, Al$_2$O$_3$, TiO$_2$; Fe$_3$O$_4$ for ferrofluids).}
+{needs fuel; particles form fractal agglomerates; little shape control.}
+{bulk oxide powders.}
+\meth{Laser processes \slide{49--51}}
+{A pulsed laser (\SIrange{10}{50}{ns}, e.g.\ a CO$_2$ laser) crosses a stream of reactant gas or vaporises a target. Heating is
+confined to a tiny spot and followed by very fast cooling, so nucleation is short and controlled. With a mass spectrometer one can
+select clusters of an exact size (M$_{13}$, M$_{55}$).}
+{excellent control of size and morphology, highly localised.}
+{expensive energy, small scale (\SIrange{10}{100}{mg/h}).}
+{model clusters, SiGe particles.}
+\meth{Thermal plasma \slide{52}}
+{An arc or magnetron plasma (\SIrange{10}{100}{V}, \SIrange{10}{1000}{A/cm^2}) vaporises the material at $\sim$\SI{e4}{\celsius} for
+less than 1 s; the vapour is quenched at \SIrange{e6}{e9}{\celsius/s} in an aggregation zone and leaves as a nanoparticle beam.}
+{size control from 1 to 100 nm; refractory and metastable phases.}
+{high energy cost, complex equipment.}
+{refractory or metastable particles.}
+\meth{Atomic layer deposition (ALD) \slide{53--54}}
+{Two precursors are pulsed alternately onto the substrate. Each reacts only with the surface groups left by the other and stops when
+the surface is saturated (\textbf{self-limiting}), so exactly one atomic layer grows per cycle. Example: trimethylaluminium reacts with
+surface --OH (releasing CH$_4$), then H$_2$O turns the --CH$_3$ back into --OH, giving Al$_2$O$_3$ at \SIrange{100}{300}{\celsius}.
+Precursors must be volatile, react with the surface, not with themselves, be thermally stable and give volatile by-products.}
+{atomic control of thickness and composition; \textbf{conformal} coatings on complex 3D shapes (pores, channels).}
+{slow (one layer per cycle), vacuum.}
+{ultrathin shells and coatings.}
+\meth{CVD and carbon nanotubes \slide{104--121}}
+{A hydrocarbon (with an inert gas so it does not oxidise) flows over metal catalyst particles (Ni, Co, Fe) at
+\SIrange{500}{1000}{\celsius}. Carbon dissolves in the particle (forming a carbide) and precipitates as graphitic walls. The catalyst
+size fixes the tube: 1--5 nm $\to$ single-walled (SWNT), 20--50 nm $\to$ multi-walled (MWNT), $>$50 nm $\to$ nano-onions. A weak
+metal--support interaction lifts the particle (tip growth); a strong one keeps it on the support (base growth). The roll-up
+vector $(n,m)$ (zig-zag, armchair, chiral) sets the electronic, optical and mechanical properties.}
+{yield $\approx$97\,\%, long and aligned tubes, diameter controlled by the catalyst.}
+{needs a catalyst. Alternatives: arc discharge (simplest, SWNT + MWNT, no size control, 30\,\%) and laser vaporisation
+(high-purity SWNT, narrow distribution, low yield).}
+{carbon nanotubes and films.}
+
+\subsection{Bottom-up, liquid phase}
+\meth{Reduction of metal salts \slide{56--58}}
+{Metal ions in solution are reduced to neutral atoms (\ce{M^{n+} + n e^- -> M^0}) by citrate, borohydride or alcohols. The atoms
+nucleate and grow into a colloid. \textbf{Turkevich method}: HAuCl$_4$ is boiled and sodium citrate added; the solution turns
+from pale purple to red and gives Au 15--20 nm. Citrate is both reductant and capping agent: more citrate gives smaller particles
+(8 nm, 518 nm band $\to$ 73 nm, 545 nm band) \slide{128}. Ag colloids (20--100 nm) are made the same way from AgNO$_3$.}
+{simple, reproducible, cheap, stable colloids; size tunable through the reductant/metal ratio, $T$ and stirring.}
+{mainly noble metals; mostly spherical particles.}
+{Au, Ag and Pt colloids; cores of core--shell particles (Ex.~11b, 13, 15a).}
+\meth{Bimetallic nanoparticles \slide{59}}
+{\textbf{Co-reduction} of two salts at the same time gives an \textbf{alloy}. \textbf{Sequential (seeded) reduction}, i.e.\ making
+M$_1$ first and then reducing M$_2$ on it, gives a \textbf{core--shell} particle (M$_1$@M$_2$). Two segregated halves form a
+\textbf{Janus} particle.}
+{control of composition and architecture.}
+{several techniques are needed to prove which architecture was obtained.}
+{Ex.~1, 9, 16b.}
+\meth{Hydrothermal / solvothermal \slide{60--61}}
+{The reaction runs in a closed autoclave with the solvent (water or an organic solvent) above its boiling point. The solvent
+provides the reaction medium and the pressure, and its conditions control size, shape and crystallinity. For CeO$_2$, high NaOH and
+high $T$ ($\sim$\SI{180}{\celsius}) give \textbf{nanocubes}, intermediate conditions give \textbf{nanorods}, and mild conditions
+give small polyhedra.}
+{shape control without organic ligands; crystalline particles with clean facets.}
+{batch process, long times, pressure equipment.}
+{shaped oxides: CeO$_2$ cubes/rods, CoMg cubes (Ex.~11a, 12A).}
+\meth{Sol--gel \slide{62--67}}
+{A metal alkoxide such as Si(OR)$_4$ is \textbf{hydrolysed} (\ce{-M-OR + H2O -> -M-OH + ROH}) and \textbf{condensed}
+(\ce{-M-OH + HO-M- -> -M-O-M- + H2O}) into a colloidal \textbf{sol}, which links into a 3D \textbf{gel}. Acid conditions give
+chain-like networks; basic conditions give discrete particles of 1--100 nm. Catalytic particles can be added to the sol.
+The drying step decides the porosity: evaporation (surface tension collapses the pores) gives a \textbf{xerogel}; freeze-drying
+(sublimation) gives a \textbf{liogel}; \textbf{supercritical drying} (no liquid/gas interface) gives an \textbf{aerogel}, with
+$S_\mathrm{BET}$(xerogel) $\ll$ $S_\mathrm{BET}$(liogel) $<$ $S_\mathrm{BET}$(aerogel).}
+{mild temperature, homogeneous, porosity tunable (aerogels: insulation, Stardust comet-dust collector).}
+{shrinkage and cracking, slow gelation; supercritical drying needs an autoclave.}
+{oxides, silica shells (Ex.~11b, 13), aerogels (Ex.~11d, 12B).}
+\meth{Capping agents \slide{68--73}}
+{A surfactant or ligand (e.g.\ a thiol) binds the particle surface during reduction. It limits growth (\textbf{size}), prevents
+agglomeration (\textbf{stability}), sets solubility and reactivity (\textbf{surface chemistry}), and, by adsorbing more strongly on some
+facets, makes those facets grow slower (\textbf{shape}: rods, cubes, triangles). Thiols (soft bases) bind Au (a soft acid) strongly;
+the thiol length tunes the spacing of self-assembled particle arrays. DNA strands link particles into designed assemblies. The shell can
+be removed by O$_2$ plasma or calcination.}
+{best size and shape control in solution; self-assembly; functional surfaces.}
+{the shell blocks the surface (bad for catalysis); removing it can sinter the particles.}
+{shaped metals (Ex.~11a, 12A, 16b); AFM capping question (Ex.~17).}
+\meth{Synthesis in structured media \slide{74--85}}
+{Amphiphiles self-assemble into micelles, which serve as nano-reactors or templates. In a \textbf{microemulsion}, water droplets
+inside reverse micelles hold the salt and the reductant (\ce{4Ag+ + BH4- + 4OH- -> 4Ag + BO2- + 4H2O}); the particle cannot grow
+larger than the droplet. \textbf{SBA-15}: silica condenses around rod micelles, which are burnt off to leave ordered channels that
+host and confine particles. \textbf{Dendrimers} (PAMAM, generations G0, G1\ldots) trap one small particle each (Au@D 1.8 nm,
+Au@G1 2.5 nm; larger dendrons resist sintering better). \textbf{Zeolite} cages host exchanged and reduced Ag$^+$.}
+{size limited by the cavity; protection against sintering.}
+{small amounts; the template must be removed.}
+{very small, stable particles.}
+\meth{Impregnation \slide{87--88}}
+{A porous support (e.g.\ Al$_2$O$_3$ pellets) is soaked in a precursor solution (Ni(NO$_3$)$_2$), dried, calcined to the oxide (NiO)
+and reduced in H$_2$ to the metal (Ni).}
+{the industrial route to supported catalysts: cheap, simple, any support.}
+{broad size distribution; high-temperature steps can sinter the particles.}
+{supported catalysts (Ex.~10e, 12B).}
+\meth{Galvanic replacement \slide{89--91}}
+{A template of a less noble metal is put into a solution of a nobler metal ion. The template is oxidised and dissolves while the noble
+metal is reduced onto its surface. This is spontaneous if $E = E^0_\mathrm{reduced} - E^0_\mathrm{oxidised} > 0$. Ag nanowires +
+HAuCl$_4$ (\ce{3Ag + Au^{3+} -> 3Ag+ + Au}, $1.50-0.799>0$) give hollow \textbf{Au nanotubes}; Ag nanocubes give nanoboxes and
+nanoframes.}
+{hollow structures that are hard to make otherwise.}
+{needs a suitable pair of reduction potentials.}
+{Ex.~15a.}
+\meth{Microfluidics \slide{92--100}}
+{Pumps inject the precursors into micrometre channels, where an immiscible inert phase (oil or gas) splits the flow into
+identical droplets that act as tiny reactors. Separate zones with their own temperature handle nucleation and growth (e.g.\ a core
+zone, then a shell zone). The residence time $t = V/Q$ controls growth (CdSe QDs change colour with time, 3 $\to$ 20 min).}
+{narrower size distributions than batch mixing; reproducible; low reagent use; continuous.}
+{low throughput per channel; design effort and risk of clogging.}
+{``reproducible and controlled'' preparations and core--shell design (Ex.~9c, 11b, 13).}
+
+\subsection{Choosing a method}
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{5.6cm}X@{}}
+\toprule
+\textbf{I need\ldots} & \textbf{Use (control parameter)} \\ \midrule
+Noble-metal colloid of given size & salt reduction (citrate/reductant ratio, $T$, stirring) \\
+Shaped metal (triangles, rods, cubes) & capping agents (facet adsorption) or solvothermal \\
+Shaped oxide (cubes, rods) & hydrothermal (NaOH, $T$) \\
+Alloy / core--shell & co-reduction / seeded reduction; microreactor for reproducibility \\
+Metal@SiO$_2$ & colloid + sol--gel (TEOS) shell, ideally in a microreactor \\
+Hollow particles, nanotubes & galvanic replacement \\
+Highly porous solid & sol--gel + supercritical drying (aerogel) \\
+Ordered macroporous / photonic & polystyrene template + precursor, then burn template \\
+Supported catalyst & impregnation $\to$ calcination $\to$ reduction \\
+Tonnes of oxide & flame synthesis \\
+Ultrathin conformal coating & ALD \\
+Carbon nanotubes of given diameter & CVD with catalyst particles of that size \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\begin{tipbox}[: answer format for ``propose a method'']
+Method + reagents + the parameter that gives the requested feature + one technique to verify it (TEM size/shape, XRD phase,
+UV-vis plasmon, XPS oxidation state).
+\end{tipbox}

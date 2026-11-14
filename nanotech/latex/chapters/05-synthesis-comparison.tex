@@ -1,0 +1,97 @@
+\chapter{Comparing synthesis methods}
+\label{ch:synth-compare}
+
+\paragraph{In this chapter.} All methods side by side against the objectives of \cref{sec:objectives}, then a decision
+guide (``I need X $\to$ use Y'') for the ``propose a method'' exam questions.
+
+\section{Comparison table}
+Ratings: \textbf{+++} excellent, \textbf{++} good, \textbf{+} fair, \textbf{--} poor. Ratings are a qualitative
+summary of the advantages and drawbacks listed on the slides, not numbers given in the course.
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.9cm}cccc>{\raggedright\arraybackslash}p{4.9cm}@{}}
+\toprule
+Method & Size ctrl & Shape ctrl & Scale & Cost & Typical use / key feature \\ \midrule
+\endhead
+\multicolumn{6}{@{}l}{\textit{Top-down}} \\
+Ball milling & -- & -- & +++ & +++ & powders, mixed oxides; no solvent; defects, contamination \\
+Lithography, etching & +++$^a$ & +++ & + & -- & patterned supports, micro-monoliths \\ \midrule
+\multicolumn{6}{@{}l}{\textit{Gas phase}} \\
+Sputtering (PVD) & + & -- & + & + & clean metal particles/films on flat supports \\
+Spray pyrolysis & + & + & ++ & ++ & oxides; one droplet = one particle; templated macroporous particles \\
+Flame synthesis & + & -- & +++ & +++ & industrial SiO$_2$, TiO$_2$, Al$_2$O$_3$, Fe$_3$O$_4$; agglomerated \\
+Laser processes & +++ & ++ & -- & -- & size-selected clusters, SiGe; 10--100 mg/h \\
+Thermal plasma & ++ & + & ++ & + & 1--100 nm, ultra-fast quench \\
+ALD & +++$^c$ & conformal & + & + & ultrathin conformal coatings/shells \\
+CVD & ++$^d$ & ++ & ++ & ++ & carbon nanotubes, films; needs catalyst \\ \midrule
+\multicolumn{6}{@{}l}{\textit{Liquid phase}} \\
+Salt reduction & ++ & + & ++ & +++ & noble-metal colloids (Turkevich Au, Ag) \\
+Bimetallic (co-/seq.\ red.) & ++ & + & ++ & ++ & alloys, core--shell, Janus \\
+Hydrothermal & ++ & +++ & ++ & ++ & crystalline oxide shapes (CeO$_2$ cubes/rods) \\
+Sol--gel & ++ & + & ++ & +++ & oxides, monoliths; xerogel/aerogel porosity \\
+Capping agents & +++ & +++ & ++ & ++ & monodisperse, shaped, self-assembled; surface blocked \\
+Microemulsion & +++ & + & + & + & size limited by micelle \\
+Mesoporous, dendrimer, zeolite & +++ & + & + & + & size limited by pore/cavity; anti-sintering \\
+Impregnation & + & -- & +++ & +++ & industrial supported catalysts \\
+Galvanic replacement & ++ & +++$^b$ & ++ & ++ & nanotubes, nanoboxes, nanoframes \\
+Microfluidics & +++ & ++ & +$^e$ & ++ & reproducible, core--shell, narrow distributions \\
+\bottomrule
+\end{longtable}
+\vspace{-4pt}{\footnotesize $^a$ at the \si{\micro m} scale; $^b$ hollow shapes; $^c$ film thickness; $^d$ set by the catalyst particle; $^e$ by parallelising channels.}
+\end{center}
+
+\section{Key trade-offs in one sentence each}
+\begin{itemize}
+  \item \textbf{Top-down vs bottom-up}: simplicity and scale vs control.
+  \item \textbf{Gas vs liquid}: gas phase gives clean, solvent-free and continuous production (flame/spray at huge scale) but
+        fights agglomeration. Liquid phase gives the best size/shape control (capping, confinement) but leaves
+        ligands/solvent to remove.
+  \item \textbf{Capping agents vs hydrothermal}: both give shape control. Capping gives monodispersity but blocks the
+        surface. Hydrothermal gives clean, crystalline oxide facets.
+  \item \textbf{Impregnation vs colloid deposition}: impregnation is cheap and industrial but polydisperse. Pre-made
+        colloids (capped) give uniform size but need ligand removal.
+  \item \textbf{Batch vs microfluidic}: microfluidics adds reproducibility and residence-time control, at low throughput.
+  \item \textbf{Xerogel vs aerogel}: same chemistry, but the drying path (evaporation vs supercritical) decides
+        whether pores collapse.
+\end{itemize}
+
+\section{Decision guide for ``propose a method'' questions}
+\label{sec:decision-guide}
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{5.2cm}X@{}}
+\toprule
+\textbf{I need\ldots} & \textbf{Method (and why)} \\ \midrule
+Spherical noble-metal colloid (Au, Ag) of given size & Reduction of metal salt (Turkevich); size via citrate/reductant
+ratio, $T$, stirring. \\
+Shaped metal particles (triangles, rods, cubes) & \textbf{Capping agents} adsorbing on specific facets; or
+hydrothermal/solvothermal. \\
+Shaped oxide particles (cubes, rods) & \textbf{Hydrothermal} (NaOH concentration and $T$ select the shape, CeO$_2$). \\
+Core--shell particles with defined dimensions & \textbf{Seeded (sequential) reduction}; best reproducibility in a
+\textbf{microreactor} (core zone + shell zone); thin conformal shells: ALD; oxide shells: sol--gel. \\
+Metal @ SiO$_2$ (silica shell) & Make metal colloid, then sol--gel hydrolysis/condensation of a Si alkoxide around it;
+in a microreactor for control \slide{98}. \\
+Alloy particles & \textbf{Co-reduction} of both salts. \\
+Hollow particles/nanotubes/nanoboxes & \textbf{Galvanic replacement} of a less noble template (Ag nanowires +
+HAuCl$_4$ $\to$ Au nanotubes). \\
+Very small particles that must not sinter & Confinement: dendrimers, SBA-15 pores, zeolites, microemulsions. \\
+Highly porous, low-density solid & \textbf{Sol--gel + supercritical drying} (aerogel). \\
+Ordered macroporous particles / photonic structures & \textbf{Template} method: polystyrene spheres + precursor, then
+remove the template (spray pyrolysis, \slide{45}). \\
+Supported metal catalyst (cheap, industrial) & \textbf{Impregnation} $\to$ drying $\to$ calcination $\to$ reduction. \\
+Tonnes of oxide powder & Flame synthesis. \\
+Ultrathin uniform coating on a 3D object & ALD. \\
+Carbon nanotubes of chosen diameter & CVD with catalyst particles of the right size. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{tipbox}[: how to write the answer]
+A full-mark answer has four parts: (1) the method's name; (2) precursor(s) and reagents (e.g.\ HAuCl$_4$ + citrate,
+TEOS for silica, AgNO$_3$, metal nitrate for impregnation); (3) the \emph{control parameter} that gives the requested
+feature (capping agent $\to$ shape; drying $\to$ porosity; residence time $\to$ size); (4) one line on how you would
+\emph{verify} it (TEM for size/shape, XRD for phase, UV-vis for plasmon, XPS for oxidation state).
+\end{tipbox}

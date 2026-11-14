@@ -1,0 +1,312 @@
+\documentclass[8pt,a4paper]{extarticle}
+\usepackage[margin=0.5cm,top=0.4cm,bottom=0.33cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,bm,braket}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{quantikz2}
+\tikzset{qc/.style={row sep={0.44cm,between origins},column sep=0.12cm,font=\scriptsize}}
+\newsavebox{\qbox}
+\newcommand{\qcs}{0.76}
+\newenvironment{qcenv}{\par\vspace{1pt}\begin{lrbox}{\qbox}}{\end{lrbox}\centerline{\scalebox{\qcs}{\usebox{\qbox}}}\par\vspace{1pt}}
+
+\definecolor{hd}{RGB}{0,90,160}
+\definecolor{sb}{RGB}{0,110,90}
+\definecolor{pit}{RGB}{180,40,40}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5pt}
+\setlength{\columnsep}{7pt}
+\setlength{\columnseprule}{0.3pt}
+\setlist{nosep,leftmargin=7pt,itemsep=0pt,topsep=0pt,parsep=0pt,label=\textbullet}
+\setlength{\jot}{0.5pt}
+\setlength{\tabcolsep}{3pt}
+\thickmuskip=2mu plus 2mu \medmuskip=1.5mu plus 1mu \thinmuskip=1.5mu
+
+% section bar and subsection heading
+\newcounter{sec}\newcounter{ssec}[sec]
+\newcommand{\sect}[1]{\stepcounter{sec}\par\vspace{2pt}\noindent\colorbox{hd}{\parbox{\dimexpr\linewidth-2\fboxsep}{\color{white}\bfseries\strut\arabic{sec}.\ #1}}\par\vspace{0.5pt}}
+\newcommand{\ssect}[1]{\stepcounter{ssec}\par\vspace{1pt}{\color{sb}\bfseries\arabic{sec}.\arabic{ssec}\ \ #1}\par}
+\newcommand{\warn}[1]{{\color{pit}\textbf{!}~#1}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\id}{\mathbb{I}}
+\newcommand{\kb}[2]{\ket{#1}\!\bra{#2}}
+\newcommand{\pr}[1]{\ket{#1}\!\bra{#1}}
+
+\begin{document}
+\fontsize{7.4}{8.5}\selectfont
+\setlength{\fboxsep}{1.5pt}
+\setlength{\abovedisplayskip}{1pt}\setlength{\belowdisplayskip}{2pt}
+\setlength{\abovedisplayshortskip}{0.5pt}\setlength{\belowdisplayshortskip}{0.5pt}
+
+\begin{center}
+{\normalsize\bfseries\color{hd} Quantum Technologies -- 1st Partial Formula Sheet}
+\end{center}
+\vspace{-9pt}
+\begin{multicols}{3}
+
+%======================================================================
+\sect{Postulates and linear algebra}
+\ssect{Postulates and operators}
+\begin{itemize}
+\item \textbf{State:} $\ket\psi$ up to a global phase. \textbf{Composite:} $\mathcal H_A\otimes\mathcal H_B$, $\braket{a'b'|ab}=\braket{a'|a}\braket{b'|b}$.
+\item \textbf{Measurement:} $A=\sum_ia_iP_i$, $p_i=\bra\psi P_i\ket\psi$, after: $P_i\ket\psi/\sqrt{p_i}$; $\langle A\rangle=\bra\psi A\ket\psi$.
+\item \textbf{Evolution:} $i\hbar\partial_t\ket\psi=H\ket\psi$, $U=e^{-iHt/\hbar}$. \ $[A]_{ij}=\bra iA\ket j$, $A^\dagger=(A^T)^*$.
+\end{itemize}
+\begin{tabular}{@{}l l l@{}}
+\textbf{Class} & \textbf{Definition} & \textbf{Eigenvalues}\\\hline
+Normal & $AA^\dagger=A^\dagger A$ & $\lambda\in\mathbb C$\\
+Hermitian & $A=A^\dagger$ & $\lambda\in\mathbb R$\\
+Unitary & $A^{-1}=A^\dagger$ & $|\lambda|=1$\\
+Positive & $\bra\psi A\ket\psi\ge0$ & $\lambda\ge0$\\
+Projector & $P=P^\dagger=P^2$ & $\lambda\in\{0,1\}$
+\end{tabular}\\
+Proj.\ $\subset$ pos.\ $\subset$ Herm.\ $\subset$ normal. Hermitian + unitary $\Rightarrow A^2=\id$.
+\begin{itemize}
+\item \textbf{Spectral:} $A$ normal $\iff A=\sum_i\lambda_i\pr{u_i}$; \ $f(A)=\sum_if(\lambda_i)\pr{u_i}$ \warn{not element-wise!}
+\item \textbf{SVD:} $A=UDV$ ($U,V$ unitary, $D\ge0$ diagonal). \textbf{Polar:} $A=UJ$, $J=\sqrt{A^\dagger A}$.
+\item If $A^2=\id$: $e^{iaA}=\cos a\,\id+i\sin a\,A$.
+\end{itemize}
+
+\ssect{Trace, determinant, tensor product}
+\begin{itemize}
+\item $\tr A=\sum_i\lambda_i$, cyclic; $\tr\kb\psi\phi=\braket{\phi|\psi}$; $\det A=\prod_i\lambda_i$.
+\item $2\times2$: $\lambda_\pm=\frac{\tr A}2\pm\frac12\sqrt{(\tr A)^2-4\det A}$.
+\item $A\otimes B=\begin{pmatrix}A_{11}B&A_{12}B\\A_{21}B&A_{22}B\end{pmatrix}$, $(A\otimes B)(C\otimes D)=AC\otimes BD$, $\tr(A\otimes B)=\tr A\tr B$.
+\end{itemize}
+
+%======================================================================
+\sect{Pauli matrices}
+\[X=\begin{pmatrix}0&1\\1&0\end{pmatrix},\ Y=\begin{pmatrix}0&-i\\i&0\end{pmatrix},\ Z=\begin{pmatrix}1&0\\0&-1\end{pmatrix}\]
+\begin{itemize}
+\item Hermitian, unitary, $\sigma_i^2=\id$, $\tr\sigma_i=0$, eigenvalues $\pm1$.
+\item $\sigma_i\sigma_j=\delta_{ij}\id+i\epsilon_{ijk}\sigma_k$ ($XY=iZ$, \dots), $\tr(\sigma_i\sigma_j)=2\delta_{ij}$; $\{\sigma_i,\sigma_j\}=0$, $i\ne j$.
+\item $(\bm a\cdot\bm\sigma)(\bm b\cdot\bm\sigma)=(\bm a\cdot\bm b)\id+i(\bm a\times\bm b)\cdot\bm\sigma$.
+\item Eigenstates: $Z$: $\ket0,\ket1$; $X$: $\ket\pm=\frac{\ket0\pm\ket1}{\sqrt2}$; $Y$: $\ket{R/L}=\frac{\ket0\pm i\ket1}{\sqrt2}$.
+\item $A=a_0\id+\bm a\cdot\bm\sigma$, $a_\mu=\frac12\tr(A\sigma_\mu)$, eigenvalues $a_0\pm|\bm a|$, $P_\pm=\frac12(\id\pm\hat{\bm a}\cdot\bm\sigma)$:\\
+$f(A)=f(a_0+|\bm a|)P_++f(a_0-|\bm a|)P_-$.
+\item $e^{-i\frac\theta2\hat{\bm n}\cdot\bm\sigma}=\cos\frac\theta2\,\id-i\sin\frac\theta2\,\hat{\bm n}\cdot\bm\sigma$ (Bloch rotation by $\theta$ about $\hat{\bm n}$).
+\item Thermal: $e^{-\beta h\hat{\bm h}\cdot\bm\sigma}=\cosh(\beta h)\id-\sinh(\beta h)\hat{\bm h}\cdot\bm\sigma$, $Z=2\cosh\beta h$.
+\end{itemize}
+
+%======================================================================
+\sect{Density matrix and Bloch sphere}
+\ssect{Density matrix}
+$\rho=\sum_ip_i\pr{\psi_i}$: $\rho=\rho^\dagger$, $\rho\ge0$, $\tr\rho=1$. $p(a_i)=\tr[P_i\rho]$, $\langle A\rangle=\tr[A\rho]$, $\rho\to U\rho U^\dagger$.
+\[\gamma=\tr\rho^2=\textstyle\sum\lambda_i^2\in[\tfrac1d,1],\  S=-\sum\lambda_i\log_2\lambda_i\in[0,\log_2d]\]
+\begin{tabular}{@{}l|l|l@{}}
+ & \textbf{Pure} & \textbf{Mixed}\\\hline
+form & $\rho=\pr\psi$, $\rho^2=\rho$ & only as $\rho$\\
+spectrum & $\subseteq\{0,1\}$ & some $0<\lambda<1$\\
+$\gamma$, $S$ & $\gamma=1$, $S=0$ & $\gamma<1$, $S>0$
+\end{tabular}\\
+Max.\ mixed $\id/d$: $\gamma=\frac1d$, $S=\log_2d$. \warn{$\frac12(\pr0+\pr1)=\frac12(\pr++\pr-)=\id/2$.}
+
+\ssect{Qubit}
+\begin{itemize}
+\item $\ket\psi=\cos\frac\theta2\ket0+e^{i\phi}\sin\frac\theta2\ket1\to\bm r=(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta)$.
+\item $\rho=\frac12(\id+\bm r\cdot\bm\sigma)=\frac12\begin{pmatrix}1+r_z&r_x-ir_y\\r_x+ir_y&1-r_z\end{pmatrix}$; $|\bm r|=1$ pure, $<1$ mixed. Orthogonal = antipodal.
+\item $r_\alpha=\tr[\rho\sigma_\alpha]$: $r_x=2\mathrm{Re}\rho_{01}$, $r_y=-2\mathrm{Im}\rho_{01}$, $r_z=\rho_{00}-\rho_{11}$.
+\item $\lambda_\pm=\frac{1\pm|\bm r|}2$, $\gamma=\frac{1+|\bm r|^2}2$, $\det\rho=\frac{1-|\bm r|^2}4$.
+\item $\langle a_0\id+\bm a\cdot\bm\sigma\rangle=a_0+\bm a\cdot\bm r$; $\tr(\rho\sigma)=\frac{1+\bm r\cdot\bm s}2$; mixtures: $\bm r=\sum p_i\bm r_i$.
+\item $X$: $(r_x,-r_y,-r_z)$; $Y$: $(-r_x,r_y,-r_z)$; $Z$: $(-r_x,-r_y,r_z)$. Unitaries rotate $\bm r$, $|\bm r|$ fixed.
+\item $S=-\lambda_+\log_2\lambda_+-\lambda_-\log_2\lambda_-$.
+\end{itemize}
+
+%======================================================================
+\sect{Composite systems and entanglement}
+\ssect{Partial trace}
+\begin{itemize}
+\item $\tr_B[M_A\otimes M_B]=M_A\tr M_B$; $\tr[(O_A\otimes\id)\rho_{AB}]=\tr[O_A\rho_A]$.
+\item $(\rho_A)_{ij}=\sum_k\rho_{ik,jk}$, $(\rho_B)_{ij}=\sum_k\rho_{ki,kj}$; $\tr_B(\rho_A\otimes\rho_B)=\rho_A$.
+\item \textbf{Block rule:} $\rho_{AB}=\begin{pmatrix}P&Q\\R&S\end{pmatrix}$ (blocks by $A$) $\Rightarrow\rho_A=\begin{pmatrix}\tr P&\tr Q\\\tr R&\tr S\end{pmatrix}$, $\rho_B=P+S$.
+\item Pure $\ket\psi=\sum_{ij}\alpha_{ij}\ket{ij}$: $\rho_A=\alpha\alpha^\dagger$, $\rho_B=\alpha^T\alpha^*$.
+\item Measure $A$: $\ket\psi=\sum_i\ket{i_A}\ket{\tilde\phi_i}$, $p_i=\|\tilde\phi_i\|^2$, $B\to\tilde\phi_i/\sqrt{p_i}$; unrecorded: $\sum_ip_i\pr{\phi_i}=\rho_B$.
+\end{itemize}
+
+\columnbreak
+\ssect{Bell states ($\rho_A=\rho_B=\id/2$)}
+$\ket{\beta_{00}},\ket{\beta_{10}}=\frac{\ket{00}\pm\ket{11}}{\sqrt2}$, \ $\ket{\beta_{01}},\ket{\beta_{11}}=\frac{\ket{01}\pm\ket{10}}{\sqrt2}$.
+
+\ssect{Schmidt decomposition}
+$\ket{\psi_{AB}}=\sum_k\eta_k\ket{k_A}\ket{k_B}$, $\eta_k\ge0$, $\sum\eta_k^2=1$.
+\begin{itemize}
+\item \textbf{Recipe:} diagonalize $\rho_A$ (eigenvalues $\eta_k^2$, vectors $\ket{k_A}$); $\ket{k_B}=\braket{k_A|\psi}/\eta_k$.
+\item $\rho_A,\rho_B$ same nonzero spectrum; $\gamma=\sum\eta_k^4$; $S_{EE}=-\sum\eta_k^2\log_2\eta_k^2$.
+\item Pure: separable $\iff$ Schmidt rank 1 $\iff\rho_A$ pure. Max.\ entangled: $\rho_A=\id/d_A$, $S_{EE}=\log_2d_A$.
+\item Mixed separable: $\rho_{AB}=\sum_ip_i\rho_{Ai}\otimes\rho_{Bi}$. $S_{EE}$ invariant under $U_A\otimes U_B$.
+\item \textbf{Purification:} $\ket{AR}=\sum_i\sqrt{\lambda_i}\ket{i_A}\ket{i_R}$ (up to $U_R$).
+\end{itemize}
+
+%======================================================================
+\sect{Measurements}
+\begin{itemize}
+\item Projective: $p_i=\tr[P_i\rho]$, $\rho_i'=P_i\rho P_i/p_i$; unrecorded: $\sum_iP_i\rho P_i$.
+\item General $\{M_m\}$, $\sum M_m^\dagger M_m=\id$: $p(m)=\tr[M_m^\dagger M_m\rho]$, $\rho_m'=M_m\rho M_m^\dagger/p(m)$.
+Unrecorded: $\rho'=\sum_mM_m\rho M_m^\dagger$. Photodetector: $M_0=\kb00$, $M_1=\kb01$.
+\item \textbf{POVM} $E_m=M_m^\dagger M_m\ge0$, $\sum E_m=\id$, $p(m)=\tr[E_m\rho]$; $M_m=U_m\sqrt{E_m}$. Qubit: $e_0\id+\bm e\cdot\bm\sigma\ge0\iff|\bm e|\le e_0$.
+\end{itemize}
+\ssect{Pauli channels: $M_0=\sqrt p\,\id$, $M_1=\sqrt{1-p}\,\sigma$}
+\begin{tabular}{@{}l l@{}}
+Bit flip ($X$) & $\bm r'=(r_x,\,(2p{-}1)r_y,\,(2p{-}1)r_z)$\\
+Bit-phase ($Y$) & $\bm r'=((2p{-}1)r_x,\,r_y,\,(2p{-}1)r_z)$\\
+Phase flip ($Z$) & $\bm r'=((2p{-}1)r_x,\,(2p{-}1)r_y,\,r_z)$
+\end{tabular}
+\ssect{Unambiguous discrimination, $\alpha=\braket{\psi_1|\psi_2}$}
+$E_1=a(\id-\pr{\psi_2})$, $E_2=a(\id-\pr{\psi_1})$, $E_3=\id-E_1-E_2$. $E_3\ge0\iff a\le\frac1{1+|\alpha|}$; equal priors: $p_{\rm succ}^{\max}=1-|\alpha|$.
+
+%======================================================================
+\sect{Distances}
+\begin{itemize}
+\item \textbf{Trace distance} $d=\frac12\tr|\rho-\sigma|=\frac12\sum|\lambda_i(\rho-\sigma)|\in[0,1]$. Qubits: $\frac12|\bm r-\bm s|$; pure: $\sqrt{1-|\braket{\psi|\phi}|^2}$.
+\item \textbf{Fidelity} $F=\big[\tr\sqrt{\sqrt\rho\sigma\sqrt\rho}\big]^2$. Commuting: $(\sum\sqrt{\lambda_i\mu_i})^2$; one pure: $\bra\psi\sigma\ket\psi$; both: $|\braket{\psi|\phi}|^2$.
+\item Qubits: $F=\tr(\rho\sigma)+2\sqrt{\det\rho\det\sigma}$; one pure: $\frac{1+\bm r\cdot\bm s}2$. Closest pure state: $F=\lambda_{\max}=\frac{1+|\bm r|}2$.
+\end{itemize}
+
+%======================================================================
+\sect{Quantum gates}
+\begin{itemize}
+\item Circuit matrix: gates \emph{right to left}; columns of $U$ = images of basis states. $q_0$ = top wire = MSB: $x=\sum_ix_i2^{n-i}$, $\ket9=\ket{1001}$.
+\item $H=\frac1{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix}$, $HXH=Z$, $HZH=X$, $HYH=-Y$.
+\item $S=\mathrm{diag}(1,i)=e^{i\pi/4}R_z(\frac\pi2)$, $T=\mathrm{diag}(1,e^{i\pi/4})=e^{i\pi/8}R_z(\frac\pi4)$, $S=T^2$, $Z=S^2$; $H=e^{i\pi/2}R_x(\pi)R_y(\frac\pi2)$.
+\item $R_\alpha(\theta)=e^{-i\theta\sigma_\alpha/2}$, $c=\cos\frac\theta2$, $s=\sin\frac\theta2$:
+\[R_x=\begin{pmatrix}c&-is\\-is&c\end{pmatrix},\ R_y=\begin{pmatrix}c&-s\\s&c\end{pmatrix}\]
+$R_z=\mathrm{diag}(e^{-i\theta/2},e^{i\theta/2})$; any $U=e^{i\alpha}R_z R_y R_z$.
+\item C-$U=\pr0\otimes\id+\pr1\otimes U$; CNOT $\ket{c,t}\to\ket{c,t\oplus c}$; CZ $=\mathrm{diag}(1,1,1,-1)$; Toffoli $=\mathrm{diag}(\id_6,X)$; Fredkin = C-SWAP.
+\item CZ $=(\id\otimes H)$CNOT$(\id\otimes H)$; $(H\otimes H)\text{CNOT}_{12}(H\otimes H)=\text{CNOT}_{21}$.
+\end{itemize}
+
+%======================================================================
+\sect{Building blocks and query algorithms}
+\begin{itemize}
+\item $H^{\otimes n}\ket0^{\otimes n}=\frac1{\sqrt N}\sum_x\ket x\equiv\ket s$, \ $H^{\otimes n}\ket y=\frac1{\sqrt N}\sum_x(-1)^{\vec x\cdot\vec y}\ket x$.
+\item $U_f\ket x\ket y=\ket x\ket{y\oplus f(x)}$; phase oracle: $U_f\ket x\ket-=(-1)^{f(x)}\ket x\ket-$.
+\item \textbf{Kickback} ($U\ket\psi=e^{i\vartheta}\ket\psi$, circuit 12.2):
+\[\ket0\ket\psi\to\tfrac12\big[(1+e^{i\vartheta})\ket0+(1-e^{i\vartheta})\ket1\big]\ket\psi\]
+$P(0)=\cos^2\frac\vartheta2$; $m$ shots all $0$: $P(0)^m$.
+\item \textbf{Deutsch--Jozsa} (12.3): $P(0..0)=|\frac1N\sum_x(-1)^{f(x)}|^2=1$ const., 0 balanced. 1 query vs $2^{n-1}+1$.
+\item \textbf{Bernstein--Vazirani} $f=\vec s\cdot\vec x$: same circuit gives $\ket s$ with $P=1$; 1 query vs $n$. Oracle: CNOTs from qubits with $s_i=1$.
+\item Deutsch oracles: $f=0$: $\id$; $f=1$: $X$; $f=x$: CNOT; $f=\bar x$: CNOT + $X$.
+\end{itemize}
+
+%======================================================================
+\sect{Grover search ($N=2^n$, $M$ marked)}
+\begin{itemize}
+\item $U_w=\id-2\sum_w\pr w$; $D=2\pr s-\id=H^{\otimes n}(2\pr0-\id)H^{\otimes n}$; $G=DU_w$ rotates by $2\theta_0$.
+\item $\ket w=\frac1{\sqrt M}\sum\ket{y_i}$, $\ket u=\frac1{\sqrt{N-M}}\sum_{x\notin w}\ket x$; $\ket s=\cos\theta_0\ket u+\sin\theta_0\ket w$, $\sin\theta_0=\sqrt{M/N}$; $G^k\ket s$ has angle $\theta_k=(2k{+}1)\theta_0$:
+\[P_k=\sin^2[(2k+1)\theta_0],\quad k_{\max}\approx\Big\lfloor\tfrac\pi4\sqrt{N/M}\Big\rfloor\]
+\item $M=1$, one step: amplitude $\frac1{\sqrt N}(3-\frac4N)$, $P\approx9/N$. $\mathcal O(\sqrt{N/M})$ vs $\mathcal O(N)$. $M/N=\frac14$: $\theta_0=\frac\pi6$, $k=1$, $P=1$.
+\item Oracle: multi-controlled $Z$ marks $\ket{1..1}$; $X$ around qubit $i$ $\Rightarrow$ bit $0$; untouched qubit = don't care ($M\times2$).
+\end{itemize}
+
+%======================================================================
+\sect{QFT and phase estimation}
+\[\begin{aligned}\text{QFT}\ket x&=\tfrac1{\sqrt N}\textstyle\sum_ye^{2\pi ixy/N}\ket y\\&=\tfrac1{\sqrt N}\bigotimes_{k=1}^{n}\big(\ket0+e^{2\pi ix/2^k}\ket1\big)\end{aligned}\]
+\begin{itemize}
+\item QFT$\ket0=\ket s$. $e^{2\pi ix/2^k}=e^{2\pi i\,0.x_{n-k+1}\dots x_n}$. Circuit: $H$ + controlled $R_d=\mathrm{diag}(1,e^{2\pi i/2^d})$ + SWAPs; $n(n+1)/2=\mathcal O(n^2)$ gates vs FFT $\mathcal O(n2^n)$.
+\item \textbf{QPE} $U\ket u=e^{2\pi i\varphi}\ket u$, $\varphi\in[0,1)$: $H^{\otimes n}$; qubit of weight $2^j$ controls $U^{2^j}$ $\to\frac1{\sqrt N}\sum_ye^{2\pi i\varphi y}\ket y$; QFT$^\dagger$: $x\approx\varphi 2^n$.
+\item $\varphi N$ integer: exact with $P=1$; else nearest $x$ with $P\ge4/\pi^2$. Precision $2^{-t}$ w.p.\ $\ge1-\varepsilon$: $n=t+\lceil\log_2(2+\frac1{2\varepsilon})\rceil$.
+\item \warn{$e^{-i\pi/4}\to\varphi=7/8$.} $S\ket1=e^{2\pi i\frac14}\ket1$, $n=4$: $x=0100$; $X\ket-=e^{2\pi i\frac12}\ket-$, $n=3$: $100$.
+\item Binary fraction: $0.x_1x_2\dots x_m=\sum_ix_i2^{-i}$, e.g.\ $0.101=\frac58$.
+\end{itemize}
+
+%======================================================================
+\sect{Order finding}
+\begin{itemize}
+\item $\gcd(x,M)=1$: order $r$ = smallest $r>0$ with $x^r\equiv1\pmod M$ = period of $x^a\bmod M$ ($r\le M$), $\ell=\lceil\log_2M\rceil$.
+\item $\frac1{\sqrt N}\sum_x\ket x\ket{f(x)}$, measuring reg.\ 2 leaves $\frac1{\sqrt A}\sum_j\ket{x_0+jr}$; QFT, measure $y_0$:
+\[P(y_0)=\tfrac1{NA}\Big|\textstyle\sum_{j=0}^{A-1}e^{2\pi ijry_0/N}\Big|^2\]
+peaks at $y_0\approx kN/r$ ($k=0,\dots,r{-}1$), each with $P\approx\frac1r$.
+\item $r|N$: $y_0=kN/r$ exactly. W.p.\ $>4/\pi^2$: $\big|\frac{y_0}N-\frac kr\big|\le\frac1{2N}$.
+\item \textbf{Continued fractions:} $[a_0;a_1,\dots]$ via Euclid ($N=a_1y_0+r_1$, $y_0=a_2r_1+r_2$,\dots). Convergents $h_m=a_mh_{m-1}+h_{m-2}$, $k_m=a_mk_{m-1}+k_{m-2}$; $h_{-1}=1,h_{-2}=0,k_{-1}=0,k_{-2}=1$. E.g.\ $\frac38=[0;2,1,2]$: $0,\frac12,\frac13,\frac38$.
+\item First convergent with $\big|\frac{y_0}N-\frac kr\big|<\frac1{2N}$, $r<N$; \textbf{check $x^r\equiv1$}. $\gcd(k,r)>1$: divisor of $r$, try multiples.
+\item E.g.\ $x=7$, $M=27$, $n=6$, $y_0=7$: $\frac7{64}=[0;9,7]\to\frac19$, $r=9$.
+\item \textbf{As QPE:} $U_x\ket y=\ket{xy\bmod M}$, eigenvalues $e^{2\pi is/r}$; $\ket1=\frac1{\sqrt r}\sum_s\ket{u_s}$ gives $s/r$. Several runs: $r=\mathrm{lcm}$.
+\end{itemize}
+
+%======================================================================
+\sect{Circuits}
+\ssect{Gates and identities}
+\begin{qcenv}\begin{quantikz}[qc]
+& \ctrl{1} & \\ & \targ{} &
+\end{quantikz}\,{\scriptsize CNOT}\ \
+\begin{quantikz}[qc]
+& \ctrl{1} & \\ & \control{} &
+\end{quantikz}\,{\scriptsize CZ}\ \
+\begin{quantikz}[qc]
+& \octrl{1} & \\ & \targ{} &
+\end{quantikz}\,$=$\,\begin{quantikz}[qc]
+& \gate{X} & \ctrl{1} & \gate{X} & \\ & & \targ{} & &
+\end{quantikz}\ \
+\begin{quantikz}[qc]
+& \ctrl{1} & \\ & \ctrl{1} & \\ & \targ{} &
+\end{quantikz}\,{\scriptsize Toffoli}
+\end{qcenv}
+\begin{qcenv}\begin{quantikz}[qc]
+& \swap{1} & \\ & \targX{} &
+\end{quantikz}\,$=$\,\begin{quantikz}[qc]
+& \ctrl{1} & \targ{} & \ctrl{1} & \\ & \targ{} & \ctrl{-1} & \targ{} &
+\end{quantikz}\quad
+\begin{quantikz}[qc]
+& \ctrl{1} & \\ & \control{} &
+\end{quantikz}\,$=$\,\begin{quantikz}[qc]
+& & \ctrl{1} & & \\ & \gate{H} & \targ{} & \gate{H} &
+\end{quantikz}\quad
+\begin{quantikz}[qc]
+\lstick{$\ket x$} & \gate{H} & \ctrl{1} & \rstick[2]{$\ket{\beta_{xy}}$} \\ \lstick{$\ket y$} & & \targ{} &
+\end{quantikz}
+\end{qcenv}
+
+\ssect{Kickback (Hadamard test)}
+\begin{qcenv}\begin{quantikz}[qc]
+\lstick{$\ket0$} & \gate{H} & \ctrl{1} & \gate{H} & \meter{} \\
+\lstick{$\ket\psi$} & & \gate{U} & & \rstick{$\ket\psi$}
+\end{quantikz}\end{qcenv}
+
+\ssect{Deutsch--Jozsa / Bernstein--Vazirani}
+\begin{qcenv}\begin{quantikz}[qc]
+\lstick{$\ket0^{\otimes n}$} & \qwbundle{n} & \gate{H^{\otimes n}} & \gate[2]{U_f} & \gate{H^{\otimes n}} & \meter{} \\
+\lstick{$\ket1$} & \gate{H} & & & \rstick{$\ket-$}
+\end{quantikz}\end{qcenv}
+
+\ssect{Grover: $G^k$, diffuser ($=-D$), oracle $\ket{101}$}
+\begin{qcenv}\begin{quantikz}[qc]
+\lstick{$\ket0^{\otimes n}$} & \qwbundle{n} & & \gate{H^{\otimes n}} & \gate{U_w}\gategroup[1,steps=2,style={dashed,rounded corners,inner xsep=1pt},label style={label position=above,yshift=-2pt}]{$\times k$} & \gate{D} & \meter{}
+\end{quantikz}\end{qcenv}
+\begin{qcenv}\begin{quantikz}[qc]
+& \gate{H} & \gate{X} & \ctrl{1} & \gate{X} & \gate{H} & \\
+& \gate{H} & \gate{X} & \ctrl{1} & \gate{X} & \gate{H} & \\
+& \gate{H} & \gate{X} & \gate{Z} & \gate{X} & \gate{H} &
+\end{quantikz}\qquad
+\begin{quantikz}[qc]
+& & \ctrl{1} & & \\
+& \gate{X} & \ctrl{1} & \gate{X} & \\
+& & \gate{Z} & &
+\end{quantikz}\end{qcenv}
+
+\ssect{QFT ($n=3$, unnormalized outputs)}
+\begin{qcenv}\begin{quantikz}[qc]
+\lstick{$\ket{x_1}$} & \gate{H} & \gate{R_2} & \gate{R_3} & & & & \swap{2} & \rstick{$\ket0+e^{2\pi i\,0.x_3}\ket1$} \\
+\lstick{$\ket{x_2}$} & & \ctrl{-1} & & \gate{H} & \gate{R_2} & & & \rstick{$\ket0+e^{2\pi i\,0.x_2x_3}\ket1$} \\
+\lstick{$\ket{x_3}$} & & & \ctrl{-2} & & \ctrl{-1} & \gate{H} & \targX{} & \rstick{$\ket0+e^{2\pi i\,0.x_1x_2x_3}\ket1$}
+\end{quantikz}\end{qcenv}
+
+\ssect{Phase estimation / order finding}
+\begin{qcenv}\begin{quantikz}[qc]
+\lstick{$\ket0$} & \gate{H} & & & \ctrl{3} & \gate[3]{\text{QFT}^\dagger} & \meter{} \\
+\lstick{$\ket0$} & \gate{H} & & \ctrl{2} & & & \meter{} \\
+\lstick{$\ket0$} & \gate{H} & \ctrl{1} & & & & \meter{} \\
+\lstick{$\ket u$} & \qwbundle{} & \gate{U^{2^0}} & \gate{U^{2^1}} & \gate{U^{2^{2}}} & & \rstick{$\ket u$}
+\end{quantikz}\end{qcenv}
+\begin{qcenv}\begin{quantikz}[qc]
+\lstick{$\ket0^{\otimes n}$} & \qwbundle{n} & & \gate{H^{\otimes n}} & \gate[2]{U_f} & \gate{\text{QFT}^\dagger} & \meter{} & \rstick{$y_0$} \\
+\lstick{$\ket0^{\otimes\ell}$} & \qwbundle{\ell} & & & & & \meter{}
+\end{quantikz}\end{qcenv}
+
+\end{multicols}
+\end{document}

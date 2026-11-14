@@ -1,0 +1,135 @@
+\chapter{Transmission electron microscopy (TEM)}
+\label{ch:tem}
+
+\paragraph{In this chapter.} Electron--sample interactions, imaging modes (bright field, dark field/HAADF), particle-size
+histograms, tomography, HRTEM and Fourier transforms (d-spacing $\to$ plane), analytical TEM (EDX, EELS, EFTEM) and
+environmental TEM.
+
+\section{Electron--beam/sample interactions}
+\slide{189}: an incident electron beam produces back-scattered, secondary and Auger electrons, X-rays, visible light,
+and transmitted electrons (forward, elastically and inelastically scattered).
+\begin{classbox}
+\begin{itemize}
+  \item \textbf{Elastically} scattered electrons: ``conserve $E$, change direction'' $\to$ imaging, diffraction.
+  \item \textbf{Inelastically} scattered: ``don't conserve $E$, change direction'' $\to$ EELS.
+  \item Auger electrons: ``$e^-$ leaving by $E$ conservation when an $e^-$ downgrades to lower levels.''
+  \item Secondary electrons: ``$e^-$ leaving by photons produced by $e^-$ downgrading to lower levels.''
+\end{itemize}
+\end{classbox}
+Ruska: first electron microscope (Nobel 1986, shared with Binnig and Rohrer for STM) \slide{190}.
+Instrument \slide{191}: electron gun, condenser lenses/aperture, specimen, objective lens/aperture, intermediate and
+projector lenses, screen/camera; vacuum. Samples are dispersed (ultrasound in alcohol) on Cu grids with a lacy
+carbon film \slide{192}.
+
+\section{Imaging modes}
+\slide{193}: the objective lens forms the \textbf{diffraction pattern} in its back focal plane and the \textbf{image}
+in the image plane. An \textbf{objective aperture} in the back focal plane selects which electrons form the image.
+
+\begin{keybox}[: bright field vs dark field]
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+\textbf{Bright field (BF)} \slide{194} & Aperture selects the \textbf{transmitted (direct) beam} (``you take $e^-$ in the
+optical axis''). Heavy/thick regions scatter electrons out of the aperture $\Rightarrow$ appear \textbf{dark} on a
+bright background. Example: Pt particles (dark dots) on CeO$_2$--ZrO$_2$ \slide{195}. \\
+\textbf{Dark field (DF, STEM-HAADF)} \slide{196} & Aperture/annular detector collects \textbf{scattered} electrons
+(``you take $e^-$ off the optical axis''); scattering regions appear \textbf{bright} on a dark background.
+\textbf{HAADF} (high-angle annular dark field) intensity $\propto Z^2$: \textbf{Z-contrast}, heavy atoms bright.
+Example: Au on TiO$_2$ (1--8\,\%), single Au atoms on CeO$_2$ \slide{197--200}. \\
+\bottomrule
+\end{tabularx}
+\end{keybox}
+\begin{tipbox}
+HAADF/Z-contrast is the technique to \textbf{see heavy metal particles on a light support} (Pt, Au on oxides or carbon)
+and to tell core from shell when the two metals have very different $Z$.
+\end{tipbox}
+
+\section{Particle size determination}
+\begin{keybox}[: mean particle size \slide{201}]
+Measure many particles (typically $>$100--200), build a histogram, and compute
+\begin{equation}
+\bar d = \frac{\sum_i n_i d_i}{\sum_i n_i},\qquad
+\sigma = \sqrt{\frac{\sum_i n_i (d_i-\bar d)^2}{\sum_i n_i}}\ \text{\extra}
+\end{equation}
+$n_i$: number of particles with diameter $d_i$ (in a bin).
+\end{keybox}
+\begin{pitfall}
+\slide{202}: a number-weighted mean hides rare big particles. One large particle can contain \textbf{50\,\% of the
+metal mass} (w/w) while being invisible in the number histogram. Always report the \textbf{distribution} (mean $\pm$
+deviation), and look at several areas of the grid. TEM sees few particles (not statistically representative), unlike
+XRD or UV-vis.
+\end{pitfall}
+
+\section{TEM tomography}
+\slide{203--204}: images recorded while tilting the sample (e.g.\ $-70^\circ$ to $+70^\circ$) are back-projected into a
+\textbf{3D reconstruction}. It shows where particles are (inside pores of a zeolite, \textbf{inside or outside} a carbon
+nanotube, PtRu/C), something a 2D projection cannot tell.
+
+\section{High-resolution TEM (HRTEM) and Fourier transform}
+\begin{keybox}[: HRTEM lattice fringes \slide{205--208}]
+A large objective aperture lets the direct beam \emph{and} several diffracted beams interfere: the image shows
+\textbf{lattice fringes}. ``Interference pattern, NOT atoms.'' The spacing between fringes $= d_{hkl}$ of the planes
+parallel to the beam.\\
+The \textbf{Fourier transform (FT/FFT)} of the image gives a diffraction-like pattern: each pair of spots corresponds to a
+set of fringes. Spot distance $\propto 1/d$; angles between spots = angles between planes.\\
+\textbf{Example} (Au along [110], \slide{208}): 2.04\,\AA{} $\to$ (200); 2.36\,\AA{} $\to$ (111) (two non-parallel sets).
+\end{keybox}
+\begin{recipe}{assigning HRTEM fringes}
+\begin{enumerate}
+  \item Measure the fringe spacing $d$ (or read it from the figure). Average over several fringes: $d = (\text{distance over }n\text{ fringes})/n$.
+  \item Compute $d_{hkl} = a/\sqrt{h^2+k^2+l^2}$ for the \textbf{allowed} reflections of each candidate phase
+        (fcc: 111, 200, 220, 311).
+  \item Match within $\sim$2--3\,\%. Several phases? Pick the one whose $d$ matches. That identifies the particle.
+  \item Angle between two fringe sets helps: e.g.\ two \{200\} sets at $90^\circ$ $\to$ viewed along [001];
+        \{111\} and \{200\} at $54.7^\circ$; two \{111\} at $70.5^\circ$ (both along [110]).
+  \item The fringes \textbf{parallel to a particle edge/surface} tell which plane is exposed at that surface.
+\end{enumerate}
+\end{recipe}
+Particle shapes and exposed facets \slide{209}: cube = \{100\}; octahedron = \{111\}; intermediate truncated shapes
+expose \{100\} + \{111\} (+\{110\}). Ceria cubes expose \{100\}, rods \{110\}+\{100\}, polyhedra \{111\}.
+FT of SrTiO$_3$/TiO$_2$: 2.0\,\AA{} $\to$ SrTiO$_3$ (200) along [001]; 6.3/3.1/2.1\,\AA{} $\to$ Sr$_2$TiO$_4$ (002)/(004)/(006)
+\slide{210}.
+
+\subsection*{Epitaxy}
+\begin{defbox}[: epitaxial relationship]
+A particle grows in a defined crystallographic orientation with respect to its support: its lattice fringes are
+\textbf{aligned/continuous} with those of the support across the interface (e.g.\ Cu\{hkl\} $\parallel$ CeO$_2$\{h'k'l'\}).
+Epitaxy indicates a strong metal--support interaction (and usually small, flat, well-anchored particles). Large
+particles that are randomly oriented with respect to the support are not epitaxial.\extra
+\end{defbox}
+
+\section{Analytical TEM: EDX, EELS, EFTEM}
+\begin{itemize}
+  \item \textbf{EDX (energy-dispersive X-ray analysis)} \slide{211}: the beam ejects a core electron; an outer electron
+        fills the hole, emitting a characteristic X-ray (K$\alpha$, K$\beta$, L$\alpha$). Gives \textbf{elemental composition}
+        of a selected area/particle and elemental \textbf{maps} (STEM-EDX). Class: ``At the same time you measure with
+        $e^-$, you measure dispersed $e^-$ energy.'' Cu peaks often come from the grid.
+  \item \textbf{EELS (electron energy loss spectroscopy)} \slide{212}: energy lost by transmitted electrons. Zero-loss peak
+        (elastic), \textbf{plasmon} region (collective excitation of valence electrons, low loss $<$\SI{50}{eV}), and
+        \textbf{core-loss} edges (inner-shell ionisation, element-specific, also sensitive to oxidation state).
+        Low-loss spectra distinguish TiO$_2$ support from Au--Cu particles \slide{213}.
+  \item \textbf{EFTEM (energy-filtered TEM)} \slide{214}: image formed only with electrons of a chosen energy loss
+        $\Rightarrow$ \textbf{elemental maps} (e.g.\ Co red, O green: a Co particle with an oxide shell).
+\end{itemize}
+\begin{tipbox}
+EDX/EELS maps answer ``which element is where'': core vs shell, alloy (both elements everywhere) vs segregation, and
+the composition of a shell (Exercises~9b, 16).
+\end{tipbox}
+
+\section{Environmental TEM}
+\slide{216--218}: gas (e.g.\ H$_2$) and heating inside the microscope; follows changes in real time: CeO$_2$ surface
+reduction Ce$^{IV}$O$_2$ $\to$ Ce$^{III-IV}$O$_{2-x}$, Ni/Al$_2$O$_3$ growing a carbon nanotube in seconds \slide{217}.
+Au nanoparticles grown on MWCNTs (functionalised with amines + AuCl$_4^-$ + citrate + ultrasound) \slide{215}.
+
+\section{Advantages and limitations}
+\proscons{
+\begin{itemize}
+  \item \textbf{Direct imaging}: size, shape, distribution, location of particles.
+  \item Atomic-scale structure (HRTEM, FT): phases, exposed planes, epitaxy, defects.
+  \item Local chemistry (EDX, EELS, EFTEM, HAADF), 3D (tomography), in situ (ETEM).
+\end{itemize}}{
+\begin{itemize}
+  \item Local: few particles, not statistically representative.
+  \item Vacuum, thin samples needed, beam damage (fullerenes fusing, \slide{121}).
+  \item 2D projection: inside/outside ambiguous without tomography.
+  \item Expensive; interpretation of HRTEM needs care.
+\end{itemize}}

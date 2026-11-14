@@ -1,0 +1,56 @@
+\section{Exam toolkit: recipes by exercise type}
+\label{sec:toolkit}
+For multi-technique problems (9, 10, 15, 16): write \textbf{one conclusion per technique}, say what each technique
+\emph{cannot} tell, then combine.
+
+\begin{recipe}{A. UV-vis assignment (Ex.~1, 13, 14, 15b, 16)}
+Find $\lambda_\mathrm{max}$ $\to$ compare with Ag 400 / Au 520 / Cu 570 nm. Same size, different composition: order the bands by
+composition. Same metal: bigger = red-shifted and broader. Two bands: rods or two segregated metals. Weak band + rising background:
+tiny core or dielectric shell. No band: oxide.
+\end{recipe}
+
+\begin{recipe}{B. XRD indexing and lattice parameter (Ex.~2--6, 16)}
+\begin{enumerate}
+  \item Read $\twotheta_i$; $\theta_i = \twotheta_i/2$ (never use $\sin 2\theta$).
+  \item $r_i = \sin^2\theta_i/\sin^2\theta_1$: integers 1, 2, 3\ldots{} $\Rightarrow$ BCC ($N=2r$); 1, 1.33, 2.67, 3.67 $\Rightarrow$ FCC ($N=3r$).
+  \item $d_i = \lambda/2\sin\theta_i$, \ $a_i = d_i\sqrt{N_i}$; average (high angles are more precise).
+  \item Identify a phase: compute the expected $\twotheta$ of each candidate and compare several peaks, not one.
+\end{enumerate}
+\end{recipe}
+
+\begin{recipe}{C. Scherrer (Ex.~4, 6)}
+$B = \mathrm{FWHM} - \mathrm{FWHM}_\mathrm{inst}$ (course convention), converted to \textbf{radians}; $\theta$ = half the peak position;
+$L = 0.9\lambda/(B\cos\theta)$ in the units of $\lambda$. FWHM = width at half the peak height above background.
+\end{recipe}
+
+\begin{recipe}{D. Mixture vs solid solution (Ex.~6, 16)}
+Two sets of peaks at the pure-phase positions = mixture; one set in between = solid solution, with
+$x\approx(a_A-a)/(a_A-a_B)$ (Vegard\extra). If $a_A\approx a_B$ (Au/Ag) XRD cannot decide: use UV-vis, EELS, XPS.
+\end{recipe}
+
+\begin{recipe}{E. XPS assignment (Ex.~4, 5, 10, 15d, 16)}
+Pair the doublet; compare the main $E_B$ with the reference: higher = more oxidised / more electronegative neighbour.
+Several doublets = several states. Satellites = Cu$^{2+}$/Ni$^{2+}$. Bimetallic: the more electronegative metal shifts down.
+XPS sees only the outer 5--10 nm.
+\end{recipe}
+
+\begin{recipe}{F. HRTEM fringes, facets, epitaxy (Ex.~5, 8, 9a, 10b--c, 15b, 18)}
+Measure $d$ (average over several fringes) $\to$ compare with $d_{111}, d_{200}, d_{220}$ of each candidate (table in
+\cref{sec:formulas}) within 2--3\,\%. Fringes parallel to an edge = plane of that facet. Two \{200\} at 90\textdegree{} = view along
+[001]; \{111\}/\{200\} at 54.7\textdegree. Epitaxy = fringes of particle and support aligned/continuous across the interface.
+\end{recipe}
+
+\begin{recipe}{G/H. Histograms and AFM vs TEM (Ex.~7, 14, 17)}
+Calibrate with the scale bar, measure $\geq$100 particles, bins of 0.5--1 nm, $\bar d=\sum n_id_i/\sum n_i$,
+$\sigma=\sqrt{\sum n_i(d_i-\bar d)^2/\sum n_i}$. AFM vs TEM: $\ell_\mathrm{cap}\approx(h_\mathrm{AFM}-d_\mathrm{TEM})/2$; never use AFM widths.
+\end{recipe}
+
+\begin{recipe}{J. Microreactor design (Ex.~9c, slide 101)}
+\begin{enumerate}
+  \item From TEM: core diameter $d_c$, total $d_t$. Times (rates of diameter growth): $t_\mathrm{core}=d_c/v_\mathrm{core}$,
+        $t_\mathrm{shell}=(d_t-d_c)/v_\mathrm{shell}$.
+  \item Flow per zone = pumps feeding it $\times Q$ (core: salt + reductant = $2Q$; shell: $4Q$).
+  \item Volume $V = Q_\mathrm{zone}t$; channel length $L = V/\pi r^2$ (1 \si{\micro L} = 1 mm$^3$); one temperature per zone;
+        add the oxidant (KMnO$_4$) before the outlet.
+\end{enumerate}
+\end{recipe}

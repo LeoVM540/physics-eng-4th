@@ -1,0 +1,140 @@
+\chapter{X-ray photoelectron spectroscopy (XPS)}
+\label{ch:xps}
+
+\paragraph{In this chapter.} The photoelectric principle, how to read a spectrum (peaks, doublets, Auger), quantification,
+why XPS only sees the surface, and the chemical shift used to determine oxidation states.
+
+\section{Basic principle}
+Photoelectric effect (Einstein, Nobel 1921); XPS as an analytical tool (Siegbahn, Nobel 1981) \slide{139}.
+A photon of energy $h\nu$ ejects a core electron:
+\begin{keybox}[: photoelectric equation \slide{140}]
+\begin{equation}
+h\nu = E_B + E_\mathrm{kin} + \phi \qquad\Longrightarrow\qquad \boxed{E_\mathrm{kin} = h\nu - E_B - \phi}
+\label{eq:xps}
+\end{equation}
+$E_B$ = binding energy of the electron (element- and orbital-specific), $\phi$ = work function of the spectrometer.
+We measure $E_\mathrm{kin}$ and plot the spectrum vs $E_B$.
+\end{keybox}
+\textbf{Instrument} \slide{141--144}: lab X-ray source (Mg K$\alpha$ \SI{1253.6}{eV}, Al K$\alpha$ \SI{1486.6}{eV}, the
+commonly used lines); \textbf{hemispherical electron analyser} (selects $E_\mathrm{kin}$); \textbf{ultra-high vacuum}
+(electrons must reach the detector without colliding).
+
+\section{Reading a spectrum}
+\begin{classbox}
+XPS spectrum $\Rightarrow$ \textbf{surface characterization} \slide{146}. ``Max $E$ is X-ray energy.''
+\end{classbox}
+\subsection{Qualitative analysis: peaks and doublets}
+Each element gives peaks at characteristic $E_B$ (survey/wide scan, e.g.\ Au: 4s 763, 4p 643/547, 4d 353/335,
+4f 88/84 eV \slide{147}). Peaks are labelled $n\,l_j$, e.g.\ $2p_{3/2}$ \slide{150}.
+
+\begin{keybox}[: spin--orbit splitting \slide{148--150}]
+Total angular momentum $j = |l \pm s|$, $s = 1/2$.
+\begin{itemize}
+  \item $s$ orbitals ($l=0$): $j = 1/2$ only $\Rightarrow$ \textbf{one peak}.
+  \item $p, d, f$ ($l\geq1$): two values of $j$ $\Rightarrow$ \textbf{doublet}.
+\end{itemize}
+\begin{center}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+ & $p$ ($l=1$) & $d$ ($l=2$) & $f$ ($l=3$) \\ \midrule
+Components & $p_{1/2}$, $p_{3/2}$ & $d_{3/2}$, $d_{5/2}$ & $f_{5/2}$, $f_{7/2}$ \\
+Area ratio & 1 : 2 & 2 : 3 & 3 : 4 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Area ratio = $(2j_1+1):(2j_2+1)$. The higher-$j$ component has the \textbf{lower} $E_B$ and the larger area. The distance
+between the two is the \textbf{spin--orbit splitting} (e.g.\ Ti 2p: \SI{6.17}{eV} in Ti metal, \SI{5.54}{eV} in TiO$_2$
+\slide{157}).
+\end{keybox}
+
+\subsection{Auger electrons}
+\slide{151--152}: after photoemission, an electron from a higher level fills the core hole and the released energy ejects
+a third electron (Auger electron). Named \emph{level filled / level donating / level of the Auger electron}, e.g.\
+Cu KLL, Au NNN. \textbf{The Auger kinetic energy is independent of the photon energy}, so on a binding-energy scale
+Auger peaks move if you change the source (useful to tell them apart from photoelectron peaks).
+
+\section{Quantitative analysis}
+\begin{keybox}[: peak intensity \slide{153}]
+\begin{equation}
+I_i = N_i\,\sigma_i\,\lambda_i\,K
+\end{equation}
+$I_i$: intensity (area) of peak $p$ of element $i$; $N_i$: average atomic concentration in the analysed surface;
+$\sigma_i$: photoelectron cross-section (Scofield factor); $\lambda_i$: inelastic mean free path; $K$: instrumental
+factors (constant).
+Relative composition: $\dfrac{N_A}{N_B} = \dfrac{I_A/(\sigma_A\lambda_A)}{I_B/(\sigma_B\lambda_B)}$.
+\end{keybox}
+Measure $I_i$ as the \textbf{area} after background subtraction (Shirley background), fitting with Gaussian--Lorentzian
+components. Peak height is the worst choice \slide{154}.
+
+\section{Surface sensitivity: inelastic mean free path}
+\begin{keybox}[: why XPS is a surface technique \slide{155}]
+The X-rays penetrate microns, but photoelectrons only escape without losing energy from the top few nm. The
+\textbf{inelastic mean free path} $\lambda$ (how far an electron travels before losing energy) follows the
+``universal curve''. For XPS kinetic energies ($\sim$\SIrange{100}{1500}{eV}) it is $\lambda\approx\SIrange{0.5}{3}{nm}$:
+XPS probes the \textbf{top $\sim$\SIrange{5}{10}{nm}} ($\sim$20 atomic layers, \slide{146}).
+\end{keybox}
+\begin{tipbox}
+Consequences used in exercises:
+\begin{itemize}
+  \item In a \textbf{core--shell} particle, XPS mostly sees the \textbf{shell}. The core signal is attenuated or invisible
+        if the shell is thicker than a few nm.
+  \item Particles \textbf{outside} a tube/support give a stronger XPS signal than the same particles hidden
+        \textbf{inside} (Exercise~15c).
+  \item Removing a shell and re-measuring reveals the core (Exercise~16).
+\end{itemize}
+\end{tipbox}
+
+\section{Chemical shift}
+\begin{defbox}[: chemical shift \slide{156}]
+Change in the binding energy of a core electron due to a change in the chemical bonding of that element.
+Core $E_B$ is set by the attraction to the nucleus, reduced by the screening of all other electrons (including
+valence ones). Changing the valence charge changes the screening:
+\begin{itemize}
+  \item \textbf{Withdrawal} of valence electron charge (\textbf{oxidation}, bonding to a more electronegative atom)
+        $\Rightarrow$ \textbf{increase} in $E_B$.
+  \item \textbf{Addition} of valence electron charge (reduction, bonding to a less electronegative atom)
+        $\Rightarrow$ \textbf{decrease} in $E_B$.
+\end{itemize}
+\end{defbox}
+Examples from the slides:
+\begin{itemize}
+  \item Ti 2p$_{3/2}$: Ti$^0$ \SI{454.1}{eV} $\to$ Ti$^{4+}$ in TiO$_2$ \SI{458.8}{eV} \slide{157}.
+        Class note: ``Oxidation moves to higher energies, since e$^-$ (i.e.\ at 2p) are more blocked with more e$^-$
+        coming from oxidation values.''
+  \item Nb 3d: Nb $<$ NbO $<$ NbO$_2$ $<$ Nb$_2$O$_5$ in $E_B$ \slide{158}.
+  \item C 1s in ethyl trifluoroacetate: four C atoms, shifts up to $\sim$\SI{8}{eV} as F/O neighbours withdraw charge;
+        tabulated C 1s: C--C/C--H 285.0, C--N 286.0, C--O 286.5, C=O 288.0, O--C=O 289.0, CF$_3$ 293--294 eV \slide{159--160}.
+  \item Au 4f$_{7/2}$: Au$^0$ \SI{84.0}{eV}; Au(I) $\sim$85--86; Au(III) $\sim$87 eV; reduction of Au(III) to Au(I) followed in
+        time \slide{161}.
+\end{itemize}
+\begin{tipbox}[: electronegativity argument]
+When two metals are in contact (alloy or interface), electron density flows towards the \textbf{more electronegative}
+one. Its $E_B$ goes \textbf{down}; the other metal's $E_B$ goes \textbf{up} (partially oxidised, $\delta^+$). Used in
+Exercises~15d (Au 2.54 vs Pt 2.28) and~16 (Au 2.54 vs Ag 1.93).
+\end{tipbox}
+
+\section{Satellites (shake-up)\extra}
+Paramagnetic ions with open d shells (e.g.\ Cu$^{2+}$, Ni$^{2+}$, Co$^{2+}$) show strong \textbf{shake-up satellites}
+a few eV above the main 2p peaks. Cu$^{2+}$ (CuO): Cu 2p$_{3/2}$ $\approx$ \SI{933.5}{eV} + satellites at
+\SIrange{940}{945}{eV}. Cu$^0$ and Cu$^+$: sharp peak at $\approx$\SI{932.5}{eV} and \emph{no} satellites. Needed for
+Exercise~10.
+
+\section{Synchrotron and near-ambient-pressure XPS}
+\slide{162--165}: electrons in a storage ring emit X-rays when bent (``e$^-$ turn converts its energy into X-ray
+generation''). Synchrotron light is $\sim10^{9}$--$10^{10}$ times brighter than an X-ray tube and \textbf{tunable}
+in energy. Changing $h\nu$ changes $E_\mathrm{kin}$, hence $\lambda$, hence the probed depth: \textbf{depth profiling}.
+\textbf{NAP-XPS} (e.g.\ CIRCE-BL24 at ALBA): differential pumping lets the sample sit at \SIrange{1}{100}{mbar} of gas,
+so catalysts can be studied \emph{in situ}/operando.
+
+\section{Advantages and limitations}
+\proscons{
+\begin{itemize}
+  \item \textbf{Oxidation state / chemical environment} (chemical shift).
+  \item Elemental composition of the \textbf{surface} (all elements except H, He).
+  \item Quantitative; in situ (NAP) and depth profiling (synchrotron).
+\end{itemize}}{
+\begin{itemize}
+  \item Only top $\sim$5--10 nm: not representative of the bulk.
+  \item Ultra-high vacuum (except NAP); large area average, no spatial resolution at nm scale.
+  \item Small shifts between some states (Cu$^0$/Cu$^+$, Ag$^0$/Ag$^+$) need extra features (Auger, satellites).
+\end{itemize}}

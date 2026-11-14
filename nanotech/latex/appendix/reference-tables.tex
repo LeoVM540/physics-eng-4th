@@ -1,0 +1,112 @@
+\chapter{Reference tables}
+\label{app:tables}
+
+\section{Precomputed d-spacings and $\twotheta$ (Cu K$\alpha$)}
+\label{app:dspacings}
+All are fcc lattices (rocksalt and fluorite structures included). The values are computed from $a$ with
+$d = a/\sqrt N$ and Bragg's law ($\lambda$ = \SI{1.5406}{\angstrom})\extra. The lattice parameters are those given in the
+exercises, plus standard values for Pt and NiO.
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}lc|cccc|cccc@{}}
+\toprule
+ & & \multicolumn{4}{c|}{$d$ (\AA)} & \multicolumn{4}{c}{$\twotheta$ ($^\circ$)} \\
+Material & $a$ (\AA) & 111 & 200 & 220 & 311 & 111 & 200 & 220 & 311 \\ \midrule
+Au & 4.078 & 2.354 & 2.039 & 1.442 & 1.230 & 38.19 & 44.39 & 64.59 & 77.58 \\
+Au (Ex.\ 15/16) & 4.065 & 2.347 & 2.033 & 1.437 & 1.226 & 38.32 & 44.54 & 64.82 & 77.88 \\
+Ag & 4.086 & 2.359 & 2.043 & 1.445 & 1.232 & 38.12 & 44.30 & 64.45 & 77.40 \\
+Pt & 3.924 & 2.266 & 1.962 & 1.387 & 1.183 & 39.75 & 46.23 & 67.45 & 81.24 \\
+Pd & 3.891 & 2.246 & 1.946 & 1.376 & 1.173 & 40.11 & 46.65 & 68.10 & 82.08 \\
+Ni & 3.524 & 2.035 & 1.762 & 1.246 & 1.063 & 44.49 & 51.85 & 76.38 & 92.93 \\
+Cu & 3.615 & 2.087 & 1.808 & 1.278 & 1.090 & 43.32 & 50.45 & 74.13 & 89.94 \\
+CeO$_2$ & 5.411 & 3.124 & 2.706 & 1.913 & 1.631 & 28.55 & 33.08 & 47.49 & 56.35 \\
+ZrO$_2$ (cubic) & 5.09 & 2.939 & 2.545 & 1.800 & 1.535 & 30.39 & 35.24 & 50.69 & 60.25 \\
+TiN & 4.24 & 2.448 & 2.120 & 1.499 & 1.278 & 36.68 & 42.61 & 61.84 & 74.10 \\
+NiO & 4.177 & 2.412 & 2.088 & 1.477 & 1.259 & 37.26 & 43.29 & 62.88 & 75.42 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Allowed reflections in cubic lattices}
+\begin{center}
+\small
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+$N=h^2+k^2+l^2$ & $hkl$ & SC & BCC & FCC \\ \midrule
+1 & 100 & \checkmark & & \\
+2 & 110 & \checkmark & \checkmark & \\
+3 & 111 & \checkmark & & \checkmark \\
+4 & 200 & \checkmark & \checkmark & \checkmark \\
+5 & 210 & \checkmark & & \\
+6 & 211 & \checkmark & \checkmark & \\
+8 & 220 & \checkmark & \checkmark & \checkmark \\
+9 & 300, 221 & \checkmark & & \\
+10 & 310 & \checkmark & \checkmark & \\
+11 & 311 & \checkmark & & \checkmark \\
+12 & 222 & \checkmark & \checkmark & \checkmark \\
+14 & 321 & \checkmark & \checkmark & \\
+16 & 400 & \checkmark & \checkmark & \checkmark \\
+19 & 331 & \checkmark & & \checkmark \\
+20 & 420 & \checkmark & \checkmark & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Angles between planes in cubic crystals\extra}
+\[
+\cos\varphi = \frac{h_1h_2+k_1k_2+l_1l_2}{\sqrt{(h_1^2+k_1^2+l_1^2)(h_2^2+k_2^2+l_2^2)}}:
+\]
+(100)/(010) $90^\circ$; (100)/(110) $45^\circ$; (100)/(111) $54.7^\circ$; (111)/($\bar1$11) $70.5^\circ$; (110)/(111) $35.3^\circ$.
+
+\section{Plasmon band positions (from the slides)}
+\begin{center}
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+System & $\lambda_\mathrm{max}$ & Source \\ \midrule
+Ag spheres & $\sim$\SI{400}{nm} & \slide{127} \\
+Au 8--20 nm & 518--522 nm & \slide{128--129} \\
+Au 55--73 nm & 534--545 nm & \slide{128} \\
+Au 100--120 nm & 570--590 nm & \slide{129} \\
+Cu & $\sim$\SI{570}{nm} & \slide{132} \\
+Au rods $R$ = 2.7--3.3 & $\sim$520 (transverse) + 650--750 nm (longitudinal) & \slide{131} \\
+Au--Ag, Au--Cu alloys & one band between the pure metals & \slide{132} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{XPS binding energies quoted in the course}
+\begin{center}
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+Line & State & $E_B$ (eV) & Source \\ \midrule
+Ti 2p$_{3/2}$ & Ti$^0$ / Ti$^{4+}$ (TiO$_2$) & 454.1 / 458.8 & \slide{157} \\
+Au 4f$_{7/2}$ & Au$^0$ / Au(I) / Au(III) & 84.0 / $\sim$85--86 / $\sim$87 & \slide{161} \\
+Au 4f, 4d, 4p, 4s & Au$^0$ & 84/88, 335/353, 547/643, 763 & \slide{147} \\
+C 1s & C--C, C--O, C=O, O--C=O, CF$_3$ & 285.0, 286.5, 288.0, 289.0, 293--294 & \slide{160} \\
+Cu 2p$_{3/2}$ & Cu$^0$ / Cu$^{2+}$\extra & $\sim$932.5 / $\sim$933.5 + satellites 940--945 & --- \\
+Pt 4f$_{7/2}$ & Pt$^0$ / Pt$^{2+}$\extra & $\sim$71.2 / $\sim$72.5 & --- \\
+Ag 3d$_{5/2}$ & Ag$^0$\extra & $\sim$368.2 & --- \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Pauling electronegativities used in the exercises}
+Au 2.54, Pt 2.28, Ag 1.93 (given); O 3.44, N 3.04\extra.
+
+\section{Standard reduction potentials (slide 90)}
+\begin{center}
+\small
+\begin{tabular}{@{}lr|lr|lr@{}}
+\toprule
+Couple & $E^0$ (V) & Couple & $E^0$ (V) & Couple & $E^0$ (V) \\ \midrule
+Li$^+$/Li & $-3.045$ & Zn$^{2+}$/Zn & $-0.763$ & H$^+$/H$_2$ & 0.000 \\
+K$^+$/K & $-2.925$ & Fe$^{2+}$/Fe & $-0.440$ & Cu$^{2+}$/Cu & $+0.337$ \\
+Na$^+$/Na & $-2.714$ & Ni$^{2+}$/Ni & $-0.250$ & Ag$^+$/Ag & $+0.799$ \\
+Mg$^{2+}$/Mg & $-2.370$ & Sn$^{2+}$/Sn & $-0.140$ & Au$^{3+}$/Au & $+1.500$ \\
+Al$^{3+}$/Al & $-1.660$ & Pb$^{2+}$/Pb & $-0.126$ & F$_2$/F$^-$ & $+2.870$ \\
+\bottomrule
+\end{tabular}
+\end{center}

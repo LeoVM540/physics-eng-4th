@@ -1,0 +1,35 @@
+# ---------- LaTeX build files ----------
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+_minted*/
+
+# ---------- Own repos (linked from README) ----------
+dmic/
+
+# ---------- Large Goodnotes notes (kept local for now) ----------
+physflu/Apunts*.pdf
+physflu/Exercicis*.pdf
+nanotech/Apunts*.pdf
+
+# ---------- Teachers' material (kept local) ----------
+nanotech/Exercises_v4.pdf
+physflu/exams/*.pdf
+qtech/notes/
+simcon/Projects_lists_2026.pdf
+simcon/projects/
+
+# ---------- OS / editor ----------
+Thumbs.db
+desktop.ini
+.DS_Store
+.ipynb_checkpoints/

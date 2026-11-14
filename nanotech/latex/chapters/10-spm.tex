@@ -1,0 +1,85 @@
+\chapter{Scanning probe microscopy (AFM, STM)}
+\label{ch:spm}
+
+\paragraph{In this chapter.} How a sharp tip scanned over a surface gives topography (AFM) or electronic density (STM),
+why AFM heights are the reliable size measure, and atom manipulation.
+
+\section{General principle}
+\slide{221}: SPM systems consist of
+\begin{itemize}
+  \item a nanosized \textbf{probe} (tip, made by microlithography);
+  \item \textbf{scanning and feedback} mechanisms accurate to sub-nm (piezoelectric scanner);
+  \item computer control (fast DACs).
+\end{itemize}
+The tip interacts with the surface (force, current); a feedback loop keeps the interaction constant while scanning,
+and the piezo displacement gives the image.
+
+\section{Atomic force microscopy (AFM)}
+\begin{cardbox}{AFM \slide{222--227}}
+\textbf{Principle.} A tip on a flexible \textbf{cantilever} feels the force from the surface; a laser reflected from the
+cantilever onto a 4-quadrant \textbf{photodiode} measures its deflection; the piezo corrects the height
+$\Rightarrow$ \textbf{topography}.\\
+\textbf{Modes} \slide{223}: \textbf{contact} (tip drags on the surface) and \textbf{intermittent contact/tapping}
+(oscillating cantilever, gentler, for soft samples).\\
+\textbf{Examples:} Au nanoparticles on a flat surface; DNA strands (height $\sim$\SI{1}{nm}); Au islands $\sim$\SI{4}{nm}
+high on a line profile \slide{224--227}.
+\end{cardbox}
+\begin{keybox}[: AFM measures heights precisely, widths poorly]
+\begin{itemize}
+  \item \textbf{Vertical resolution is sub-nm} $\Rightarrow$ the particle \textbf{height} is the reliable size.
+  \item \textbf{Lateral size is overestimated} by tip convolution: the image is the surface ``dilated'' by the tip shape
+        \slide{232}. A 5 nm particle looks tens of nm wide.
+  \item AFM measures \textbf{everything} on the surface, including organic shells (capping agents); TEM only sees
+        the dense (metal) core because organics have low contrast.
+\end{itemize}
+\end{keybox}
+\begin{tipbox}[: AFM vs TEM (Exercise 17)]
+For a capped particle lying on a flat support,
+\[
+h_\mathrm{AFM} \approx d_\mathrm{core,TEM} + 2\,\ell_\mathrm{cap}
+\quad\Rightarrow\quad
+\ell_\mathrm{cap} \approx \frac{h_\mathrm{AFM}-d_\mathrm{TEM}}{2},
+\]
+since there is one capping layer under the core and one on top\extra. If $h_\mathrm{AFM}\approx d_\mathrm{TEM}$ the capping
+shell has been removed (or collapsed).
+\end{tipbox}
+Example \slide{226}: Au particles protected by carbosilane dendrons, TEM shows the Au cores and FT gives
+2.35\,\AA{} = Au (111).
+
+\section{Scanning tunnelling microscopy (STM)}
+\begin{keybox}[: tunnelling current \slide{228}]
+\begin{equation}
+I_t \sim V\,\rho(E_F)\,e^{-2kd}
+\end{equation}
+$V$: bias; $\rho(E_F)$: local density of states at the Fermi level; $d$: tip--sample distance; $k$: depends on the
+barrier height. For metals ($\phi\approx\SIrange{4}{5}{eV}$), $k\approx\SI{1}{\per\angstrom}$, so \textbf{1\,\AA{} more
+distance changes $I_t$ by about one order of magnitude} ($e^{-2}\approx 0.14$). This extreme sensitivity gives
+atomic resolution.
+\end{keybox}
+\begin{itemize}
+  \item \textbf{Constant-current mode}: feedback keeps $I_t$ constant; the tip follows a contour of constant local
+        density of states (not pure topography).
+  \item Requires a \textbf{conducting} sample (and usually UHV for atomic resolution).
+  \item Examples: Si(111) $7\times7$, Ag(100), graphene on Ru (moir\'e), Au islands on Ir(111) \slide{229--231}.
+  \item STM vs AFM images of the same molecule look different: STM images electronic states, AFM images forces
+        \slide{232}.
+\end{itemize}
+
+\section{Atom manipulation}
+\slide{233--237}: the tip can drag (``tunable bond'') or pick up single atoms. Feynman's 1959 lecture ``There's plenty
+of room at the bottom'' anticipated it. IBM wrote its logo with 35 Xe atoms on Ni(110) (1989); quantum corrals of
+Fe atoms on Cu(111) (1993) show the standing waves of surface electrons.
+
+\section{Advantages and limitations}
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\linewidth}{@{}lXX@{}}
+\toprule
+ & \textbf{AFM} & \textbf{STM} \\ \midrule
+Measures & Force $\to$ topography & Tunnelling current $\to$ local DOS \\
+Samples & Any (insulators, biological, liquids, air) & Conducting only, clean surfaces (UHV) \\
+Strength & Precise \textbf{heights}, soft matter, capping shells & \textbf{Atomic resolution}, electronic structure, manipulation \\
+Weakness & Lateral size overestimated (tip convolution); slow & Not topography only; needs conductive flat samples \\
+\bottomrule
+\end{tabularx}
+\end{center}

@@ -1,0 +1,86 @@
+\chapter{Comparing characterization techniques}
+\label{ch:char-compare}
+
+\paragraph{In this chapter.} Which technique answers which question (matrix on a landscape page), with probing depth, resolution and sample
+requirements, plus the standard ``two techniques to distinguish\ldots'' answers.
+
+
+
+\section{Probing depth, resolution, requirements}
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\linewidth}{@{}lXXX@{}}
+\toprule
+Technique & Probe $\to$ signal & Information depth / resolution & Requirements \\ \midrule
+UV-vis & light $\to$ absorbed light & whole sample (bulk average) & dispersion or film; plasmonic metal or semiconductor \\
+Fluorescence & light $\to$ emitted light & whole sample & emitting material (QDs) \\
+XPS & X-rays $\to$ photoelectrons & \textbf{top 5--10 nm}; mm-sized spot & UHV (or NAP); solid \\
+XRD & X-rays $\to$ diffracted X-rays & bulk ($\mu$m); averages many crystals & crystalline, $\gtrsim$ 2--3 nm, $\gtrsim$ few \% \\
+TEM / HAADF & electrons $\to$ transmitted electrons & $\sim$0.1 nm lateral; projection through sample & thin sample on grid; vacuum \\
+EDX & electrons $\to$ X-rays & nm-scale maps & in TEM/SEM \\
+EELS/EFTEM & electrons $\to$ energy loss & nm-scale maps, oxidation state & thin sample \\
+AFM & tip force $\to$ deflection & \textbf{sub-nm vertical}, lateral limited by tip & flat support; any material \\
+STM & tip current & atomic & conducting, clean surface \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{landscape}
+\section{Question $\to$ technique matrix}
+\textbf{\checkmark\checkmark} = the best/direct answer, \textbf{\checkmark} = possible/indirect, -- = no.
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{4pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}lcccccccc@{}}
+\toprule
+Question & UV-vis & XPS & XRD & TEM & HRTEM/FT & EDX/EELS & AFM & STM \\ \midrule
+Particle size (distribution) & \checkmark & -- & \checkmark\ (crystallite) & \checkmark\checkmark & \checkmark & -- & \checkmark\checkmark\ (height) & \checkmark \\
+Shape & \checkmark\ (rods) & -- & -- & \checkmark\checkmark & \checkmark\checkmark & -- & \checkmark & \checkmark \\
+Crystal structure / phase & -- & -- & \checkmark\checkmark & -- & \checkmark\checkmark\ (local) & -- & -- & -- \\
+Lattice parameter / alloy composition & \checkmark\ (band position) & -- & \checkmark\checkmark & -- & \checkmark & \checkmark & -- & -- \\
+Exposed planes, epitaxy & -- & -- & -- & -- & \checkmark\checkmark & -- & -- & \checkmark\ (surface) \\
+Elemental composition & -- & \checkmark\checkmark\ (surface) & \checkmark\ (phases) & -- & -- & \checkmark\checkmark\ (local) & -- & -- \\
+Oxidation state / electronic interaction & \checkmark\ (plasmon on/off) & \checkmark\checkmark & \checkmark\ (phase) & -- & -- & \checkmark\ (EELS) & -- & -- \\
+Where each element is (core/shell, alloy) & \checkmark & \checkmark\ (surface vs bulk) & -- & \checkmark\ (Z-contrast) & -- & \checkmark\checkmark\ (maps) & -- & -- \\
+Inside or outside (tube, pore) & -- & \checkmark & -- & \checkmark\ (tomography) & -- & \checkmark & \checkmark\ (outside only) & -- \\
+Capping/organic shell & -- & \checkmark\ (C 1s, S 2p) & -- & -- (invisible) & -- & -- & \checkmark\checkmark & -- \\
+Representative of whole sample & \checkmark\checkmark & \checkmark & \checkmark\checkmark & -- & -- & -- & -- & -- \\
+\bottomrule
+\end{tabular}}
+\end{center}
+\end{landscape}
+
+\section{Typical pairings asked in exams}
+\begin{keybox}[: standard answers]
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{5cm}X@{}}
+\toprule
+To decide\ldots & Use \\ \midrule
+Mixture vs solid solution (CeO$_2$+ZrO$_2$ vs Ce$_{1-x}$Zr$_x$O$_2$) & XRD (one shifted set vs two sets); HRTEM d-spacings of
+single particles; STEM-EDX/EELS maps (Ce and Zr in the same particle or not); Raman\extra. \\
+Metal vs its oxide (Ag vs Ag$_2$O, Cu vs CuO) & XRD (different structure/lattice); XPS (chemical shift, O 1s, satellites,
+Auger); UV-vis (plasmon only for metal). \\
+Core vs shell composition & EELS/EDX maps; HAADF Z-contrast; HRTEM fringes of each region; XPS before/after shell removal;
+UV-vis before/after. \\
+Alloy vs core--shell vs mixture & UV-vis (one intermediate band vs two); EDX/EELS line-scan/maps; XPS shifts; XRD only if
+$a$ differ enough. \\
+Particles inside vs outside a tube/pore & TEM tomography; XPS (surface-sensitive: outside particles give stronger signal);
+SEM/AFM (only outside visible); EDX maps. \\
+Capping shell present? & AFM height vs TEM diameter; XPS (S 2p, C 1s); TGA\extra. \\
+Particle size & TEM histogram (number); XRD Scherrer (crystallite); AFM height; UV-vis (indirect). \\
+Exposed facets / epitaxy & HRTEM + FT (fringes parallel to edges; continuity of fringes across the interface). \\
+\bottomrule
+\end{tabularx}
+\end{keybox}
+
+\section{Summary: the unique advantage of each technique}
+\begin{itemize}
+  \item \textbf{UV-vis}: fast, cheap, whole-sample view of plasmonic metals (metal, size, shape, alloy, aggregation).
+  \item \textbf{XPS}: the \emph{only} routine technique for \textbf{oxidation state and surface composition}.
+  \item \textbf{XRD}: the reference for \textbf{crystal phase and lattice parameter}, plus crystallite size, averaged over the bulk.
+  \item \textbf{TEM}: \textbf{direct image} of size, shape and location. HRTEM adds local structure, facets and epitaxy;
+        EDX/EELS add local chemistry.
+  \item \textbf{AFM}: true \textbf{heights} on any surface (including organic shells), in air or liquid.
+  \item \textbf{STM}: \textbf{atomic resolution} and electronic structure of conducting surfaces, and atom manipulation.
+\end{itemize}

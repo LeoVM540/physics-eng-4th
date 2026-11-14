@@ -1,0 +1,324 @@
+% PHYSFLU method sheet -- one A4 sheet, two sides, 2 columns.
+% HOW TO PROCEED, not results: keyword -> assumption dictionary, then step-by-step procedures per problem type.
+% EXCLUDES the official "SummaryDiferentialEquations_IncompressibleFlow" sheet:
+% operators (V.grad, Laplacian) Cart./cyl., div V = 0, NS components, tau_ij, heat eq. with Phi.
+% Order follows the course: Topic 1 inviscid, Topic 2 viscous, Topic 3 rotation/buoyancy (essentials only).
+\documentclass[8pt]{extarticle}
+\usepackage[a4paper,margin=5mm,top=4mm,bottom=4mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+
+\setlength{\columnsep}{5mm}
+\setlength{\columnseprule}{0.2pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.6pt}
+\setlist{nosep,leftmargin=9pt,labelsep=3pt,itemsep=1.2pt}
+\setlength{\abovedisplayskip}{2pt}\setlength{\belowdisplayskip}{2pt}
+\setlength{\abovedisplayshortskip}{0pt}\setlength{\belowdisplayshortskip}{2pt}
+\setlength{\jot}{2pt}
+\renewcommand{\arraystretch}{1.25}
+\pagestyle{empty}
+
+\definecolor{hd}{RGB}{20,60,130}
+\definecolor{rl}{RGB}{190,200,220}
+\definecolor{wn}{RGB}{170,20,20}
+\definecolor{ex}{RGB}{0,110,80}
+\definecolor{kw}{RGB}{120,60,0}
+\definecolor{pt}{RGB}{90,90,90}
+\newcommand{\secbox}[1]{\colorbox{hd}{\parbox{\dimexpr\columnwidth-2\fboxsep}{#1}}}
+\titleformat{\section}{\color{white}\bfseries\small}{}{0pt}{\secbox}
+\titlespacing*{\section}{0pt}{5pt}{2pt}
+
+% subsection: bold title + thin rule
+\newcommand{\sub}[1]{\par\vspace{3pt}{\color{hd}\bfseries #1}\ {\color{rl}\leaders\hrule height 0.25pt\hfill\kern0pt}\par\vspace{0.8pt}}
+\newcommand{\nl}{\\[1.6pt]}
+% topic banner: groups the sections of one course topic
+\newcommand{\topic}[1]{\par\vspace{4pt}{\color{pt}\bfseries\footnotesize\MakeUppercase{#1}}\par}
+
+\newcommand{\bu}{\mathbf u}
+\newcommand{\bo}{\boldsymbol\omega}
+\newcommand{\pd}{\partial}
+\newcommand{\wn}[1]{{\color{wn}#1}}
+\newcommand{\ex}[1]{{\color{ex}\scriptsize[#1]}}
+\newcommand{\as}[1]{{\color{gray}\{#1\}}}
+\newcommand{\kw}[1]{{\color{kw}\itshape ``#1''}}
+\newcommand{\when}{{\color{hd}\bfseries When:}\ }
+
+\begin{document}
+\fontsize{7.6}{9.3}\selectfont
+\begin{multicols*}{2}
+\raggedcolumns
+{\color{hd}\large\textbf{Physics of Fluids -- how to proceed}}\par
+{\footnotesize \kw{keyword in statement}\ \ \as{assumption}\ \ \wn{trap}\ \ \ex{practice: yy Pn}}
+
+%==========================================================
+\section{0. Read the statement: keyword $\to$ what to write}
+\kw{steady}, \kw{stationary} $\to$ $\pd_t=0$ (streamlines $=$ pathlines)\nl
+\kw{2D}, \kw{plane} $\to$ $w=0$, $\pd_z=0$; $\psi$ exists if incompressible\nl
+\kw{incompressible} $\to$ $\nabla\!\cdot\bu=0$ (check it first!)\nl
+\kw{inviscid}, \kw{ideal} $\to$ Euler; at walls only $\bu\cdot\hat n=0$ (slip allowed)\nl
+\kw{irrotational}, \kw{potential}, \kw{uniform far upstream} $\to$ $\bo=0$, $\bu=\nabla\phi$, $\nabla^2\phi=0$; Bernoulli between \emph{any} two points\nl
+\kw{wall}, \kw{floor} in a potential flow $\to$ method of images\nl
+\kw{viscous}, \kw{Newtonian}, \kw{laminar} $\to$ Navier–Stokes, no-slip $\bu=\bu_{wall}$\nl
+\kw{infinite plates}, \kw{fully developed}, \kw{far from ends} $\to$ $\pd_x\bu=0$ (\wn{not} $\pd_xp$)\nl
+\kw{no pressure gradient}, \kw{open to atmosphere} $\to$ $\pd_xp=0$\nl
+\kw{pressure-driven}, \kw{gradient $K$} $\to$ $\pd_xp=-K$ (constant)\nl
+\kw{no net flow}, \kw{closed channel} $\to$ $Q=0$, which fixes $\pd_xp$\nl
+\kw{axisymmetric} $\to$ $\pd_\theta=0$;\ \ \kw{infinitely long cylinders} $\to$ $\pd_z=0$\nl
+\kw{plate moves with $V$} $\to$ $u=V$;\ \ \kw{rotates at $\Omega$} $\to$ $u_\theta=\Omega R$ at that wall\nl
+\kw{free surface}, \kw{in contact with air} $\to$ $\tau=0$ ($\pd_nu=0$), $p=p_a$\nl
+\kw{immiscible}, \kw{two fluids}, \kw{interface} $\to$ $u_1=u_2$, $\mu_1u_1'=\mu_2u_2'$, $p_1=p_2$ (\& $T$, heat flux)\nl
+\kw{porous}, \kw{suction/injection $v_0$} $\to$ $v=\pm v_0$ everywhere (continuity)\nl
+\kw{viscous heating}, \kw{dissipation} $\to$ keep $\Phi$ in the energy eq.\nl
+\kw{insulated}, \kw{adiabatic} $\to$ $\pd_nT=0$;\ \ \kw{walls at $T_w$} $\to$ $T=T_w$\nl
+\kw{suddenly}, \kw{impulsively} + \kw{semi-infinite} $\to$ similarity $\eta=y/\sqrt{\nu t}$\nl
+\kw{oscillating}, \kw{$U\cos\omega t$} $\to$ $u=\mathrm{Re}[f(y)e^{i\omega t}]$\nl
+\kw{starts from rest}, \kw{decays} in a gap $\to$ $u=u_s+u_1$, separation of variables\nl
+\kw{dimensionless}, \kw{units $d$, $d^2/\nu$} $\to$ scale everything, find the groups ($Re$)\nl
+\kw{rotating frame}, \kw{Earth}, \kw{latitude $\varphi$} $\to$ Coriolis, $f=2\Omega\sin\varphi$\nl
+\kw{large scale}, \kw{small Rossby} $\to$ geostrophic balance\nl
+\kw{wind stress $\tau$} on the ocean $\to$ Ekman layer\nl
+\kw{small density changes}, \kw{buoyancy} $\to$ Boussinesq
+
+\topic{Topic 1 -- Inviscid flow}
+%==========================================================
+\section{1. Kinematics}
+\sub{Streamlines (curves tangent to $\bu$ at fixed $t$)}
+\begin{enumerate}
+\item Freeze $t$ (treat it as a constant).
+\item Write $\dfrac{dx}{u}=\dfrac{dy}{v}$\ \ (polar: $\dfrac{dr}{u_r}=\dfrac{r\,d\theta}{u_\theta}$), separate variables, integrate: $F(x,y;t)=C$.
+\item Shortcut if 2D incompressible: find $\psi$; streamlines are $\psi=C$.
+\end{enumerate}
+\sub{Pathlines (trajectories of particles)}
+\begin{enumerate}
+\item Solve $\dot x=u(x,y,t),\ \dot y=v(x,y,t)$ with $x(0)=x_0,\ y(0)=y_0$.
+\item Linear ODE $\dot x=a(t)x+b(t)$: $x=e^{A}\big[x_0+\int_0^te^{-A}b\,ds\big]$, $A=\int_0^ta\,ds$.
+\item Eliminate $t$ to get the curve $y(x)$.
+\end{enumerate}
+Path $=$ stream iff steady or $\bu=g(t)\mathbf F(\mathbf x)$. Otherwise they differ: compare at the same $t$.\ \ex{15 P2, 16 P1, 17 P1}
+\sub{Acceleration, density}
+$\mathbf a=\frac{D\bu}{Dt}=\pd_t\bu+(\bu\cdot\nabla)\bu$ component by component (cyl.\ components: official sheet).\nl
+Shortcut: $(\bu\cdot\nabla)\bu=\nabla\frac{u^2}2-\bu\times\bo$ ($=\nabla\frac{u^2}{2}$ if irrotational).\nl
+$\rho$ following a particle: $\frac{D\rho}{Dt}=-\rho\nabla\!\cdot\bu$; insert the pathline $x(t)$ then integrate in $t$. \ex{19 P2}
+
+%==========================================================
+\section{2. Vorticity, circulation, $\psi$, $\phi$}
+\sub{Vorticity and circulation}
+$\omega_z=\pd_xv-\pd_yu=\tfrac1r\pd_r(ru_\theta)-\tfrac1r\pd_\theta u_r$. Rigid $u_\theta=\Omega r$: $\omega=2\Omega$; vortex $K/r$: $\omega=0$.\nl
+$\Gamma=\oint\bu\cdot d\mathbf l=\int_S\omega_z\,dS$ (Stokes). Circle: $\Gamma=2\pi r\,u_\theta$.\nl
+\wn{If $S$ contains $r=0$ of a line vortex, $\omega$ is singular: use the line integral.}
+\sub{Stream function $\psi$ \as{2D, $\nabla\!\cdot\bu=0$}}
+\begin{enumerate}
+\item Check $\pd_xu+\pd_yv=0$.
+\item $u=\pd_y\psi\Rightarrow\psi=\int u\,dy+f(x)$.
+\item Impose $v=-\pd_x\psi$ $\to$ $f'(x)$ $\to$ $f$ (constant irrelevant).
+\end{enumerate}
+Polar: $u_r=\tfrac1r\pd_\theta\psi$, $u_\theta=-\pd_r\psi$. Uses: $\psi=$ const on streamlines; flux between two streamlines $Q/L=\psi_2-\psi_1$.
+\sub{Velocity potential $\phi$ \as{$\bo=0$}}
+\begin{enumerate}
+\item Check $\bo=0$ (\wn{if not, $\phi$ does not exist}).
+\item $\phi=\int u\,dx+g(y,t)$; impose $v=\pd_y\phi$ $\to$ $g$.
+\item Check $\nabla^2\phi=0$ (incompressible).
+\end{enumerate}
+Polar: $u_r=\pd_r\phi$, $u_\theta=\tfrac1r\pd_\theta\phi$. Lines $\phi=$ const $\perp$ $\psi=$ const.
+
+%==========================================================
+\section{3. Pressure: which equation?}
+Euler: $\pd_t\bu+\bo\times\bu=-\nabla H$,\ \ $H=\tfrac p\rho+\tfrac12u^2+gz$.
+\begin{itemize}
+\item \as{steady}: $H$ const \emph{along each streamline}.
+\item \as{steady + irrotational}: $H$ const \emph{everywhere}.
+\item \as{unsteady + irrotational}: $\pd_t\phi+\tfrac p\rho+\tfrac12u^2+gz=F(t)$.
+\item \as{rotational, need $p$ across streamlines}: \wn{no Bernoulli}. Use momentum normal to the streamlines; circular ones: $\pd_rp=\rho\frac{u_\theta^2}r$, $\pd_zp=-\rho g$. Integrate both.
+\end{itemize}
+\sub{Free surface of a swirling liquid}
+\begin{enumerate}
+\item Get $p(r,z)$ from $\pd_rp=\rho u_\theta^2/r$, $\pd_zp=-\rho g$.
+\item Surface $=$ isobar $p=p_a$ $\Rightarrow$ $z_s(r)$.
+\item Piecewise flows (Rankine: rigid core + vortex): integrate each region, \wn{match $p$ at $r=a$}.\ \ex{17 P2, Ex 7}
+\end{enumerate}
+
+%==========================================================
+\section{4. Potential flows: building a flow}
+\sub{Building blocks ($A$ strength; $\psi$, $\phi$)}
+\begin{tabular}{@{}l@{\ \ }l@{\ \ }l@{}}
+uniform $U$ & $\psi=Uy=Ur\sin\theta$ & $\phi=Ux$\\
+source ($-$: sink) & $\psi=A\theta$ & $\phi=A\ln r$,\ $Q/L=2\pi A$\\
+vortex $\circlearrowleft$ & $\psi=-A\ln r$ & $\phi=A\theta$,\ $u_\theta=\frac Ar$,\ $\Gamma=2\pi A$\\
+doublet & $\psi=-\mu\frac{\sin\theta}r$ & $\phi=\mu\frac{\cos\theta}{r}$\\
+corner/wedge & $\psi=Ar^n\sin n\theta$ & walls $\theta=0,\ \pi/n$
+\end{tabular}\nl
+Off-centre at $(x_0,y_0)$: replace $\theta\to\arctan\frac{y-y_0}{x-x_0}$, $r^2\to(x-x_0)^2+(y-y_0)^2$.\nl
+Complex: $F=\phi+i\psi$, $\frac{dF}{dz}=u-iv$; source $A\ln z$, vortex $-iA\ln z$, uniform $Uz$.
+\sub{Procedure}
+\begin{enumerate}
+\item Translate the statement into elements (uniform stream, source, sink, vortex of circulation $\Gamma$, cylinder of radius $a$ $=$ uniform $+$ doublet $\mu=Ua^2$).
+\item \kw{wall} $\to$ add mirror images: source$\to$same-sign source, vortex$\to$opposite sense. Check $\psi=$ const on the wall.
+\item Superpose: $\psi=\sum\psi_i$ (valid: Laplace eq.\ is linear).
+\item Velocities from $\psi$ (or $dF/dz$).
+\item Stagnation points: solve $u_r=u_\theta=0$.
+\item Body / dividing streamline: $\psi=\psi_{\rm stag}$.
+\item Pressure: Bernoulli with the far field, $p=p_\infty+\frac12\rho(U^2-|\bu|^2)$.
+\item Force per unit length on a body: $\mathbf F=-\oint p\,\hat n\,dl$; cylinder: $F_x=-\int_0^{2\pi}p\cos\theta\,a\,d\theta$, $F_y=-\int_0^{2\pi}p\sin\theta\,a\,d\theta$. Check: drag $=0$, lift $=\rho U\Gamma$.
+\end{enumerate}
+\wn{Where is a suction/effect strongest? Maximise $|\bu|$ (or minimise $p$) along the wall: $\frac{d|u|}{dx}=0$.}
+
+\topic{Topic 2 -- Viscous flow}
+%==========================================================
+\section{5. Non-dimensionalisation}
+\begin{enumerate}
+\item Pick scales from the data: length $L$; velocity $U$ (or $\nu/L$); time $L/U$ (or $L^2/\nu$); pressure $\rho U^2$ (or $\mu U/L$).
+\item Substitute $\mathbf x=L\tilde{\mathbf x}$, $\bu=U\tilde\bu$, \dots; $\nabla=\frac1L\tilde\nabla$, $\pd_t=\frac{1}{T}\pd_{\tilde t}$.
+\item Divide by the coefficient of one term (usually inertia $U^2/L$) $\Rightarrow$ the remaining coefficient is $\frac1{Re}=\frac{\nu}{UL}$.
+\item \wn{Also scale the BCs and the domain} ($\tilde r_1=r_1/d$, wall speeds).
+\end{enumerate}
+Viscous units $(L,\ L^2/\nu,\ \nu/L)$: all coefficients become 1, so the equation has no parameter and each \emph{wall speed} becomes a Reynolds number in the BCs: $\tilde u_w=\frac{u_wL}{\nu}=Re$.\ \ex{16 P3, 18 P3}
+
+%==========================================================
+\section{6. Flows between plates: $\bu=u(y)\hat x$}
+\sub{Steps}
+\begin{enumerate}
+\item \textbf{Assumptions:} \as{$\pd_t=0$, $\pd_x\bu=0$, $w=0$} (from keywords).
+\item \textbf{Continuity:} $\pd_yv=0\Rightarrow v=$ const $=$ wall value ($0$ impermeable, $\pm v_0$ porous).
+\item \textbf{$y$-mom.}: $0=-\pd_yp+\rho g_y\Rightarrow p=\rho g_yy+P(x)$ (hydrostatic).
+\item \textbf{$x$-mom.}: $\rho vu'=-\pd_xp+\rho g_x+\mu u''$. LHS depends on $y$ only and $\pd_y(\pd_xp)=0$, so $\pd_xp=$ const. Value: from the statement (0, $-K$, or $Q=0$).
+\item \textbf{Integrate:} $v=0$: $u=\frac{G}{2\mu}y^2+Ay+B$, $G\equiv\pd_xp-\rho g_x$.\\ $v\neq0$: $u''-\frac v\nu u'=\frac{G}{\mu}$, roots $\lambda=0,\frac v\nu$; particular $u_p=-\frac{G}{\rho v}y$.
+\item \textbf{BCs:} 2 per layer (wall speeds, free surface $u'=0$, interface).
+\item \textbf{Ask for:} $Q/w=\int u\,dy$; $\bar u=Q/(wh)$; $\tau=\mu u'$ at the wall; $u_{max}$ where $u'=0$.
+\end{enumerate}
+\sub{Gravity}
+Inclined plane, $x$ down slope, $y$ normal: $g_x=g\sin\alpha$, $g_y=-g\cos\alpha$. Vertical plates / belts: gravity is along the flow, $G=-\rho g_x$.
+\sub{Two layers \ex{18 P4}}
+Unknowns: 2 constants per layer (4). Equations: 2 walls $+$ $u_1=u_2$ $+$ $\mu_1u_1'=\mu_2u_2'$ at the interface. $\tau$ is the same in both layers (if $G=0$), so slopes are $\propto1/\mu_i$.
+
+%==========================================================
+\section{7. Pipes \& cylinders: $u_z(r)$ or $u_\theta(r)$}
+\sub{Steps}
+\begin{enumerate}
+\item \textbf{Assumptions:} \as{$\pd_t=0$, $\pd_\theta=0$ (axisym.), $\pd_z\bu=0$ (infinite)}.
+\item \textbf{Continuity:} $\frac1r(ru_r)'=0\Rightarrow u_r=\frac Cr$; impermeable wall $\Rightarrow u_r=0$ (unless suction is given).
+\item \textbf{Cross out} every term with $\pd_t,\pd_\theta,\pd_z,u_r$ in the official NS components. What survives:
+\item[] $r$: $\frac{dp}{dr}=\rho\frac{u_\theta^2}r$ (pressure, \emph{after} $u_\theta$)
+\item[] $\theta$: $u_\theta''+\frac{u_\theta'}r-\frac{u_\theta}{r^2}=0\iff\frac{d}{dr}\big[\frac1r\frac{d}{dr}(ru_\theta)\big]=0$
+\item[] $z$: $\frac\mu r\frac{d}{dr}(ru_z')=G$, $G\equiv\pd_zp-\rho g_z$ (const)
+\item \textbf{Integrate twice:} $u_\theta=Ar+\frac Br$;\quad $u_z=\frac G{4\mu}r^2+A\ln r+B$.
+\item \textbf{BCs:} \wn{$r=0$ in the fluid $\Rightarrow$ drop $\ln r$ and $1/r$} (finite velocity). Annulus: one condition per wall. Free surface at $r=b$: $u_z'(b)=0$, or $\big(\frac{u_\theta}{r}\big)'=0$.
+\item \textbf{Ask for:} $Q=\int2\pi r\,u_z\,dr$; stress $\tau_{rz}=\mu u_z'$, $\tau_{r\theta}=\mu r\big(\frac{u_\theta}r\big)'$; torque$/L=2\pi r^2\tau_{r\theta}$ (same at every $r$); power $=$ torque$\times\Omega$.
+\end{enumerate}
+\wn{$-u_\theta/r^2$ is easy to forget. Rigid rotation has $u_\theta'\neq0$ but no stress.}\nl
+Radial suction $u_r=-\frac{Ua}r$: keep $u_r(u_\theta'+\frac{u_\theta}r)$ on the LHS $\to$ Euler ODE, try $r^n$. \ex{Ex 2.12}
+
+%==========================================================
+\section{8. Temperature}
+\begin{enumerate}
+\item Energy: $\rho c\big(\pd_tT+\bu\cdot\nabla T\big)=\lambda\nabla^2T+\Phi$.
+\item Parallel flow with $T=T(y)$ or $T(r)$: $\bu\cdot\nabla T=0$ $\Rightarrow$ conduction balances dissipation.
+\item Choose $\Phi$: plates $\mu(u')^2$; pipe $\mu(u_z')^2$; swirl $\mu\big[r(\frac{u_\theta}{r})'\big]^2$. Two layers with the same $\tau$: $\Phi_i=\tau^2/\mu_i$.
+\item Plates: $\lambda T''=-\Phi$. Cylindrical: $\frac\lambda r(rT')'=-\Phi$ $\Rightarrow$ $rT'=-\frac1\lambda\int r\Phi\,dr+C_1$.
+\item BCs: $T_w$; \kw{insulated} $T'=0$; interface $T_1=T_2$, $\lambda_1T_1'=\lambda_2T_2'$; $r=0$: finite $T$.
+\item Checks: $T_{max}$ where $T'=0$; heat out through walls $=$ power supplied by walls ($\tau\times V$).
+\end{enumerate}
+With porous walls ($v=v_0$, $\Phi$ negligible): $v_0T'=\kappa T''$, $\kappa=\lambda/\rho c$. \ex{25 P4}
+
+%==========================================================
+\section{9. Unsteady viscous flow: choose the method}
+\sub{Oscillating wall, semi-infinite (Stokes 2nd)}
+\begin{enumerate}
+\item $u=\mathrm{Re}[f(y)e^{i\omega t}]$ into $u_t=\nu u_{yy}$: $f''=\frac{i\omega}{\nu}f$.
+\item $\lambda=\pm(1+i)k$, $k=\sqrt{\omega/2\nu}$ (use $\sqrt i=\frac{1+i}{\sqrt2}$).
+\item Bounded at $y\to\infty$: keep the decaying root. $f(0)=U$. Take real part.
+\end{enumerate}
+Penetration depth $\sim1/k$. Same steps for $T$ with $\kappa$.\ \ex{17 P4}
+\sub{Wall suddenly moved, semi-infinite (Stokes 1st)}
+\begin{enumerate}
+\item No length scale $\Rightarrow$ $u=Uf(\eta)$, $\eta=\frac{y}{\sqrt{\nu t}}$.
+\item Chain rule: $\pd_tu=-\frac{\eta}{2t}Uf'$, $\pd_y^2u=\frac{U}{\nu t}f''$ $\Rightarrow$ $f''+\frac\eta2f'=0$.
+\item $f'=Be^{-\eta^2/4}$; BCs $f(0)=1$, $f(\infty)=0$ $\Rightarrow$ erfc.
+\end{enumerate}
+\sub{Finite gap, transient (separation of variables)}
+\begin{enumerate}
+\item Split $u=u_s(y)+u_1(y,t)$: $u_s$ = steady solution with the real BCs; $u_1$ has \wn{homogeneous} BCs.
+\item $u_1=F(y)G(t)$: $\frac{G'}{\nu G}=\frac{F''}{F}=-k^2$ $\Rightarrow$ $G=e^{-\nu k^2t}$, $F=\sin ky$ with $k_n=\frac{n\pi}b$.
+\item $u_1=\sum D_ne^{-\nu k_n^2t}\sin k_ny$; IC: $D_n=\frac2b\int_0^b[u(y,0)-u_s]\sin k_ny\,dy$.
+\item Slowest mode $n=1$: decay time $\frac{b^2}{\pi^2\nu}$.\ \ex{19 P4}
+\end{enumerate}
+\sub{Not a parallel flow? Eliminate $p$}
+Take the curl of NS: $\pd_t\nabla^2\psi+\psi_y\pd_x\nabla^2\psi-\psi_x\pd_y\nabla^2\psi=\nu\nabla^4\psi$. Swirl $\Psi(r)$: $\nabla^4\Psi=0\Rightarrow\Psi=A+B\ln r+Cr^2+Dr^2\ln r$; finiteness kills terms. \ex{17 P3}
+
+%==========================================================
+\section{10. Boundary conditions at every surface}
+\sub{Menu at an interface 1\,|\,2 (normal $n$: $\pd_n=\pd_y$ or $\pd_r$)}
+\begin{tabular}{@{}l@{\ \ }l@{}}
+kinematic & $\bu_1\cdot\hat n=\bu_2\cdot\hat n$ (nothing crosses)\\
+no-slip & $\bu_1\cdot\hat t=\bu_2\cdot\hat t$ \as{viscous only}\\
+tang.\ stress & $\mu_1\pd_nu_1=\mu_2\pd_nu_2$ ($+$ applied $\tau$, e.g.\ wind)\\
+normal stress & $p_1=p_2$ \as{flat, no surface tension}\\
+thermal & $T_1=T_2$,\ \ $\lambda_1\pd_nT_1=\lambda_2\pd_nT_2$
+\end{tabular}
+\sub{Solid--liquid and solid--gas (a wall; gas is a fluid too)}
+\begin{itemize}
+\item Viscous: $\bu=\bu_{wall}$, \emph{both} components. Fixed $u=0$; sliding $u=V$; rotating $u_\theta=\Omega R$; porous $v=\pm v_0$ (still $u=u_{wall}$).
+\item Inviscid: only $\bu\cdot\hat n=\bu_{wall}\cdot\hat n$ (slip allowed). Potential flow: body $=$ streamline $\psi=$ const; plane wall $\to$ images.
+\item Thermal: $T=T_w$; \kw{insulated} $\pd_nT=0$; given flux $-\lambda\pd_nT=q$.
+\item \wn{No BC on $p$ at a wall}: it comes out of NS. Output: $\tau_w=\mu\pd_nu$.
+\end{itemize}
+\sub{Liquid--liquid (immiscible)}
+Use the whole menu: $u_1=u_2$, $\mu_1u_1'=\mu_2u_2'$, $p_1=p_2$, $T_1=T_2$, $\lambda_1T_1'=\lambda_2T_2'$. Swirl: $\mu_1\big(\frac{u_{\theta1}}r\big)'=\mu_2\big(\frac{u_{\theta2}}r\big)'$. \wn{$u'$ jumps, $u$ does not.}
+\sub{Liquid--gas (free surface) \as{gas: $\mu,\rho\approx0$}}
+\begin{itemize}
+\item $\tau=0$: $\pd_nu=0$; swirl $\big(\frac{u_\theta}r\big)'=0$ (\wn{not} $u_\theta'=0$).
+\item $p=p_a$: the surface is the isobar $p=p_a$ $\Rightarrow$ its shape $z_s(r)$.
+\item Kinematic: no flow through it (steady: it is a streamline).
+\item Wind: $\mu\pd_nu=\tau$ (Ekman: $\rho\nu W'(0)=\tau$).
+\item Thermal: $\pd_nT=0$, or $T=T_a$ if stated.
+\end{itemize}
+\sub{Solid--solid}
+No flow, only heat: $T_1=T_2$, $\lambda_1T_1'=\lambda_2T_2'$ (composite wall; $T''=0$ in each solid, linear profile).
+\sub{Boundaries that are not interfaces}
+$r=0$ in the fluid: finite $u,T$ (drop $\ln r$, $1/r$). Symmetry plane: $\pd_nu=\pd_nT=0$. Far field: $u\to U$, $p\to p_\infty$ (potential); semi-infinite: bounded (decaying root). $t=0$: initial condition. \kw{no net flow}: $Q=0$ fixes $\pd_xp$.\nl
+Count: 2nd-order ODE $\Rightarrow$ 2 conditions per layer.
+
+\topic{Topic 3 -- Rotation and buoyancy (essentials)}
+%==========================================================
+\section{11. Rotation, buoyancy}
+\sub{Setting up}
+Rotating frame: add Coriolis $-2\boldsymbol\Omega\times\bu$; centrifugal goes into $\mathbf g^*=\mathbf g+\Omega^2\mathbf r_\perp$.\nl
+Earth ($x$ E, $y$ N, $z$ up): $\boldsymbol\Omega=\Omega(0,\cos\varphi,\sin\varphi)$, $f=2\Omega\sin\varphi$, $\Omega_E=7.29{\times}10^{-5}$\,s$^{-1}$.\nl
+Horizontal: $\frac{Du}{Dt}=-\frac1\rho\pd_xp+fv+\nu\nabla^2u$,\ \ $\frac{Dv}{Dt}=-\frac1\rho\pd_yp-fu+\nu\nabla^2v$.\nl
+Does rotation matter? $Ro=\frac{U}{fL}$: $Ro\lesssim1$ yes, $Ro\gg1$ no.
+\sub{Which terms to keep}
+\begin{itemize}
+\item \kw{no pressure gradient, no friction}: inertial oscillations. $\dot u=fv$, $\dot v=-fu$ $\to$ differentiate $\to$ $\ddot u+f^2u=0$; integrate positions: circle of radius $V/f$, period $2\pi/f$.
+\item \kw{large scale, steady}: geostrophy. $fv=\frac1\rho\pd_xp$, $fu=-\frac1\rho\pd_yp$ (flow along isobars). Then $\nabla_h\!\cdot\bu=0$ and Taylor–Proudman $\pd_z\bu=0$.
+\item \kw{wind stress $\tau$}: Ekman. Drop $\pd_t$, advection, $\nabla p$: $\nu u''+fv=0$, $\nu v''-fu=0$.\\ Set $W=u+iv$: $W''=i\frac f\nu W$, $\lambda=\pm\frac{1+i}{z_0}$, $z_0=\sqrt{\frac{2\nu}f}$.\\ BCs: $W\to0$ at depth (keep the decaying root); $\rho\nu W'(0)=\tau$. Transport $\int W\,dz$ is $\frac{\tau}{\rho f}$, at $90^\circ$ to the wind.\ \ex{24 P3}
+\end{itemize}
+\sub{Boussinesq}
+\begin{enumerate}
+\item $\rho=\rho_0[1-\alpha(T-T_0)]$ \wn{(check the form given in the statement)}.
+\item $\rho\to\rho_0$ everywhere except in the gravity term; $\nabla\!\cdot\bu=0$.
+\item $\frac{D\bu}{Dt}=-\frac1{\rho_0}\nabla p'+\frac{\rho'}{\rho_0}\mathbf g+\nu\nabla^2\bu$,\ \ $\frac{DT}{Dt}=\kappa\nabla^2T$.
+\item Fluid at rest with $T(z)$: $\pd_zp=-\rho(T(z))g$, integrate.
+\end{enumerate}
+
+%==========================================================
+\section{12. Maths toolkit}
+\sub{ODEs}
+Constant coefficients, try $e^{\lambda y}$: distinct roots $Ae^{\lambda_1y}+Be^{\lambda_2y}$; double $(A+By)e^{\lambda y}$.\nl
+$f''+af'=c$: set $g=f'$ (first order); particular $f_p=\frac ca y$.\nl
+Euler $r^2u''+\alpha ru'+\beta u=0$: try $r^n$, $n^2+(\alpha-1)n+\beta=0$ (double root: $r^n\ln r$).\nl
+$\frac{d}{dr}\big[\frac1r\frac{d}{dr}(ru)\big]=u''+\frac{u'}r-\frac u{r^2}$;\quad $\frac1r\frac{d}{dr}(ru')=u''+\frac{u'}r$.\nl
+Coupled $\dot u=fv,\ \dot v=-fu$ (or $u'',v''$): combine into $W=u\pm iv$.
+\sub{Integrals and series}
+$\int r\ln r\,dr=\frac{r^2}2\ln r-\frac{r^2}4$;\ $\int_0^\pi\!\sin^2=\frac\pi2$,\ $\int_0^\pi\!\sin^3=\frac43$;\ $\int_0^\infty e^{-s^2/4}ds=\sqrt\pi$\nl
+$\int_0^b\sin k_my\sin k_ny\,dy=\frac b2\delta_{mn}$;\ $\int_0^by\sin\frac{n\pi y}b\,dy=\frac{(-1)^{n+1}b^2}{n\pi}$
+\sub{Complex, trig}
+$e^{i\alpha}=\cos\alpha+i\sin\alpha$;\ $\sqrt{\pm i}=\frac{1\pm i}{\sqrt2}$;\ $\frac{1-i}{1+i}=-i$;\ $\tan(\alpha\pm\beta)=\frac{\tan\alpha\pm\tan\beta}{1\mp\tan\alpha\tan\beta}$
+\end{multicols*}
+\end{document}

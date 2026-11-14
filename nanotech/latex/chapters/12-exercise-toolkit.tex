@@ -1,0 +1,167 @@
+\chapter{Exercise toolkit: reading figures and solving by type}
+\label{ch:toolkit}
+
+\paragraph{In this chapter.} The 18 exercises of \emph{Exercises\_v4.pdf} reduce to about ten problem types. For each type:
+what the figure shows, how to read it, the recipe, and the usual traps. Worked solutions are in \cref{ch:solutions}.
+
+\section{Map of exercise types}
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\linewidth}{@{}clX@{}}
+\toprule
+& Type & Exercises \\ \midrule
+A & Assign UV-vis spectra (metal, alloy, size, shape, shell) & 1, 10d, 13, 14, 15b, 16 \\
+B & Index an XRD pattern, find the lattice parameter, identify the phase & 2, 3, 4, 5, 6, 16 \\
+C & Crystallite size with Scherrer & 4, 6 \\
+D & Mixture vs solid solution/alloy & 6, 16 \\
+E & XPS: oxidation state, compound assignment, electronegativity shifts & 4, 5, 10a, 15d, 16 \\
+F & HRTEM: d-spacing $\to$ plane/phase, exposed facets, epitaxy & 5, 8, 9a, 10b--c, 15b, 16, 18 \\
+G & TEM histograms (mean size, deviation) & 7, 14 \\
+H & AFM vs TEM (capping shell) & 17 \\
+I & Propose a synthesis method & 10e, 11, 12, 13, 15a, 16b \\
+J & Microreactor design & 9c (and slide 101) \\
+K & ``Which technique would you use to\ldots?'' & 4, 6c, 9b, 15c \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{tipbox}[: general strategy for multi-technique problems (9, 10, 15, 16)]
+Go technique by technique and write \textbf{one conclusion per technique}, then combine:
+TEM/HAADF $\to$ size, shape, where things are; HRTEM $\to$ which phase/plane; EELS/EDX $\to$ which element where;
+XRD $\to$ phases present (bulk); UV-vis $\to$ metallic plasmonic species, alloy vs segregated; XPS $\to$ oxidation
+state and surface composition. Say explicitly what each technique \emph{cannot} tell (e.g.\ XRD for Au vs Ag).
+\end{tipbox}
+
+\section{Type A: UV-vis spectra}
+\textbf{The figure:} absorbance vs wavelength (nm), sometimes with photos of the vials. Look for the maximum
+$\lambda_\mathrm{max}$, the width, and the number of bands.
+\begin{recipe}{UV-vis assignment}
+\begin{enumerate}
+  \item Reference positions: Ag $\approx$ 400, Au $\approx$ 520, Cu $\approx$ 570 nm. Oxides: no band.
+  \item Same size, different composition (alloys): order the bands by composition between the two pure metals.
+  \item Same metal, different size: bigger $\to$ red shift + broader (noticeable only above $\sim$30 nm).
+  \item Two bands: anisotropic shape (rods: transverse + longitudinal) \emph{or} two segregated metals (core--shell, mixture).
+  \item Dielectric shell or tiny core: band weaker, background (scattering) rising towards short $\lambda$.
+\end{enumerate}
+\end{recipe}
+\begin{pitfall}
+Do not attribute a band shift to size when the TEM data say all samples have the same size (Exercise~1): then the shift is
+due to composition.
+\end{pitfall}
+
+\section{Type B: XRD indexing and lattice parameter}
+\textbf{The figure:} intensity vs $\twotheta$. Read positions to $\pm0.1^\circ$; intensities only help to recognise the
+pattern (fcc: strong 111, weaker 200 just after).
+Follow the recipe of \cref{sec:xrd-indexing}. Lay it out as a table:
+\begin{center}
+\begin{tabular}{@{}cccccccc@{}}
+\toprule
+$\twotheta$ & $\theta$ & $\sin^2\theta$ & ratio & $N$ & $hkl$ & $d = \lambda/2\sin\theta$ & $a = d\sqrt N$ \\ \midrule
+\ldots & & & & & & & \\ \bottomrule
+\end{tabular}
+\end{center}
+\textbf{Identifying a phase:} compute $\twotheta$ expected for each candidate from its $a$ and allowed $hkl$, then compare.
+The ``fingerprint'' is several peaks, not one (two compounds can share one peak by coincidence: Ag (111) and
+Ag$_2$O (200) are both at $\approx38.1^\circ$!).
+
+\section{Type C: Scherrer}
+\begin{recipe}{Scherrer}
+\begin{enumerate}
+  \item Choose a clean, strong peak (usually the first). Read $\twotheta$ and its FWHM.
+  \item $B = \mathrm{FWHM}_\mathrm{obs} - \mathrm{FWHM}_\mathrm{inst}$ (course convention); convert to radians.
+  \item $\theta = \twotheta/2$; $L = 0.9\lambda/(B\cos\theta)$. Units of $\lambda$.
+  \item Comment: crystallite vs particle size; compare with TEM if available.
+\end{enumerate}
+\end{recipe}
+Reading the FWHM from a figure: find the peak maximum, go to half of its height above the background, and measure the full
+width there in degrees of $\twotheta$ (use the axis tick spacing as a ruler).
+
+\section{Type D: mixture vs solid solution}
+\begin{keybox}[: decision rule]
+\begin{itemize}
+  \item \textbf{Two sets of peaks} at the positions of the pure phases $\Rightarrow$ \textbf{physical mixture}.
+  \item \textbf{One set of peaks} at intermediate positions $\Rightarrow$ \textbf{solid solution (alloy)}. Composition
+        from Vegard's law (\cref{sec:vegard}).
+  \item If the end members have nearly equal $a$ (Au/Ag), XRD cannot decide: use UV-vis/EELS/XPS.
+\end{itemize}
+\end{keybox}
+
+\section{Type E: XPS}
+\textbf{The figure:} intensity vs binding energy, \textbf{decreasing to the right} (high $E_B$ on the left!). Peaks
+labelled $2p_{3/2}$/$2p_{1/2}$ etc.; fitted components shown as coloured curves.
+\begin{recipe}{XPS assignment}
+\begin{enumerate}
+  \item Identify the doublet partners (same element, same orbital; area ratio 1:2, 2:3, 3:4).
+  \item Compare $E_B$ of the main component with the reference: higher $E_B$ $\Rightarrow$ more oxidised / bonded to
+        more electronegative neighbours.
+  \item Several doublets of the same element $\Rightarrow$ several chemical states; their area ratio gives the proportion.
+  \item Satellites (Cu$^{2+}$, Ni$^{2+}$) indicate the oxidised paramagnetic state.
+  \item Bimetallic: electron density flows to the more electronegative metal (its $E_B$ decreases; the other increases).
+  \item Remember: XPS sees only the top few nm (shell, outer surface).
+\end{enumerate}
+\end{recipe}
+\begin{pitfall}
+The binding-energy axis runs from high to low. A ``peak to the right'' is at \emph{lower} $E_B$ (more reduced).
+\end{pitfall}
+
+\section{Type F: HRTEM fringes, facets, epitaxy}
+Follow the recipe in \cref{ch:tem}. The precomputed d-spacing table (\cref{app:dspacings}) gives $d_{111}$, $d_{200}$,
+$d_{220}$ for every material of the exercises.
+\begin{itemize}
+  \item \textbf{Which metal is in the particle?} Compare measured $d$ with $d_{hkl}$ of the candidates (Ex.~9a, 10b).
+  \item \textbf{Which plane is exposed?} The fringes parallel to the surface/edge give the plane of that facet (Ex.~5, 8, 15b).
+  \item \textbf{Epitaxy?} Fringes of particle and support aligned/continuous across the interface, with a definite
+        orientation relationship (Ex.~7, 10c, 18).
+\end{itemize}
+
+\section{Type G: histograms}
+\begin{recipe}{size distribution}
+\begin{enumerate}
+  \item Calibrate with the scale bar (pixels per nm).
+  \item Measure $\geq$100--200 particles across several images (ImageJ or ruler).
+  \item Bin width $\approx$ 0.5--1 nm; plot $n_i$ vs $d_i$.
+  \item $\bar d = \sum n_i d_i/\sum n_i$; $\sigma = \sqrt{\sum n_i(d_i-\bar d)^2/\sum n_i}$.
+  \item Report $\bar d \pm \sigma$; comment on width (monodisperse if $\sigma/\bar d\lesssim 10$--15\,\%\extra) and rare big
+        particles.
+\end{enumerate}
+\end{recipe}
+Reading a given histogram: the mean is close to the centre of mass of the bars; from bars with percentages,
+$\bar d = \sum f_i d_i/100$.
+
+\section{Type H: AFM vs TEM}
+$h_\mathrm{AFM}$ (from the height histogram) vs $d_\mathrm{TEM}$ (core from the image with the scale bar). If
+$h_\mathrm{AFM} > d_\mathrm{TEM}$, the organic shell is present; capping length $\ell \approx (h_\mathrm{AFM}-d_\mathrm{TEM})/2$.
+Never use AFM \emph{widths} (tip convolution).
+
+\section{Type I: propose a synthesis}
+Use the decision guide (\cref{sec:decision-guide}) and the four-part answer: method, reagents, control parameter,
+verification.
+
+\section{Type J: microreactor design}
+\label{sec:recipe-microreactor}
+\begin{recipe}{designing a core--shell microreactor}
+\begin{enumerate}
+  \item From TEM read the \textbf{core diameter} $d_c$ and the \textbf{total diameter} $d_t$.
+  \item Growth times (rates given as nm/min of diameter, as in the class solution):
+        $t_\mathrm{core} = d_c/v_\mathrm{core}$, \quad $t_\mathrm{shell} = (d_t-d_c)/v_\mathrm{shell}$.
+  \item Flow in each zone = number of pumps feeding it $\times$ $Q_\mathrm{pump}$. Core zone: metal salt + reductant
+        ($2Q$). Shell zone: + second salt + reductant ($4Q$).
+  \item Volume of each zone: $V = Q_\mathrm{zone}\,t$.
+  \item Channel length: $L = V/(\pi r^2)$ for channel radius $r$ (fold as a serpentine).
+  \item Temperatures: each zone thermostated at the temperature of the given rate. Add the last reagent
+        (e.g.\ oxidant) before the outlet; collect.
+\end{enumerate}
+\end{recipe}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.82\linewidth]{microreactor_class.png}
+\caption{Class solution of the microreactor exercise (handwritten slide 102): Pd core at \SI{35}{\celsius}
+(\SI{30}{\micro L/min}, 5 min, \SI{150}{\micro L}, 19 cm), NiO shell at \SI{5}{\celsius} (\SI{60}{\micro L/min}, 4 min,
+\SI{240}{\micro L}, 31 cm), channel radius \SI{0.5}{mm}, then KMnO$_4$ to oxidise the Ni shell.}
+\label{fig:microreactor}
+\end{figure}
+
+\section{Type K: ``which technique?''}
+Use the pairing table in \cref{ch:char-compare}. Always give \textbf{two independent techniques} and say
+\textbf{what you would see} in each case (e.g.\ ``XRD: one set of peaks at intermediate $\twotheta$ for the solid
+solution, two sets for the mixture'').
