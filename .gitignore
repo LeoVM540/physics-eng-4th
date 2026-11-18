@@ -17,8 +17,8 @@ _minted*/
 dmic/
 
 # ---------- Large Goodnotes notes (kept local for now) ----------
-physflu/Apunts*.pdf
-physflu/Exercicis*.pdf
+physflu/notes/Apunts*.pdf
+physflu/notes/Exercicis*.pdf
 nanotech/Apunts*.pdf
 
 # ---------- Teachers' material (kept local) ----------
