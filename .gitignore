@@ -24,6 +24,7 @@ nanotech/Apunts*.pdf
 # ---------- Teachers' material (kept local) ----------
 nanotech/Exercises_v4.pdf
 physflu/exams/*.pdf
+physflu/labs/**/*.pdf
 qtech/notes/
 simcon/Projects_lists_2026.pdf
 simcon/projects/
