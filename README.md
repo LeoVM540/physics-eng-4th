@@ -9,6 +9,7 @@ Everything here is my own work; course material from teachers is not included.
 | Physics of Fluids | Formula sheet, differential-equations summary, exam resolutions | [physflu/](physflu/) |
 | Quantum Technologies | Formula sheets, practice partial exams, Qiskit notebook | [qtech/](qtech/) |
 | Simulation of Condensed Matter (SimCon) | Practice projects (separate repo) | [atorret/SIMCON-EF](https://github.com/atorret/SIMCON-EF) |
+| Physics of Fluids — practicals | MATLAB lab codes (separate private shared repo) | [ArnauMontull/PHYSFLU_Practicals](https://github.com/ArnauMontull/PHYSFLU_Practicals) |
 | DMIC | Practice reports (separate private repo) | [LeoVM540/DMIC2026](https://github.com/LeoVM540/DMIC2026) |
 
 ## Adding a new subject
