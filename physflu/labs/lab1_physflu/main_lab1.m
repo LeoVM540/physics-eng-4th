@@ -1,4 +1,4 @@
-%% Numerical Lab HS1: Lorenz system, Poincare maps and unstable periodic orbits
+%% Assignment HS1: Lorenz system, Poincare maps and unstable periodic orbits
 
 clear; close all; clc;
 
@@ -6,15 +6,23 @@ sigma = 10;
 b     = 8/3;
 itmax = 50;
 
-% LaTeX in all plots (labels, titles, legends and axis numbers)
+% LaTeX in all plots
 set(groot, 'defaultTextInterpreter', 'latex');
 set(groot, 'defaultLegendInterpreter', 'latex');
 set(groot, 'defaultAxesTickLabelInterpreter', 'latex');
 
-%% (a) Equilibria and linear stability
+%% (Q1a) Bisection for the loss of stability of C+ and C-
 
-r = 25:-0.05:0;      % we go from r = 25 down to r = 0
-N = length(r);
+r0 = 24;
+itmax = 50;
+
+% Bisection for the loss of stability of C+ and C-
+[rHp, itp] = bisection_r(r0, 25, 1e-10, itmax, [ 7;  7; 23], sigma, b);   % C+-
+fprintf('C+- unstable at r = %.10f (%d it)\n', rHp, itp);
+
+%% (Q1b)
+
+r = 25:-0.05:0; N = length(r);
 
 O  = zeros(3,N);     % origin equilibrium
 CP = nan(3,N);       % C+ equilibrium
@@ -48,7 +56,7 @@ end
 fprintf('Origin becomes unstable at r = %.2f\n', min(r(gO > 0)));
 fprintf('C+ and C- become unstable at r = %.2f\n', min(r(gP > 0)));
 
-% bifurcation diagram: blue = stable, red = unstable
+% bifurcation diagram
 figure; hold on; grid on;
 plot(r(gO < 0), O(1, gO < 0), 'b.');
 plot(r(gO > 0), O(1, gO > 0), 'r.');
@@ -66,7 +74,6 @@ plot(r, 0*r, 'k--');
 xlabel('$r$'); ylabel('$\max \, \mathrm{Re}(\lambda)$');
 legend('$O$', '$C_\pm$');
 
-%% (b) Phase portrait analysis
 % One r value in each stability region found in (a):
 %   r = 0.5  : 0 < r < 1          -> O stable node (only equilibrium)
 %   r = 1.2  : 1 < r < 1.346      -> O unstable, C+- stable
@@ -76,9 +83,10 @@ legend('$O$', '$C_\pm$');
 y0 = [1; 1; 1];
 tspan = [0 50];
 R = [0.5 1.2 10 20 25];
-
+options = odeset('RelTol', 1e-12, 'AbsTol', 1e-12);
+  
 for r = R
-    [t, y] = ode45(@(t,u) lorenz(u, r, sigma, b), tspan, y0);
+    [t, y] = ode45(@(t,u) lorenz(u, r, sigma, b), tspan, y0, options);
     figure; hold on; grid on;
     scatter3(y(:,1), y(:,2), y(:,3), 4, t, 'filled');   % colour = time
     c = colorbar;
@@ -88,20 +96,8 @@ for r = R
     view(3);
 end
 
-%% (c) Unstable limit cycles (Poincare map + Newton)
-% r values of the unstable periodic orbits shown in prac1.pdf
-Rc = [22 19.5 17];
+%% (Q2a)
 
-for r = Rc
-    [t, y] = ode45(@(t,u) lorenz(u, r, sigma, b), tspan, y0);
-    figure; hold on; grid on;
-    scatter3(y(:,1), y(:,2), y(:,3), 4, t, 'filled');   % colour = time
-    c = colorbar;
-    c.Label.String = 'time';
-    xlabel('$x$'); ylabel('$y$'); zlabel('$z$');
-    title(sprintf('$r = %g$', r));
-    view(3);
-end
 
 
 %% Functions
@@ -129,4 +125,20 @@ for it = 1:itmax
     du = -jac(u, r, sigma, b) \ F;
     u = u + du;
 end
+end
+
+function [rk, it] = bisection_r(ra, rb, tol, itmax, u, sigma, b)
+it = 0;
+while it < itmax && (rb - ra)/2 > tol
+    rk = (ra + rb)/2;
+    u = newton(u, rk, sigma, b, itmax);
+    g = max(real(eig(jac(u, rk, sigma, b))));
+    if g > 0
+        rb = rk;     % unstable -> change is to the left
+    else
+        ra = rk;     % stable -> change is to the right
+    end
+    it = it + 1;
+end
+rk = (ra + rb)/2;
 end
